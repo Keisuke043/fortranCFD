@@ -57,11 +57,12 @@ $ spack install openmpi@4.0.5%gcc@10.2.0
 ```
 
 #### Governing equations
-
+```
 $$
 \frac{\partial Q}{\partial t}+\frac{\partial E}{\partial x}=0 \\
 Q^{n+1}=Q^n-\frac{\Delta t}{\Delta x}(\tilde{E}_{j+1/2}^n-\tilde{E}_{j-1/2}^n) \\
 $$
+```
 
 
 
