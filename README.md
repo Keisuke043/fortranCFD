@@ -58,6 +58,7 @@ $ spack install openmpi@4.0.5%gcc@10.2.0
 
 #### Governing equations
 <img src="https://latex.codecogs.com/gif.latex?\int_a^bf(x)dx" />
+<img src="https://latex.codecogs.com/gif.latex?\inline&space;F_s&space;\frac{n}{N}\&space;(n&space;\in&space;\mathbb{N})" />
 ```
 $$
 \frac{\partial Q}{\partial t}+\frac{\partial E}{\partial x}=0 \\
