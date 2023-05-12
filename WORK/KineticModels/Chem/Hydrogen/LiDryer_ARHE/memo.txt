@@ -1,0 +1,2 @@
+These can be downloaded from PeleC GitHub repository
+"PelePhysics/Support/Fuego/Mechanism/Models/LiDryer/"

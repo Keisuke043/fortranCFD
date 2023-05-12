@@ -1,0 +1,742 @@
+!
+! ===== gasoline 5-components surrogate reduced mechanism 2.0 (#190128a) =====
+!       with ethanol and ETBE
+!
+! Fuel: nC7H16(n-heptane)
+!       iC8H18(isooctane, 2,2,4-trimethylpentane)
+!       C6H5CH3(toluene)
+!       cC7H14(methylcyclohexane)
+!       eC8H16(isooctene, 2,4,4-trimethyl-1-pentene)
+!       C2H5OH(ethanol)
+!       ETBE(ethyl-t-butylether)
+!
+!-------------------------------------------------------------------------------
+ELEMENTS
+H              O              C              N
+END
+!-------------------------------------------------------------------------------
+SPECIES
+!
+!n-heptane mechanism
+!
+nC7H16         nC7H15         nC7H15OO       nC7H14OOH      nHOOC7H14OO    
+nC7KET         nC5H9O         nC5H11         nC5H10         nC5H9          
+nC7H15O        nC7H15OOH      
+!
+!isooctane mechanism
+!
+iC8H18         iC8H17         iC8H17OO       iC8H16OOH      iHOOC8H16OO
+iC8KET         iC7H13O        iC7H14         iC7H13         iC4H9          
+iC4H8          iC4H7          iC8H17O        iC8H17OOH      
+!
+!toluene
+!
+C6H5CH3        C6H5CH2        C6H5CH2OO      C6H5CH2O       C6H5CH2OOH     
+C6H5CHO        C6H5CO         C6H6           C6H5           CY13PD         
+CY13PD5J       C3H3           
+!
+!methylcyclohexane mechanism
+!
+cC7H14         cC7H13         cC7H13OO       cC7H12OOH      cHOOC7H12OO    
+cC7KET         cC5H9O         cC5H9          cC5H8          cC7H13O        
+cC7H13OOH
+!
+!isooctene mechanism
+!
+eC8H16         eC8H15         eC8H15OO       eC8H14OOH      eHOOC8H14OO    
+eC8KET         eC6H11O        eC8H16OOH      eC8H16Oa       eC8H16OH       
+eHOC8H16OO     eHOC8H15OOH    eHOOHOC8H15OO  eC8KETOH       eC8H16Ob       
+eC8H16O2       eC8H15O3       eC4H9          eC4H8          eC4H7          
+eC4H6O         eC8H15O        
+!!
+!!ethanol mechanism
+!!
+!C2H5OH         sC2H4OH        CH2OH          
+!!
+!!ETBE mechanism
+!!
+!ETBE           ETBEr          ETBErOO        ETBEqOOH       HOOETBEqOO     
+!ETBEKET        aC4H9          aC4H8O         aC4H7O2        aC4H8          
+!aC4H7          aC5H11O        ETBErO         COOM2OC2H5     COOHM2OCHCH3   
+!COOHM2OCHOOCH3 COOM2OCHOOHCH3 COOHM2OCOCH3   
+!
+!base mechanism
+!
+N2             O              O2             H              OH             
+HO2            H2             H2O            H2O2           CO             
+CO2            CH             HCO            CH2            CH2O           
+CH3            CH3O           CH3OO          CH4            CH3OOH         
+HCCO           C2H2           CH2CO          C2H3           CH2CHO         
+CH3CO          CH3CO2         CH3C(O)OO      C2H4           CH3CHO         
+CH3C(O)OOH     C2H5           pC2H4OH        C2H5O          C2H5OO         
+C2H6           C2H5OOH        aC3H5          C3H6           iC3H7          
+END
+!-------------------------------------------------------------------------------
+REACTIONS
+!
+!n-heptane mechanism
+!
+nC7H16=nC5H11+C2H5                         1.014E+25   -2.254   88858.0 !
+nC7H16+O2=nC7H15+HO2                       2.704E+13    0.162   48236.7 !
+nC7H16+OH=nC7H15+H2O                       5.738E+06    2.034    -797.9 !
+nC7H16+HO2=nC7H15+H2O2                     9.496E+12    0.177   17684.1 !
+nC7H16+H=nC7H15+H2                         2.240E+05    2.859    3844.8 !
+nC7H16+CH3=nC7H15+CH4                      1.030E-03    4.704    3475.1 !
+nC7H16+O=nC7H15+OH                         1.927E+05    2.765    2170.5 !
+nC7H15+O2=nC7H15OO                         3.480E+14   -0.816    -530.0 !
+nC7H15=nC5H10+C2H5                         1.000E+13    0.000   28000.0 !
+nC7H15OO=nC7H14OOH                         5.100E+11    0.000   20900.0 !
+nC7H14OOH+O2=nHOOC7H14OO                   3.480E+14   -0.816    -530.0 !
+nC7H14OOH=>nC5H10+CH3CHO+OH                3.300E+11    0.000   14000.0 !
+nHOOC7H14OO=>nC7KET+OH                     1.000E+11    0.000   20000.0 !
+nC7KET=>CH3CHO+nC5H9O+OH                   3.000E+15    0.000   41600.0 !
+nC5H9O=>iC3H7+CH2CO                        1.000E+11    0.000   28000.0 !
+nC5H9O=>C3H6+CH2CHO                        1.000E+12    0.000   28000.0 !
+nC5H11=>C2H4+iC3H7                         2.961E+19   -2.041   30921.8 !
+nC5H10+OH=nC5H9+H2O                        2.000E+12    0.000    2100.0 !
+nC5H10+H=nC5H9+H2                          5.000E+11    0.000     900.0 !
+nC5H10+CH3=nC5H9+CH4                       7.000E+10    0.000    8500.0 !
+nC5H10+O=>iC3H7+CH2CHO                     9.000E+13    0.000    1710.0 !
+nC5H9+O2=>CH3CHO+C2H4+HCO                  3.000E+12    0.000   18800.0 !
+!
+!isooctane mechanism
+!
+iC8H18=iC4H9+iC4H9                         7.708E+26   -3.095   87054.7 !
+iC8H18+O2=iC8H17+HO2                       1.479E+11    0.789   46956.6 !
+iC8H18+OH=iC8H17+H2O                       1.056E+07    1.990    -151.8 !
+iC8H18+HO2=iC8H17+H2O2                     1.348E+11    0.692   16979.3 !
+iC8H18+H=iC8H17+H2                         3.768E+02    3.656    2769.0 !
+iC8H18+CH3=iC8H17+CH4                      9.083E-08    5.968    2884.7 !
+iC8H17+O2=iC8H17OO                         3.480E+14   -0.816    -530.0 !
+iC8H17=iC7H14+CH3                          9.000E+10    0.000   28000.0 !
+iC8H17=iC4H8+iC4H9                         3.000E+12    0.000   28000.0 !
+iC8H17OO=iC8H16OOH                         7.840E+11    0.000   22570.0 !
+iC8H16OOH+O2=iHOOC8H16OO                   6.890E+16   -1.627     200.0 !
+iC8H16OOH=>iC7H14+CH2O+OH                  2.000E+12    0.000   17140.0 !
+iHOOC8H16OO=iC8KET+OH                      1.300E+12    0.000   27000.0 !
+iC8KET=>CH2O+iC7H13O+OH                    3.000E+15    0.000   41600.0 !
+iC7H13O=>iC3H7+C2H4+CH2CO                  3.000E+13    0.000   28000.0 !
+iC7H14+OH=iC7H13+H2O                       4.000E+13    0.000    2100.0 !
+iC7H14+HO2=iC7H13+H2O2                     9.000E+08    1.485   15419.4 !
+iC7H14+O=iC7H13O+H                         1.500E+04    1.880     183.0 !
+iC7H13+O2=>CH3CHO+iC4H8+HCO                1.000E+12    0.000   18800.0 !
+iC4H9=iC4H8+H                              1.000E+14    0.000   37560.6 !
+iC4H9+O2=iC4H8+HO2                         7.140E+15   -1.210   21050.0 !
+iC4H8+OH=iC4H7+H2O                         1.000E+07    2.000    -298.0 !
+iC4H8+HO2=iC4H7+H2O2                       9.000E+08    1.485   15419.4 !
+iC4H8=iC4H7+H                              3.000E+32   -4.795   97024.0 !
+iC4H7=>C2H4+C2H3                           3.000E+47   -9.740   74360.0 !
+iC4H7+O2=>C2H4+CH2O+HCO                    7.140E+15   -1.210   21050.0 !
+iC4H7+HO2=>CH3CHO+C2H3+OH                  2.000E+13    0.000    1000.0 !
+!
+!toluene mechanism
+!
+C6H5CH3=C6H5CH2+H                          1.520E+15    0.000   93499.0 !
+C6H5CH3+O2=C6H5CH2+HO2                     2.180E+07    2.500   46045.0 !
+C6H5CH3+OH=C6H5CH2+H2O                     1.770E+05    2.394    -601.8 !
+C6H5CH3+HO2=C6H5CH2+H2O2                   2.999E+14    0.000   21988.0 !
+C6H5CH3+H=C6H5CH2+H2                       6.470E+00    3.980    3384.0 !
+C6H5CH3+CH3=C6H5CH2+CH4                    4.000E-05    5.600    9000.0 !
+C6H5CH3+C6H5CH2OO=C6H5CH2+C6H5CH2OOH       2.999E+14    0.000   21988.0 !
+C6H5CH2=CY13PD5J+C2H2                      1.550E+09    0.000   46640.0 !
+C6H5CH2+O2=C6H5CH2OO                       7.455E+31   -6.389    6668.5 !
+C6H5CH2+HO2=C6H5CH2O+OH                    4.000E+09    1.030   -2250.0 !
+C6H5CH2+O=C6H5CHO+H                        3.000E+14    0.000       0.0 !
+C6H5CH2OO+HO2=C6H5CH2OOH+O2                1.750E+10    0.000   -3275.0 !
+C6H5CH2OO+H2O2=C6H5CH2OOH+HO2              2.400E+12    0.000   10000.0 !
+C6H5CH2OO+C6H5CH2OO=>C6H5CH2O+C6H5CH2O+O2  1.400E+16   -1.610    1860.0 !
+C6H5CH2OOH=C6H5CH2O+OH                     5.000E+54  -12.870   52600.0 !
+C6H5CH2O=C6H5CHO+H                         1.680E+22   -2.901   20760.0 !
+C6H5CH2O=C6H5+CH2O                         1.320E+27   -4.009   35070.0 !
+C6H5CHO+OH=H2O+C6H5CO                      5.900E+04    2.394    -601.8 !
+C6H5CHO+HO2=C6H5CO+H2O2                    1.000E+14    0.000   21988.0 !
+C6H5CO=C6H5+CO                             3.000E+12    0.000   34860.0 !
+C6H6=C6H5+H                                1.500E+38   -6.180  132000.0 !
+C6H6+OH=C6H5+H2O                           2.340E+04    2.683     733.0 !
+C6H6+HO2=C6H5+H2O2                         7.500E+03    2.500   27619.0 !
+C6H5+O2=>CY13PD5J+CO2                      9.000E+13   -0.217    -711.0 !
+C6H5+HO2=C6H6+O2                           6.920E+10    0.775   -1490.0 !
+CY13PD=CY13PD5J+H                          1.000E+14    0.000   75100.0 !
+CY13PD+O2=CY13PD5J+HO2                     4.000E+13    0.000   37150.0 !
+CY13PD+OH=CY13PD5J+H2O                     3.120E+06    2.000    -298.0 !
+CY13PD+HO2=CY13PD5J+H2O2                   4.000E+12    0.000   15900.0 !
+CY13PD5J+O2=CH2CHO+C2H2+CO                 6.770E+24   -3.950   17620.0 !
+C3H3+O2=CH2CO+HCO                          2.010E+11    0.000    2870.0 !
+C3H3+C2H2=CY13PD5J                         3.000E+13    0.000   20000.0 !
+C3H3+C3H3=C6H5+H                           3.670E+26   -3.880   28960.0 !
+C3H3+C3H3=C6H6                             8.000E+50  -11.010   20320.0 !
+!
+!methylcyclohexane mechanism
+!
+cC7H14=cC5H9+C2H5                          3.696E+25   -2.355   90049.3 !
+cC7H14+O2=cC7H13+HO2                       1.078E+13    0.255   47351.7 !
+cC7H14+OH=cC7H13+H2O                       5.548E+06    2.024   -1068.1 !
+cC7H14+HO2=cC7H13+H2O2                     7.764E+12    0.186   17153.9 !
+cC7H14+H=cC7H13+H2                         3.771E+05    2.773    3424.5 !
+cC7H14+CH3=cC7H13+CH4                      1.104E+00    3.792    4613.2 !
+cC7H13+O2=cC7H13OO                         3.480E+14   -0.816    -530.0 !
+cC7H13=cC5H9+C2H4                          1.000E+19   -2.045   30920.9 !
+cC7H13OO=cC7H12OOH                         2.000E+11    0.000   24000.0 !
+cC7H13OO=>cC5H8+C2H4+HO2                   5.000E+12    0.000   31500.0 !
+cC7H12OOH+O2=cHOOC7H12OO                   6.890E+16   -1.627     200.0 !
+cC7H12OOH=>cC5H8+CH3CHO+OH                 1.000E+11    0.000   10240.0 !
+cHOOC7H12OO=cC7KET+OH                      8.000E+10    0.000   16000.0 !
+cC7KET=>CH2CO+cC5H9O+OH                    3.000E+15    0.000   41600.0 !
+cC5H9O=>iC3H7+CH2CO                        1.000E+13    0.000   28000.0 !
+cC5H9=cC5H8+H                              5.000E+10    0.245   31732.2 !
+cC5H9=iC3H7+C2H2                           1.000E+17   -1.437   30708.6 !
+cC5H8+O=aC3H5+CH2CHO                       7.300E+12    0.000    1710.0 !
+!
+!isooctene mechanism
+!
+eC8H16=>eC4H9+eC4H7                        1.993E+24   -2.620   73719.4 !
+!-----H abstraction-----
+eC8H16+O2=eC8H15+HO2                       1.169E+14    0.006   50719.7 !
+eC8H16+OH=eC8H15+H2O                       2.104E+09    1.275     748.2 !
+eC8H16+HO2=eC8H15+H2O2                     1.339E+09    1.170   16489.2 !
+eC8H16+H=eC8H15+H2                         1.193E-07    6.117   -6594.4 !
+eC8H16+CH3=eC8H15+CH4                      3.431E-10    6.584    1702.0 !
+eC8H15+O2=eC8H15OO                         4.000E+11    0.000     500.0 !
+eC8H15+O2=>eC6H11O+CH3CHO                  4.570E+12    0.000   18800.0 !
+eC8H15+HO2=>eC4H6O+eC4H9+OH                9.600E+12    0.000       0.0 !
+eC8H15=eC4H8+eC4H7                         1.000E+11    0.000   32000.0 !
+eC8H15OO=eC8H14OOH                         3.810E+10    0.000   14670.0 !
+eC8H14OOH+O2=eHOOC8H14OO                   2.000E+11    0.000     400.0 !
+eC8H14OOH=>eC4H8+eC4H6O+OH                 2.000E+13    0.000   12920.0 !
+eHOOC8H14OO=eC8KET+OH                      1.000E+11    0.000   17000.0 !
+eC8KET=>CH2CO+eC6H11O+OH                   1.000E+15    0.000   41600.0 !
+!-----OH addition-----
+eC8H16+OH=eC8H16OH                         9.040E+16   -1.304       0.0 !
+eC8H16OH+O2=eHOC8H16OO                     9.750E+11    0.325    -420.0 !
+eHOC8H16OO=eHOC8H15OOH                     1.512E+11    0.000   22700.0 !
+eHOC8H16OO=>eC8H16Ob+HO2                   4.000E+13    0.000   30450.0 !
+eHOC8H15OOH+O2=eHOOHOC8H15OO               6.890E+16   -1.627     200.0 !
+eHOC8H15OOH=>eC8H16O2+OH                   1.000E+10    0.000    9750.0 !
+eHOOHOC8H15OO=eC8KETOH+OH                  2.240E+12    0.000   19670.0 !
+eC8KETOH=>eC8H15O3+OH                      1.000E+15    0.000   41600.0 !
+eC8H16Ob+OH=>eC4H6O+eC4H9+H2O              1.000E+06    2.000   -3103.0 !
+eC8H16O2+OH=>eC6H11O+CH3CHO+H2O            2.250E+06    2.000   -2483.0 !
+eC8H15O3=>eC6H11O+CH2CO+H2O                1.000E+11    0.000   11900.0 !
+!-----HO2 addition-----
+eC8H16+HO2=eC8H16OOH                       4.581E+12    0.000   12370.0 !
+eC8H16OOH=eC8H16Oa+OH                      7.000E+12    0.000   12000.0 !
+eC8H16Oa+OH=>eC6H11O+C2H4+H2O              2.250E+06    2.000   -2483.0 !
+!-----fragments-----
+eC4H6O+OH=>aC3H5+CO+H2O                    3.600E+06    2.000   -1983.0 !
+eC6H11O=>CH2CHO+eC4H8                      1.000E+13    0.000   28000.0 !
+eC4H9=eC4H8+H                              9.707E+13    0.033   37594.5 !
+eC4H9+O2=>C3H6+CH2O+OH                     5.000E+13    0.000   18800.0 !
+eC4H9+HO2=>iC3H7+CH2O+OH                   7.000E+12    0.000   -1000.0 !
+eC4H8=eC4H7+H                              7.008E+43   -8.575  103417.0 !
+eC4H8+O2=eC4H7+HO2                         8.000E+12    0.000   50900.0 !
+eC4H8+H=eC4H7+H2                           5.000E+11    0.000    1100.0 !
+eC4H8+OH=eC4H7+H2O                         5.200E+05    2.000    -298.0 !
+eC4H8+HO2=eC4H7+H2O2                       3.000E+10    0.000   14190.0 !
+eC4H8+O=>iC3H7+HCO                         7.000E+13    0.000    1710.0 !
+eC4H7+H=aC3H5+CH3                          1.937E+39   -6.512   33640.0 !
+eC4H7+O2=>C2H3+CH2O+CH2O                   4.570E+13    0.000   18800.0 !
+!!
+!!ethanol mechanism
+!!
+!C2H5OH(+M)=C2H4+H2O(+M)                    2.726E+05    2.3169  62954.0 !
+!          LOW/6.090E+90  -21.0692  87325.0/!
+!          TROE / 0.9 50000 3500 /
+!          H2O/5/
+!C2H5OH(+M)=CH2OH+CH3(+M)                   1.916E+29   -3.7818  92416.0 !
+!          LOW /  6.440E+58 -11.2274  99333.0 /
+!          TROE / 0.7 200 350 3500 /
+!          H2/2/ H2O/5/ CO/2/ CO2/3/
+!C2H5OH+O2=pC2H4OH+HO2                      8.910E+01    3.124   45860.0 !
+!C2H5OH+O2=sC2H4OH+HO2                      4.860E+01    3.330   37020.0 !
+!C2H5OH+O2=C2H5O+HO2                        6.630E+03    2.892   49190.0 !
+!C2H5OH+OH=pC2H4OH+H2O                      5.130E+01    3.203   -1760.0 !
+!C2H5OH+OH=sC2H4OH+H2O                      3.555E+04    2.526   -1900.0 !
+!C2H5OH+OH=C2H5O+H2O                        4.290E+02    2.906     650.0 !
+!C2H5OH+HO2=sC2H4OH+H2O2                    2.220E-02    4.161    7060.0 !
+!C2H5OH+HO2=pC2H4OH+H2O2                    7.350E-03    4.021   14280.0 !
+!C2H5OH+HO2=C2H5O+H2O2                      1.450E-01    3.822   18430.0 !
+!C2H5OH+H=pC2H4OH+H2                        1.230E+07    1.800    5098.0 !
+!C2H5OH+H=sC2H4OH+H2                        2.580E+07    1.650    2827.0 !
+!C2H5OH+H=C2H5O+H2                          1.500E+07    1.600    3038.0 !
+!C2H5OH+CH3OO=C2H5O+CH3OOH                  1.260E+12    0.000   20440.0 !
+!C2H5OH+CH3OO=pC2H4OH+CH3OOH                8.400E+12    0.000   20440.0 !
+!C2H5OH+CH3OO=sC2H4OH+CH3OOH                1.400E+13    0.000   16340.0 !
+!sC2H4OH+O2=CH3CHO+HO2                      3.810E+06    2.000    1641.0 !
+!CH2OH+O2=CH2O+HO2                          3.810E+06    2.000    1641.0 !
+!!
+!!ETBE mechanism
+!!
+!ETBE=>aC4H8+C2H5OH                         1.140E+12    0.000   59990.0 !
+!   DUP                                                                   
+!ETBE=>aC4H8+C2H5OH                         3.300E+02    0.000   10000.0 !
+!   DUP                                                                   
+!aC4H9+C2H5O=ETBE                           2.750E+13    0.000       0.0 !
+!aC5H11O+CH3=ETBE                           3.000E+13    0.000       0.0 !
+!ETBE+O2=ETBEr+HO2                          2.300E+13    0.155   50374.6 !
+!ETBE+OH=ETBEr+H2O                          8.621E+06    1.957    -793.6 !
+!ETBE+HO2=ETBEr+H2O2                        1.463E+08    1.440   13076.3 !
+!ETBE+H=ETBEr+H2                            8.384E+04    2.930    3416.5 !
+!ETBE+CH3=ETBEr+CH4                         1.843E-08    6.122    2060.7 !
+!ETBEr=aC4H9+CH3CHO                         2.000E+13    0.000   23090.0 !
+!ETBEr+O2=ETBErOO                           3.790E+09    0.000  -10220.0 !
+!                                    REV/   8.910E+11    0.000   20140.0/!
+!ETBErOO=ETBEqOOH                           1.200E+07    0.000   13870.0 !
+!ETBErOO=aC4H8+CH3CHO+HO2                   3.420E+08    0.000   16950.0 !
+!ETBErOO+ETBErOO=>ETBErO+ETBErO+O2          1.400E+17   -1.610    1860.0 !
+!ETBErO=>aC5H11O+CH2O                       1.000E+11    0.000   11900.0 !
+!ETBEqOOH+O2=HOOETBEqOO                     1.000E+12    0.000    -830.0 !
+!ETBEqOOH=>aC4H8O+CH3CHO+OH                 5.000E+11    0.000   17420.0 !
+!HOOETBEqOO=ETBEKET+OH                      3.000E+09    0.000   16050.0 !
+!ETBEKET=>aC4H7O2+CH3CHO+OH                 9.000E+15    0.000   42000.0 !
+!aC5H11O=>CH3CHO+C2H4+CH3                   2.000E+13    0.000   23090.0 !
+!aC5H11O+O2=COOM2OC2H5                      1.000E+12    0.000   -1500.0 !
+!COOM2OC2H5=COOHM2OCHCH3                    2.000E+11    0.000   22000.0 !
+!COOHM2OCHCH3=>aC4H8O+CH2O+OH               5.000E+13    0.000   29500.0 !
+!COOHM2OCHCH3+O2=COOHM2OCHOOCH3             1.000E+12    0.000   -1300.0 !
+!COOHM2OCHOOCH3=COOM2OCHOOHCH3              5.090E+09    0.000   12897.0 !
+!COOM2OCHOOHCH3=COOHM2OCOCH3+OH             1.780E+11    0.000   16911.1 !
+!COOHM2OCOCH3=>OH+aC4H7O2+CH2O              0.700E+16    0.000   42000.0 !
+!aC4H7O2=>iC3H7+CO2                         1.000E+11    0.000   11900.0 !
+!aC4H9=aC4H8+H                              3.000E+14    0.000   37560.6 !
+!aC4H9=C2H4+C2H5                            1.000E+12    0.000   28000.0 !
+!aC4H9+O2=>aC4H8O+OH                        1.000E+12    0.000    -830.0 !
+!aC4H8=aC4H7+H                              2.500E+32   -4.795   97024.0 !
+!aC4H8+O2=aC4H7+HO2                         8.000E+13    0.000   50900.0 !
+!aC4H8+OH=aC4H7+H2O                         2.000E+07    2.000    -298.0 !
+!aC4H8+HO2=aC4H7+H2O2                       3.000E+11    0.000   14190.0 !
+!aC4H8+O=>C2H4+CH3+HCO                      7.300E+12    0.000    1710.0 !
+!aC4H7=>C2H4+C2H3                           1.230E+47   -9.740   74360.0 !
+!aC4H7+O2=>C2H4+CH2O+HCO                    7.140E+15   -1.210   21050.0 !
+!aC4H7+HO2=>CH3CHO+C2H3+OH                  2.000E+12    0.000    1000.0 !
+!aC4H8O+OH=>CH2CO+C2H5+H2O                  5.000E+07    2.000   -1983.0 !
+!!
+!!cross (RH+R'=R+R'OOH, R+R'OO=RO+R'O, ROO+R'OO=RO+R'O+O2, RO and ROOH decomp)
+!!
+!!PRF+ethanol
+!nC7H16+iC8H17OO=nC7H15+iC8H17OOH           9.496E+12    0.177   17684.1 !
+!iC8H18+nC7H15OO=iC8H17+nC7H15OOH           1.348E+11    0.692   16979.3 !
+!C2H5OH+nC7H15OO=C2H5O+nC7H15OOH            1.260E+12    0.000   20440.0 !
+!C2H5OH+nC7H15OO=pC2H4OH+nC7H15OOH          8.400E+12    0.000   20440.0 !
+!C2H5OH+nC7H15OO=sC2H4OH+nC7H15OOH          1.400E+13    0.000   16340.0 !
+!C2H5OH+iC8H17OO=C2H5O+iC8H17OOH            1.260E+12    0.000   20440.0 !
+!C2H5OH+iC8H17OO=pC2H4OH+iC8H17OOH          8.400E+12    0.000   20440.0 !
+!C2H5OH+iC8H17OO=sC2H4OH+iC8H17OOH          1.400E+13    0.000   16340.0 !
+!nC7H15+iC8H17OO=>nC7H15O+iC8H17O           7.000E+12    0.000   -1000.0 !
+!iC8H17+nC7H15OO=>iC8H17O+nC7H15O           7.000E+12    0.000   -1000.0 !
+!nC7H15OO+iC8H17OO=>nC7H15O+iC8H17O+O2      1.400E+16   -1.610    1860.0 !
+!nC7H15O=>CH2O+nC5H10+CH3                   1.000E+11    0.000   11900.0 !
+!nC7H15OOH=nC7H15O+OH                       3.000E+15    0.000   41600.0 !
+!iC8H17O=>C2H4+CH3CHO+iC4H9                 1.000E+11    0.000   11900.0 !
+!iC8H17OOH=iC8H17O+OH                       3.000E+15    0.000   41600.0 !
+!!S3R+ethanol
+!C6H5CH3+nC7H15OO=C6H5CH2+nC7H15OOH         2.999E+14    0.000   21988.0 !
+!C6H5CH3+iC8H17OO=C6H5CH2+iC8H17OOH         2.999E+14    0.000   21988.0 !
+!nC7H16+C6H5CH2OO=nC7H15+C6H5CH2OOH         9.496E+12    0.177   17684.1 !
+!iC8H18+C6H5CH2OO=iC8H17+C6H5CH2OOH         1.348E+11    0.692   16979.3 !
+!C2H5OH+C6H5CH2OO=C2H5O+C6H5CH2OOH          1.260E+12    0.000   20440.0 !
+!C2H5OH+C6H5CH2OO=pC2H4OH+C6H5CH2OOH        8.400E+12    0.000   20440.0 !
+!C2H5OH+C6H5CH2OO=sC2H4OH+C6H5CH2OOH        1.400E+13    0.000   16340.0 !
+!nC7H15+C6H5CH2OO=>nC7H15O+C6H5CH2O         7.000E+12    0.000   -1000.0 !
+!iC8H17+C6H5CH2OO=>iC8H17O+C6H5CH2O         7.000E+12    0.000   -1000.0 !
+!C6H5CH2+nC7H15OO=>C6H5CH2O+nC7H15O         7.000E+12    0.000   -1000.0 !
+!C6H5CH2+iC8H17OO=>C6H5CH2O+iC8H17O         7.000E+12    0.000   -1000.0 !
+!nC7H15OO+C6H5CH2OO=>nC7H15O+C6H5CH2O+O2    1.400E+16   -1.610    1860.0 !
+!iC8H17OO+C6H5CH2OO=>iC8H17O+C6H5CH2O+O2    1.400E+16   -1.610    1860.0 !
+!!S5+ethanol+ETBE
+!cC7H14+nC7H15OO=cC7H13+nC7H15OOH           7.764E+12    0.186   17153.9 !
+!cC7H14+iC8H17OO=cC7H13+iC8H17OOH           7.764E+12    0.186   17153.9 !
+!cC7H14+C6H5CH2OO=cC7H13+C6H5CH2OOH         7.764E+12    0.186   17153.9 !
+!eC8H16+nC7H15OO=eC8H15+nC7H15OOH           1.339E+09    1.170   16489.2 !
+!eC8H16+iC8H17OO=eC8H15+iC8H17OOH           1.339E+09    1.170   16489.2 !
+!eC8H16+C6H5CH2OO=eC8H15+C6H5CH2OOH         1.339E+09    1.170   16489.2 !
+!eC8H16+cC7H13OO=eC8H15+cC7H13OOH           1.339E+09    1.170   16489.2 !
+!ETBE+nC7H15OO=ETBEr+nC7H15OOH              1.463E+08    1.440   13076.3 !
+!ETBE+iC8H17OO=ETBEr+iC8H17OOH              1.463E+08    1.440   13076.3 !
+!ETBE+C6H5CH2OO=ETBEr+C6H5CH2OOH            1.463E+08    1.440   13076.3 !
+!ETBE+cC7H13OO=ETBEr+cC7H13OOH              1.463E+08    1.440   13076.3 !
+!nC7H16+cC7H13OO=nC7H15+cC7H13OOH           9.496E+12    0.177   17684.1 !
+!iC8H18+cC7H13OO=iC8H17+cC7H13OOH           1.348E+11    0.692   16979.3 !
+!C2H5OH+cC7H13OO=C2H5O+cC7H13OOH            1.260E+12    0.000   20440.0 !
+!C2H5OH+cC7H13OO=pC2H4OH+cC7H13OOH          8.400E+12    0.000   20440.0 !
+!C2H5OH+cC7H13OO=sC2H4OH+cC7H13OOH          1.400E+13    0.000   16340.0 !
+!cC7H13+nC7H15OO=>cC7H13O+nC7H15O           7.000E+13    0.000   -1000.0 !
+!cC7H13+iC8H17OO=>cC7H13O+iC8H17O           7.000E+13    0.000   -1000.0 !
+!cC7H13+C6H5CH2OO=>cC7H13O+C6H5CH2O         7.000E+13    0.000   -1000.0 !
+!cC7H13+eC8H15OO=>cC7H13O+eC8H15O           7.000E+13    0.000   -1000.0 !
+!cC7H13+ETBErOO=>cC7H13O+ETBErO             7.000E+13    0.000   -1000.0 !
+!eC8H15+nC7H15OO=>eC8H15O+nC7H15O           7.000E+13    0.000   -1000.0 !
+!eC8H15+iC8H17OO=>eC8H15O+iC8H17O           7.000E+13    0.000   -1000.0 !
+!eC8H15+C6H5CH2OO=>eC8H15O+C6H5CH2O         7.000E+13    0.000   -1000.0 !
+!eC8H15+cC7H13OO=>eC8H15O+cC7H13O           7.000E+13    0.000   -1000.0 !
+!eC8H15+ETBErOO=>eC8H15O+ETBErO             7.000E+13    0.000   -1000.0 !
+!ETBEr+nC7H15OO=>ETBErO+nC7H15O             7.000E+13    0.000   -1000.0 !
+!ETBEr+iC8H17OO=>ETBErO+iC8H17O             7.000E+13    0.000   -1000.0 !
+!ETBEr+C6H5CH2OO=>ETBErO+C6H5CH2O           7.000E+13    0.000   -1000.0 !
+!ETBEr+cC7H13OO=>ETBErO+cC7H13O             7.000E+13    0.000   -1000.0 !
+!ETBEr+eC8H15OO=>ETBErO+eC8H15O             7.000E+13    0.000   -1000.0 !
+!nC7H15+cC7H13OO=>nC7H15O+cC7H13O           7.000E+13    0.000   -1000.0 !
+!nC7H15+eC8H15OO=>nC7H15O+eC8H15O           7.000E+13    0.000   -1000.0 !
+!nC7H15+ETBErOO=>nC7H15O+ETBErO             7.000E+13    0.000   -1000.0 !
+!iC8H17+cC7H13OO=>iC8H17O+cC7H13O           7.000E+13    0.000   -1000.0 !
+!iC8H17+eC8H15OO=>iC8H17O+eC8H15O           7.000E+13    0.000   -1000.0 !
+!iC8H17+ETBErOO=>iC8H17O+ETBErO             7.000E+13    0.000   -1000.0 !
+!C6H5CH2+cC7H13OO=>C6H5CH2O+cC7H13O         7.000E+13    0.000   -1000.0 !
+!C6H5CH2+eC8H15OO=>C6H5CH2O+eC8H15O         7.000E+13    0.000   -1000.0 !
+!C6H5CH2+ETBErOO=>C6H5CH2O+ETBErO           7.000E+13    0.000   -1000.0 !
+!cC7H13OO+nC7H15OO=>cC7H13O+nC7H15O+O2      1.400E+16   -1.610    1860.0 !
+!cC7H13OO+iC8H17OO=>cC7H13O+iC8H17O+O2      1.400E+16   -1.610    1860.0 !
+!cC7H13OO+C6H5CH2OO=>cC7H13O+C6H5CH2O+O2    1.400E+16   -1.610    1860.0 !
+!cC7H13OO+eC8H15OO=>cC7H13O+eC8H15O+O2      1.400E+16   -1.610    1860.0 !
+!cC7H13OO+ETBErOO=>cC7H13O+ETBErO+O2        1.400E+16   -1.610    1860.0 !
+!eC8H15OO+nC7H15OO=>eC8H15O+nC7H15O+O2      1.400E+16   -1.610    1860.0 !
+!eC8H15OO+iC8H17OO=>eC8H15O+iC8H17O+O2      1.400E+16   -1.610    1860.0 !
+!eC8H15OO+C6H5CH2OO=>eC8H15O+C6H5CH2O+O2    1.400E+16   -1.610    1860.0 !
+!eC8H15OO+ETBErOO=>eC8H15O+ETBErO+O2        1.400E+16   -1.610    1860.0 !
+!ETBErOO+nC7H15OO=>ETBErO+nC7H15O+O2        1.400E+16   -1.610    1860.0 !
+!ETBErOO+iC8H17OO=>ETBErO+iC8H17O+O2        1.400E+16   -1.610    1860.0 !
+!ETBErOO+C6H5CH2OO=>ETBErO+C6H5CH2O+O2      1.400E+16   -1.610    1860.0 !
+!cC7H13OOH=cC7H13O+OH                       3.000E+15    0.000   41600.0 !
+!cC7H13O=>CH2O+cC5H8+CH3                    1.000E+11    0.000   11900.0 !
+!eC8H15O=>C2H4+CH3CHO+eC4H7                 1.000E+11    0.000   11900.0 !
+!
+!base mechanism
+!
+O2+H=OH+O                                  9.756E+13    0.000   14844.6
+H2+O=OH+H                                  5.120E+04    2.670    6278.7
+OH+OH=O+H2O                                1.510E+09    1.140     100.4
+H2O+H=H2+OH                                4.520E+08    1.600   18422.6
+H2O2+OH=H2O+HO2                            7.830E+12    0.000    1331.3
+H+OH+M=H2O+M                               1.659E+23   -2.000       0.0
+              N2/0.133/ O2/0.133/ CO/0.25/ CO2/0.5/ H2O/0.85/
+O2+H+M=HO2+M                               6.300E+18   -0.800       0.0
+              N2/0.223/ O2/0.133/ CO/0.25/ CO2/0.5/ H2O/0/
+O2+H+H2O=HO2+H2O                           6.890E+15    0.000   -2086.5
+O+HO2=O2+OH                                3.190E+13    0.000       0.0
+H+HO2=OH+OH                                1.690E+14    0.000     874.8
+H+HO2=H2+O2                                4.280E+13    0.000    1410.1
+H+HO2=H2O+O                                3.010E+13    0.000    1720.8
+OH+HO2=H2O+O2                              2.890E+13    0.000    -497.1
+HO2+HO2=H2O2+O2                            4.220E+14    0.000   11983.7
+              duplicate
+HO2+HO2=H2O2+O2                            1.320E+11    0.000   -1630.0
+              duplicate
+OH+OH(+M)=H2O2(+M)                         7.230E+13   -0.370       0.0
+              LOW / 5.530E+19   -0.760   0.0 /
+              TROE / 1   1   1   1040 /
+              N2/0.4/ O2/0.4/ CO/0.75/ CO2/1.5/ H2O/6.5/
+H2O2+H=OH+H2O                              1.020E+13    0.000    3577.9
+H2O2+H=HO2+H2                              1.690E+12    0.000    3754.8
+H+O+M=OH+M                                 3.540E+19   -1.000       0.0
+              N2/0.133/ O2/0.133/ CO/0.25/ CO2/0.5/ H2O/2.17/
+O+O+M=O2+M                                 1.620E+14    0.000   -1787.8
+              N2/0.133/ O2/0.133/ CO/0.25/ CO2/0.5/ H2O/2.17/
+H+H+M=H2+M                                 5.610E+18   -1.000       0.0
+              N2/0.133/ O2/0.133/ CO/0.25/ CO2/0.5/ H2O/2.17/ H2/0/
+H2O2+O=OH+HO2                              6.620E+11    0.000    3974.7
+CH3+H(+M)=CH4(+M)                          2.138E+15   -0.400       0.0
+              LOW / 3.310E+30   -4.000   2108.0 /
+              TROE / 0   1E-15   1E-15   40 /
+              H2/2/ H2O/5/ CO/2/ CO2/3/
+CH4+H=CH3+H2                               1.727E+04   3.000    8224.0
+                                    REV /  6.610E+02   3.000    7744.0 /
+CH4+OH=CH3+H2O                             1.930E+05   2.400    2106.0
+                                    REV /  4.820E+02   2.900   14860.0 /
+CH4+O=CH3+OH                               2.130E+06   2.210    6480.0
+                                    REV /  3.557E+04   2.210    3920.0 /
+HCO+OH=CO+H2O                              3.011E+13   0.000       0.0 ! AramcoMech2.0
+CO+OH=CO2+H                                1.400E+05   1.950   -1347.0
+                                    REV /  1.568E+07   1.950   20990.0 /
+HCO+M=H+CO+M                               1.860E+17  -1.000   17000.0
+                                    REV /  6.467E+13   0.000    -442.0 /
+CH3+HO2=CH3O+OH                            1.100E+13   0.000       0.0
+                                    REV /  4.780E+14  -0.350   24550.0 /
+CO+HO2=CO2+OH                              3.010E+13   0.000   23000.0
+                                    REV /  6.435E+15  -0.330   84610.0 /
+CO+O(+M)=CO2(+M)                           1.800E+10   0.000    2384.0
+              LOW / 1.350E+24   -2.788   4191.0 /
+              H2/2.5/ H2O/12/ CO/1.9/ CO2/3.8/
+CO+O2=CO2+O                                1.050E+12   0.      42540.0   ! Curran 2010
+                                    REV /  8.035E+15  -0.8     51230.0 / ! Curran 2010
+HCO+H=CO+H2                                7.340E+13   0.000       0.0
+                                    REV /  4.813E+14   0.000   90000.0 /
+HCO+O=CO+OH                                3.020E+13   0.000       0.0
+                                    REV /  8.697E+13   0.000   87900.0 /
+CH2O+M=HCO+H+M                             6.283E+29  -3.570   93200.0
+                                    REV /  2.660E+24  -2.570     427.0 /
+CH2O+OH=HCO+H2O                            3.430E+09   1.180    -447.0
+                                    REV /  1.186E+09   1.180   29380.0 /
+CH2O+H=HCO+H2                              9.334E+08   1.500    2976.0
+                                    REV /  7.453E+07   1.500   17650.0 /
+CH2O+O=HCO+OH                              4.160E+11   0.570    2762.0
+                                    REV /  1.459E+10   0.570   15340.0 /
+CH3+OH=CH2O+H2                             2.250E+13   0.000    4300.0
+                                    REV /  6.756E+14   0.000   76030.0 /
+CH3+O=CH2O+H                               8.000E+13   0.000       0.0
+                                    REV /  1.055E+15   0.000   69630.0 /
+CH3+O2=CH3O+O                              1.995E+18  -1.570   29210.0
+                                    REV /  3.585E+18  -1.590   -1631.0 /
+CH2O+CH3=HCO+CH4                           3.636E-06   5.420     998.0
+                                    REV /  7.584E-06   5.420   16150.0 /
+HCO+CH3=CH4+CO                             2.650E+13   0.000       0.0 ! AramcoMech2.0
+HCO+HCO=CH2O+CO                            1.800E+13   0.000       0.0 ! AramcoMech2.0
+CH3O(+M)=CH2O+H(+M)                        5.450E+13   0.000   13500.0
+              LOW / 2.344E+25   -2.700   30600.0 /
+HCO+HO2=CH2O+O2                            2.974E+10   0.330   -3861.0
+                                    REV /  2.050E+13   0.000   38950.0 /
+CH3O+O2=CH2O+HO2                           5.500E+10   0.000    2424.0
+                                    REV /  1.318E+09   0.350   31390.0 /
+CH3+HO2=CH4+O2                             3.600E+12   0.000       0.0
+                                    REV /  5.177E+15  -0.330   57960.0 /
+HCO+O2=CO+HO2                              7.580E+12   0.000     410.0
+                                    REV /  9.029E+11   0.330   32930.0 /
+CH4+HO2=CH3+H2O2                           3.420E+11   0.000   19290.0
+                                    REV /  3.365E+11  -0.330    2502.0 /
+CH2O+HO2=HCO+H2O2                          5.820E-03   4.530    6557.0
+                                    REV /  1.194E-02   4.200    4921.0 /
+CH2+O2=CO+H2O                              7.280E+19  -2.540    1809.0
+                                    REV /  8.508E+20  -2.540  179800.0 /
+CH2+O2=HCO+OH                              1.290E+20  -3.300     284.0
+                                    REV /  5.310E+19  -3.300   73170.0 /
+CH2+O=>CO+H+H                              5.000E+13   0.000       0.0
+CH2+H=CH+H2                                1.000E+18  -1.560       0.0
+                                    REV /  7.026E+17  -1.560    2990.0 /
+CH2+OH=CH+H2O                              1.130E+07   2.000    3000.0
+                                    REV /  3.437E+07   2.000   21150.0 /
+CH2+O2=>CO2+H+H                            3.290E+21  -3.300    2868.0
+CH+O2=HCO+O                                3.300E+13   0.000       0.0
+                                    REV /  4.402E+13   0.000   71990.0 /
+CH2+O2=CH2O+O                              3.290E+21  -3.300    2868.0
+                                    REV /  3.862E+22  -3.300   63180.0 /
+CH2+O2=CO2+H2                              1.010E+21  -3.300    1508.0
+                                    REV /  3.054E+23  -3.300  186700.0 /
+CH2O+M=CO+H2+M                             1.826E+32  -4.420   87120.0
+                                    REV /  5.070E+27  -3.420   84350.0 /
+HCO+O=CO2+H                                3.000E+13   0.000       0.0
+                                    REV /  9.677E+15   0.000  110200.0 /
+CH3+M=CH2+H+M                              1.968E+16   0.000   92520.0
+                                    REV /  2.107E+11   1.000  -19620.0 /
+CH3+H=CH2+H2                               9.000E+13   0.000   15100.0
+                                    REV /  1.818E+13   0.000   10400.0 /
+CH3+OH=CH2+H2O                             3.000E+06   2.000    2500.0
+                                    REV /  2.623E+06   2.000   12960.0 /
+CH3OO+M=CH3+O2+M                           4.343E+27  -3.420   30470.0
+                                    REV /  5.440E+25  -3.300       0.0 /
+CH3OOH=CH3O+OH                             6.310E+14   0.000   42300.0
+                                    REV /  1.166E+11   0.600   -1771.0 /
+CH3OO+CH2O=CH3OOH+HCO                      1.990E+12   0.000   11670.0
+                                    REV /  8.504E+12  -0.500    7009.0 /
+CH4+CH3OO=CH3+CH3OOH                       1.810E+11   0.000   18480.0
+                                    REV /  3.708E+11  -0.500   -1327.0 /
+CH3OO+CH3=CH3O+CH3O                        7.000E+12   0.000   -1000.0
+                                    REV /  2.971E+16  -0.930   28310.0 /
+CH3OO+HO2=CH3OOH+O2                        1.750E+10   0.000   -3275.0
+                                    REV /  5.156E+13  -0.830   34880.0 /
+CH3OO+CH3OO=>O2+CH3O+CH3O                  1.400E+16  -1.610    1860.0
+CH3+O2=CH2O+OH                             7.470E+11   0.000   14250.0
+                                    REV /  7.778E+11   0.000   67770.0 /
+C2H6+CH3=C2H5+CH4                          1.510E-07   6.000    6047.0
+                                    REV /  9.649E-10   6.560   10220.0 /
+C2H4+O=CH3+HCO                             1.020E+07   1.880     179.0
+                                    REV /  2.851E+08   1.050   31770.0 /
+H+C2H4(+M)=C2H5(+M)                        1.081E+12   0.450    1822.0
+              LOW / 1.112E+34   -5.000   4448.0 /
+              TROE / 1   1E-15   95   200 /
+              H2/2/ H2O/5/ CO/2/ CO2/3/
+C2H6+H=C2H5+H2                             5.540E+02   3.500    5167.0
+                                    REV /  1.355E-01   4.060    8857.0 /
+C2H5+O2=C2H4+HO2                           1.220E+30  -5.760   10100.0
+                                    REV /  1.259E+30  -5.630   22310.0 /
+C2H6+OH=C2H5+H2O                           5.125E+06   2.060     855.0
+                                    REV /  1.010E+07   2.060   22980.0 /
+C2H6+O=C2H5+OH                             1.130E+14   0.000    7850.0
+                                    REV /  2.080E+13   0.000   12720.0 /
+CH3+CH3(+M)<=>C2H6(+M)                     2.277E+15  -0.690     174.9 ! AramcoMech2.0
+              LOW / 8.054E+31   -3.750E+00   9.816E+02 /
+              TROE / 0.000E+00   5.700E+02   1.000E+30   1.000E+30 /
+              H2O/5.0/ CO/2.0/ CO2/3.0/
+C2H4(+M)=C2H2+H2(+M)                       1.800E+13   0.000   76000.0
+              LOW / 1.500E+15   0.000   55443.0 /
+C2H3+H(+M)=C2H4(+M)                        6.100E+12   0.270     280.0
+              LOW / 9.800E+29   -3.860   3320.0 /
+              TROE / 0.782   208   2663   6095 /
+C2H2+H(+M)=C2H3(+M)                        3.110E+11   0.580    2589.0
+              LOW / 2.254E+40   -7.269   6577.0 /
+              TROE / 1   1E-15   675   1E+15 /
+              H2/2/ H2O/5/ CO/2/ CO2/3/
+C2H4+H=C2H3+H2                             8.420E-03   4.620    2583.0
+                                    REV /  5.723E-01   3.790    3233.0 /
+C2H4+OH=C2H3+H2O                           1.800E+06   2.000    2500.    ! Curran2010
+C2H2+O2=HCCO+OH                            2.000E+08   1.500   30100.0
+                                    REV /  2.232E+05   1.500   25400.0 /
+C2H2+O=CH2+CO                              6.120E+06   2.000    1900.0
+                                    REV /  1.152E+06   2.000   52570.0 /
+C2H2+O=HCCO+H                              1.430E+07   2.000    1900.0
+                                    REV /  2.021E+05   2.000   13310.0 /
+C2H2+OH=CH2CO+H                            2.190E-04   4.500   -1000.0
+                                    REV /  2.161E-03   4.500   19670.0 /
+CH2CO+H=CH3+CO                             1.100E+13   0.000    3400.0
+                                    REV /  2.400E+12   0.000   40200.0 /
+CH2CO+O=CH2+CO2                            1.750E+12   0.000    1350.0
+                                    REV /  3.739E+12   0.000   53690.0 /
+CH2CO(+M)=CH2+CO(+M)                       3.000E+14   0.000   70980.0
+                                    LOW /  3.600E+15   0.000   59270.0 /
+CH2CO+O=HCCO+OH                            1.000E+13   0.000    8000.0
+                                    REV /  1.432E+10   0.000   -1255.0 /
+CH2CO+OH=HCCO+H2O                          1.000E+13   0.000    2000.0
+                                    REV /  1.412E+11   0.000    9995.0 /
+CH2CO+H=HCCO+H2                            2.000E+14   0.000    8000.0
+                                    REV /  6.522E+11   0.000     840.0 /
+HCCO+OH=>H2+CO+CO                          1.000E+14   0.000       0.0 ! AramcoMech2.0
+HCCO+O=>H+CO+CO                            8.000E+13   0.000       0.0 ! AramcoMech2.0
+C2H6+O2=C2H5+HO2                           4.000E+13   0.000   50900.0
+                                    REV /  3.000E+11   0.000       0.0 /
+C2H6+HO2=C2H5+H2O2                         1.700E+13   0.000   20460.0
+                                    REV /  1.069E+11   0.240    7842.0 /
+CH3+C2H3=CH4+C2H2                          3.920E+11   0.000       0.0
+                                    REV /  2.962E+13   0.000   66050.0 /
+CH3+C2H5=CH4+C2H4                          1.950E+13  -0.500       0.0
+                                    REV /  2.895E+16  -0.700   70170.0 /
+C2H3+H=C2H2+H2                             1.700E+14   0.000       0.0 ! AramcoMech2.0
+CH3+CH3=H+C2H5                             4.740E+12   0.105   10664.0 ! AramcoMech2.0
+              PLOG / 1.000E-02   4.740E+12   0.105   10664.3 /
+              PLOG / 1.000E-01   2.570E+13  -0.096   11406.1 /
+              PLOG / 1.000E+00   3.100E+14  -0.362   13372.5 /
+              PLOG / 1.000E+01   2.150E+10   0.885   13532.5 /
+              PLOG / 1.000E+02   1.032E+02   3.230   11236.1 /
+C2H3+O2=>CH2O+H+CO                         2.271E+14  -0.7498   3155.
+              PLOG / 0.1   5.582E+16  -1.5524   1014. / ! Goldsmith2015
+              PLOG / 1.    1.111E+17  -1.6331   1227. /
+              PLOG / 10.   1.109E+18  -1.8801   2771. /
+              PLOG / 100.  2.271E+14  -0.7498   3155. /
+C2H3+O2=CH2O+HCO                           9.732E+13  -0.7498   3155.
+              PLOG /    0.1 2.392E+16  -1.5524   1014.  / ! Goldsmith2015
+              PLOG /    1.  4.761E+16  -1.6331   1227.  /
+              PLOG /   10.  4.754E+17  -1.8801   2771.  /
+              PLOG /  100.  9.732E+13  -0.7498   3155.  /
+C2H6=C2H5+H                                2.783E+21  -1.560  103800.0
+                                    REV /  3.610E+13   0.000       0.0 /
+C2H4+CH3=C2H3+CH4                          6.620E+00   3.700    9500.0
+                                    REV /  1.440E+00   4.020    5472.0 /
+CH3CO(+M)=CH3+CO(+M)                       3.000E+12   0.000   16720.0
+                                    LOW /  1.200E+15   0.000   12518.0 /
+CH3CHO=CH3+HCO                             2.614E+15   0.150   80550.0
+                                    REV /  2.000E+13   0.000       0.0 /
+CH3CHO+O2=CH3CO+HO2                        3.010E+13   0.000   39150.0
+                                    REV /  8.552E+10   0.320   -1940.0 /
+CH3CHO+OH=CH3CO+H2O                        2.340E+10   0.730    1110.0
+CH3CHO+OH=CH2CHO+H2O                       1.600E+13   0.000    2000.0
+CH3CHO+H=CH3CO+H2                          1.340E+13   0.000    3300.0
+                                    REV /  2.096E+12  -0.010   19690.0 /
+CH3CHO+O=CH3CO+OH                          5.940E+12   0.000    1868.0
+                                    REV /  4.080E+11  -0.010   16170.0 /
+CH3CHO+HO2=CH3CO+H2O2                      3.520E-01   4.075    5580.0 ! TST AM2011
+                                    REV /  1.050E-01   3.978    3230.0 /
+CH3CHO+CH3=CH3CO+CH4                       2.608E+06   1.780    5911.0
+                                    REV /  1.066E+07   1.770   22790.0 /
+C2H4+O2=C2H3+HO2                           4.000E+13   0.000   58200.0
+                                    REV /  4.939E+13  -0.500    1368.0 /
+CH+CH4=C2H4+H                              6.000E+13   0.000       0.0
+                                    REV /  3.573E+14   0.000   55480.0 /
+CH3CO+H=CH2CO+H2                           2.000E+13   0.000       0.0
+                                    REV /  7.270E+09   0.000   83040.0 /
+CH3CO+O=CH2CO+OH                           2.000E+13   0.000       0.0
+                                    REV /  7.270E+09   0.000   83040.0 /
+CH3CO+CH3=CH2CO+CH4                        5.000E+13   0.000       0.0
+                                    REV /  7.270E+09   0.000   83040.0 /
+C2H4+O=CH2CHO+H                            3.390E+06   1.880     179.0
+                                    REV /  9.481E+06   1.790   16050.0 /
+C2H5+O=>CH3+CH2O                           5.000E+13   0.000       0.0
+C2H5O=CH3+CH2O                             1.320E+20  -2.02    20750.
+C2H5O+O2=CH3CHO+HO2                        4.280E+10   0.000    1097.0
+                                    REV /  3.872E+08   0.440   31880.0 /
+C2H3+O2=CH2CHO+O                           1.022E+11   0.4997   3621.
+                PLOG /    0.1 1.584E+11   0.3279    360.  / ! Goldsmith2015
+                PLOG /    1.  5.196E+11   0.1858    809.  /
+                PLOG /   10.  1.020E+13  -0.1482   2483.  /
+                PLOG /  100.  1.022E+11   0.4997   3621.  /
+C2H5+O2(+M)=C2H5OO(+M)                     6.890E+16  -1.627     200.0
+                LOW /  3.106E+36  -6.508     595.3 /
+                TROE / 0.3200 50.0  50000.0 10000. /
+C2H5OOH=C2H5O+OH              6.310E+14   0.000   42300.0
+                                    REV /  8.314E+06   1.700   -3207.0 /
+C2H5OO+CH2O=C2H5OOH+HCO                    1.990E+12   0.000   11670.0
+                                    REV /  8.422E+12  -0.510    6605.0 /
+C2H4+CH3OO=C2H3+CH3OOH                     1.130E+13   0.000   30430.0
+                                    REV /  3.000E+12   0.000   11500.0 /
+CH4+C2H5OO=CH3+C2H5OOH                     1.810E+11   0.000   18480.0
+                                    REV /  3.673E+11  -0.510   -1731.0 /
+C2H5+HO2=C2H5O+OH                          3.200E+13   0.000       0.0
+                                    REV /  3.075E+15  -0.320   27490.0 /
+CH3OO+C2H5=CH3O+C2H5O                      7.000E+12   0.000   -1000.0
+                                    REV /  6.569E+16  -0.900   31260.0 /
+C2H5OO+HO2=C2H5OOH+O2                      1.750E+10   0.000   -3275.0
+                                    REV /  5.106E+13  -0.830   34480.0 /
+C2H6+CH3OO=C2H5+CH3OOH                     1.700E+13   0.000   20460.0
+                                    REV /  7.500E+11   0.000    1280.0 /
+C2H6+C2H5OO=C2H5+C2H5OOH                   1.700E+13   0.000   20460.0
+                                    REV /  7.500E+11   0.000    1280.0 /
+CH3C(O)OO=CH3CO+O2                         4.625E+19  -1.900   39560.0
+                                    REV /  1.200E+11   0.000   -1100.0 /
+CH3CO2+M=CH3+CO2+M                         4.400E+15   0.000   10500.0
+                                    REV /  9.648E+12   0.200   21040.0 /
+CH3C(O)OOH=CH3CO2+OH                       5.010E+14   0.000   40150.0
+                                    REV /  1.738E+08   1.570    1305.0 /
+CH3C(O)OO+HO2=CH3C(O)OOH+O2                1.750E+10   0.000   -3275.0
+                                    REV /  4.093E+12  -0.330   39040.0 /
+C2H5O=CH3CHO+H                             5.430E+15  -0.69    22230.
+H2O2+CH3C(O)OO=HO2+CH3C(O)OOH              2.410E+12   0.000    9936.0
+                                    REV /  3.984E+11   0.320   11070.0 /
+CH4+CH3C(O)OO=CH3+CH3C(O)OOH               1.810E+11   0.000   18480.0
+                                    REV /  2.944E+10   0.000    2831.0 /
+C2H6+CH3C(O)OO=C2H5+CH3C(O)OOH             1.700E+13   0.000   20460.0
+                                    REV /  1.767E+10   0.560    8980.0 /
+CH2O+CH3C(O)OO=HCO+CH3C(O)OOH              1.990E+12   0.000   11670.0
+                                    REV /  6.752E+11   0.000   11170.0 /
+CH3OO+CH3CHO=CH3OOH+CH3CO                  3.010E+12   0.000   11930.0
+                                    REV /  2.519E+13  -0.510    8991.0 /
+CH3CHO+CH3C(O)OO=CH3CO+CH3C(O)OOH          3.010E+12   0.000   11930.0
+                                    REV /  2.000E+12  -0.020   13150.0 /
+C2H5OO=C2H4+HO2                            3.370E+55 -13.420   44670.0
+                                    REV /  1.392E+49 -12.100   21620.0 /
+CH2CHO=CH2CO+H                             3.094E+15  -0.260   50820.0
+                                    REV /  5.000E+13   0.000   12300.0 /
+CH2CHO+O2=>CH2O+CO+OH                      6.400E+10   0.       9000.0
+CH2CHO+O2=>CH2CO+HO2                       1.024E+12   0.       9000.0
+HCCO+O2=>OH+CO+CO                          1.910E+11  -0.020    1020.0 ! AramcoMech2.0
+HCCO+O2=>CO2+CO+H                          4.780E+12  -0.142    1150.0 ! AramcoMech2.0
+CH+CO+M<=>HCCO+M                           7.570E+22  -1.900       0.0 ! AramcoMech2.0
+CH+HCCO<=>CO+C2H2                          5.000E+13   0.000       0.0 ! AramcoMech2.0
+C2H4+H2=CH3+CH3                            3.767E+12   0.830   84710.0
+                                    REV /  1.000E+14   0.000   32000.0 /
+pC2H4OH=C2H4+OH                            1.293E+12  -0.370   26850.0
+                                    REV /  9.930E+11   0.000    -960.0 /
+iC3H7+HO2=>CH3CHO+CH3+OH                   7.000e+12   0.000   -1000.0 !iC3H7O=CH3CHO+CH3
+iC3H7+CH3OO=>CH3CHO+CH3+CH3O               7.000e+12   0.000   -1000.0 !iC3H7O=CH3CHO+CH3
+C3H6+H=iC3H7                               2.000E+13   0.000    1200.0 !rev
+C3H6+H<=>aC3H5+H2                          3.644E+05   2.455    4361.2 !
+C3H6+O=>C2H5+HCO                           7.300e+12   0.000    1710.0
+C3H6+OH=aC3H5+H2O                          3.120E+06   2.000    -298.0 !
+C3H6+HO2=aC3H5+H2O2                        1.500e+11   0.000   14190.0   ! KUCRSwpi
+                                    rev /  1.536e+12  -0.362   13842.6 /
+C3H6+CH3=aC3H5+CH4                         1.400e+11   0.000    8800.0
+C3H6+O2=aC3H5+HO2                          4.000e+13   0.000   50900.0   ! KUCRSwpi
+                                    rev /  1.835e+13  -0.217   11454.7 /
+C3H6=C2H3+CH3                              5.986E+30  -3.9888 107791.    ! HPL
+                 PLOG /    0.1 3.075E+69 -15.9470 123807.  / ! rrkm2014
+                 PLOG /    1.  1.898E+71 -16.0387 128780.  /
+                 PLOG /   10.  1.863E+69 -15.1393 131253.  /
+                 PLOG /  100.  7.007E+61 -12.8256 128945.  /
+C3H6=aC3H5+H                               7.701E+19  -1.2276  90816.    ! HPL
+                 PLOG /    0.1 3.235E+67 -15.3226 115930.  / ! rrkm2014
+                 PLOG /    1.  2.127E+66 -14.7050 118634.  /
+                 PLOG /   10.  2.694E+61 -13.0997 118235.  /
+                 PLOG /  100.  9.554E+51 -10.2956 113532.  /
+aC3H5+O2=>CH2O+CH2CHO                      4.570E+12   0.000   18800.0 !
+aC3H5+HO2=>CH2O+C2H3+OH                    9.600E+12   0.000    1000.0 !aC3H5O=>CH2O+C2H3
+aC3H5+CH3OO=>CH2O+C2H3+CH3O                9.600E+12   0.000    1000.0 !aC3H5O=>CH2O+C2H3
+aC3H5+H=C2H3+CH3                           1.994E+37  -6.0039  33164.0
+                 PLOG /    0.1 6.112E+27  -3.5667  18980.  / ! rrkm2014
+                 PLOG /    1.  1.890E+32  -4.7341  24894.  /
+                 PLOG /   10.  1.994E+37  -6.0039  33164.  /
+                 PLOG /  100.  5.632E+37  -6.0098  39080.  /
+END

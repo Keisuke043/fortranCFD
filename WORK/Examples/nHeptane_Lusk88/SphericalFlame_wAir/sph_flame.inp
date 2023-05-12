@@ -1,0 +1,50 @@
+&problem
+ dt = 1.0d-9    ! time step size [sec]
+ tend = 5.0d-2  ! end time [sec]
+ out_timestep = 1.0d-6  ! output dt
+ out_num_hdf = 10       ! number of time step in a file.h5
+ cfl = 0.2d0            ! Courant number, CFL
+ dx_comp = 2.0d-5       ! cell size [m]
+ x_length_comp = 6.0d-2 ! domain length [m]
+ is_spherical = 1       ! 0:cartesian, 1:spherical
+/
+
+&blocks
+ flag_block = 1  ! 0, 1:block
+ ncell_per_block = 10 ! number of cells for a block
+ lev_smr_0 = 0   ! left  smr level
+ lev_smr_n = 22  ! right smr level
+ num_smr_0 = 0   ! left  smr num for each level
+ num_smr_n = 1   ! right smr num for each level
+/
+
+&boundary
+ flag_lbound = 0  ! left  boundary, 0:wall, 1:inflow
+ flag_rbound = 1  ! right boundary, 0:wall, 1:outflow
+ flow_bound_file = './bound_flow.txt' ! infile for inout flow boundary
+/
+
+&radiationloss
+ flag_radiation = 0   ! 0, 1: add radiation term
+ radiation_file = ''  ! infile for radiation
+/
+
+&wallMFR
+ flag_Tw = 0      ! 0, 1:external heat source of mfr
+ flag_Tini_Tw = 0 ! 0, 1:initial temperature == Tw
+ wallT_bound_file = '' ! infile for wallTemp of mfr
+/
+
+&energysource        ! add an energy source term
+ flag_igsource = 1   ! 0, 1:A.Frendi CST(1990), 2:W.Zhang CNF(2012)
+ igsource_file = './igsource.inp'  ! infile for energy source
+/
+
+&params_io
+ flag_check_init = 0 ! 0, 1:check initial conditions
+ flag_restart = 0    ! 0, 1:use restart hdf5 file
+ readfile = 'results_nout000200.h5' ! file name for restart
+ readdir = 'RESULTS_sph_flame_hdf'  ! directory name for restart
+ savedir = 'RESULTS_sph_flame_hdf'  ! directory name for saving
+/
+

@@ -1,0 +1,166 @@
+!  UT112a                                2010.06.16
+!   add O+OH+M=HO2+M
+!  UT112                                 2010.06.02
+!    O+H2 in ref. n is in error!!!
+!     O+H2 is changed to Sutherland et al. (Same as LLNL, Konnov and Prinston)
+!    OH+HO2 => low temp. part only (based on Hong et al. 2010)
+!    H+OH+M=H2O+M
+!     Adjusted in order to much flame speed at high pressure 
+!                         (Data of Tsu2000, Burke2009, 2010) 
+!    H+HO2 revised again
+!     H+HO2=H2O+O is included, based on Boldwin (0.1*k(OH+OH channel)
+!  UT111                                 2010.05.21
+!    H+HO2 revised
+!    H+HO2=H2+O2 => reverse reaction by Micheal
+!    H+HO2=OH+OH => Muller et al.
+!    H+HO2=H2O+O => not included
+!  UT109                                 2010.05.18
+!    H+O2+He <= fitted to fig.12 of Micheal (Values are close to Li et al.)
+!  UT106                                 2010.05.05
+!    H+O2+He <= form ref. i
+!      Fc for M=He, Ar, N2 from ref.i
+!      3rd body efficiencies for He <= same as Ar for other reactions
+!  UT104                                 2010.05.03
+!    He is added in order to simulate Burke2010 data
+!      3rd body efficiency of He = 1.2*Ar  (Li et al.)
+!    OH+HO2=H2O+O2 changed to ref.n (this gives better agreement with Burke2010 data)
+!    O+H2=OH+H  is updated to ref.n (this gives better agreement with Burke2010 data)
+!  UT103 Ver 1.03                        2010.04.21
+!    H+H2O2=H2O+OH changed to "set-ii" of ref.o
+!    H+OH+N2=H2O+N2 is added based on Li et al.(Princeton)
+!  UT100 Ver 1.0                         2009.09.08
+!    UT ver 1.0 is the same as UT092 in which      
+!    H+OH+M=H2O+M <= ref.q and s (for M=H2O)       
+!  UT09                                  2009.07.12
+!    HO2+HO2+M=H2O2+O2+M
+!    H+OH+M=H2O+M
+!    H+HO2=H2+O2 
+!  UT08                                  2009.07.11
+!    Error in O+O+Ar=O2+Ar is corrected
+!
+!  UT mechanism version 0.7              2009.07.07
+!    The rate of H+O2(+O2)=HO2(+O2) was updated.
+!     (Fitted to K. Hasegawa's experiment and Ref h(J. V. Micheal et al))
+!    The rate of H+O2(+H2)=HO2(+H2) was updated.
+!     (Fitted to Ref h(J. V. Micheal et al))
+!     (The third body efficiency of H2 in H+O2(+M)=HO2(+M) was changed (2.0 ==> 0.0)
+!
+!  UT mechanism version 0.6              2009.07.01
+!    The rate of H+O2(+M)=HO2(+M) was updated.
+!     (Cath2000 ==> Ref h(J. V. Micheal et al))
+!
+!  UT mechanism version 0.5
+!    The third body effect of H2 in the reaction H+OH+M=H2O+M was updated.
+!     (1.5 ==> 3.0)
+!
+!  UT mechanism version 0.3              2009.01.11
+!
+!    UT02                                2008.11.23 by M.Koshi
+!
+!    version 0.1 : Original model by M. Koshi (2000)
+!                                Modified by Morii (2007-2008)
+
+ELEMENTS 
+H O N
+END
+
+SPECIES 
+H2  H  O2  O  OH  HO2  H2O2  H2O N2 
+END
+
+REACTIONS
+!
+
+OH+H2	=H2O+H			2.160E+08	1.51	 3430. !n LLNL
+H +O2   =OH+O                   1.910E+14       0.0     16440. ! LLNL
+O +H2	=OH+H			5.080E+04	2.67	 6292. !a (Sutherland)
+
+! HO2 reactions
+OH+HO2=H2O+O2                   2.890E+13       0.0       -500. !n
+H +HO2=H2+O2                    3.660E+06       2.087   -1450.0 !Michael, Reverse Reaction
+H +HO2=OH+OH                    7.080E+13       0.0       300.0 !Muller
+H +HO2=H2O+O                    1.340E+13       0.0      1340.0 !Boldwin, revised
+O +HO2	=O2+OH			3.250E+13	0.0	    0.  !b
+!
+HO2+HO2 =H2O2+O2		4.200E+14       0.0     12000.  !c
+HO2+HO2(+M) =H2O2+O2(+M)	1.320E+11       0.0     -1192.  !p
+                           LOW/ 6.890E+14       0.0     -1947./ !p
+
+OH+OH	=O+H2O			4.330E+03	2.7	-2485. !a
+
+! H2O2 reactions
+H2O2+H=H2O+OH                   8.190E+08       1.55    3455.  !o set-ii
+H2O2+H=HO2+H2                   8.067E+19      -1.574  16838.  !o
+       DUP
+H2O2+H=HO2+H2                   1.042E+13       0.0     6569.  !o
+       DUP
+H2O2+OH =H2O+HO2		1.700E+18       0.0     29407. !n 
+	DUP
+H2O2+OH =H2O+HO2		2.000E+12	0.0	  427. !n 
+	DUP
+H2O2+O	=HO2+OH			6.620E+11	0.0	 3974. !b
+
+! reaconbination reactions
+! H+O2+M
+H+O2(+M)=HO2(+M)               1.933E+12       0.56        0.  !n
+        LOW/ 4.57E+18 -1.120 0.0/                              !h (Ar)
+        TROE/ 0.62 1.0E-10 1.0E+10/                            !i
+        O2/0.0/ H2O/0.0/ H2/0.0/  N2/0.0/
+H+O2(+H2)=HO2(+H2)               1.933E+12       0.56      0.  !n
+        LOW / 3.52E+18 -0.896  0.0/                            !fit h
+        TROE/ 0.5 1.0E-10 1.0E+10/
+H+O2(+N2)=HO2(+N2)             1.933E+12       0.56        0.  !n
+        LOW/ 1.75E+19 -1.232 0.0/                              !h (N2)
+        TROE/ 0.67 1.0E-10 1.0E+10/                            !i
+H+O2(+O2)=HO2(+O2)             1.933E+12       0.56        0.  !n
+        LOW/ 1.41E+18 -0.849 0.0/                              !h (O2),fit K. Hasegawa
+        TROE/ 0.5 1.0E-10 1.0E+10/
+H+O2(+H2O)=HO2(+H2O)           1.933E+12       0.56        0.  !n
+        LOW/ 3.63E+19 -1.0 0.0/                                !n
+        TROE/ 0.81 1.0E-10 1.0E+10/                            !n
+!
+H+H+M=H2+M                      7.000E+17      -1.0        0.  !e
+        H2/0.0/  H/0.0/ O2/2.2/ H2O/14.4/ N2/0.0/       !e
+H+H+H2=H2+H2                    1.000E+17      -0.6        0.  !e
+H+H+N2=H2+N2                    5.400E+18      -1.3        0.  !e
+H+H+H=H2+H                      3.200E+15       0.0        0.  !e
+!
+H+OH+M=H2O+M                    3.500E+22      -2.0        0.     !adjust 
+       H2O/12.0/
+
+H+O+M=OH+M                      6.750E+18      -1.0        0.  !k (cited by Konnov)
+       H2O/5.0/ 
+
+O+O+M=O2+M                      6.160E+15      -0.5        0.  !d
+       H2/2.5/ H2O/12.0/
+!
+O+OH+M=HO2+M                    1.350E+15      -0.216      0.  !German & Miller 
+!
+H2O2(+M)=OH+OH(+M)              3.0000E+14      0.0     48482. !n
+                          LOW /2.2900E+16      0.0     43634./!m (AR)
+        TROE/0.44 1.0E-10 1.0E+10/                            !m
+        H2O/15.0/ H2/3.0/  O2/2.2/  N2/3.0/                   !Rule of Thumb
+!
+! References
+! a: J.V.Mihcael, Prog.Energy Combust.Sci., 18 327 (1992)
+! b: D.L.Baulch et al. J.Phys.Chem. Ref. data 21, 411 (1992)
+! c: H. Hippler, et al.,  J. Chem. Phys., 90, 1755 (1993)
+! (c: T.J.Wallington et al., Chem. Rev., 92, 667 (1992))
+! d: W.Tsang, R.F.Hampson, J.Phys.Chem., Ref.Data 15, 1087 (1986)
+! e: N.Cohen et al. J.Phys.Chem. Ref.Data 12, 531 (1983)
+! f: J.V.Micheal 28th Comb. Symp. (2000) pp.1471-1478
+! g: J.Tore Proc. Combust. Inst.,28 1463 (2000)
+! h: J.V.Micheal et al., J. Phys. Chem., A 106 5297 (2002)
+! i: Fernandes et al., Phys. Chem. Chem. Phys., 10 4313 (2008)
+! j: LLNL (M'O. Conaire, IJCK 36, 603(2004)
+! k: V.Naudet et al. Combust. Sci. Technol., 164, 113 (2001)
+! l: A.A.konnov, Combst. Falme 152, 507 (2008)
+! m: C.Kappel et al. Phys.Chem.Chem.Phys. 4, 4392 (2002)
+! n: D.L.Baulch et al. J.Phys.Chem.Ref.Data 34(3), 803 (2005)
+! o: B.A.Ellingson et al., J.Phys.Chem., A111, 13554 (2007)
+! p: R.A.Atokins et al., Atoms. Chem. Phys., 4, 1461 (2004)
+! q: S.R.Sellevag et al., J.Phys. Chem. A 112, 5085 (2008)
+! r: S.Javoy, V.Naudet, S.Abid, C.E.Pillard, Exp. Thermal Fluid Sci., 27, 371 (2003) 
+! s: N.K.Srinivasan, J.V.Micheal, I.J.C.K., 38, 211 (2006)
+! u: M.A.Muller, R.A.Yetter,F.L.Dryer, I.J.C.K., 31, 113 (1999)
+END

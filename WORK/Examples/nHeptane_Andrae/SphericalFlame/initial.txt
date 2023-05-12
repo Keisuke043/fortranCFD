@@ -1,0 +1,32 @@
+400d0       400d0 ! temperature [K] left and right
+0                 ! 0, 1:ERF, 2:ERFC, Symmetry 3:ERFC for T
+1.0d-3            ! center of error function [m] for T
+5.0d-3            ! smoother of error function for T
+5.0d-3            ! radius of symmetry ERFC [m] for T
+1.d0        1.0d0 ! pressure [atm] left and right
+0                 ! 0, 1:ERF, 2:ERFC, 3:Symmetry ERFC for p
+1.0d-3            ! center of error function [m] for p
+5.0d-3            ! smoother of error function for p
+5.0d-3            ! radius of symmetry ERFC [m] for p
+0                 ! 0, 1:filled with constant rho*u
+0.d0         0.d0 ! velocity[cm/s], left and right 
+0                 ! 0, 1:ERF, 2:ERFC, 3:Symmetry ERFC for v
+1.0d-3            ! center of error function [m] for v
+5.0d-3            ! smoother of error function for v
+5.0d-3            ! radius of symmetry ERFC [m] for v
+3                 ! left species num
+C7H16  0.01868600 ! left C7H16 mole fraction [-]
+O2     0.20554603 ! left O2 mole fraction [-]
+N2     0.77576797 ! left N2 mole fraction [-]
+3                 ! right species num
+C7H16  0.01868600 ! right C7H16 mole fraction [-]
+O2     0.20554603 ! right O2 mole fraction [-]
+N2     0.77576797 ! right N2 mole fraction [-]
+0                 ! 0, 1:ERF, 2:ERFC, 3:Symmetry ERFC for species
+1.0d-3            ! center of error function [m] for species
+5.0d-3            ! smoother of error function for species
+5.0d-3            ! radius of symmetry ERFC [m] for species
+0                 ! 0, 1:use equil products Xi
+N2                ! 0-> the other species [-]
+''                ! 1-> Path of equil Xi 
+

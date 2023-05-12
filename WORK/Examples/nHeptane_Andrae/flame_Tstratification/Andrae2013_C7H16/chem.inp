@@ -1,0 +1,1005 @@
+!
+!  Andrae, J.C.G., "Comprehensive Chemical Kinetic Modeling of Toluene Reference Fuels Oxidation", Fuel, 2013, doi:10.1016/j.fuel.2013.01.070
+!  137 species, 635 reactions
+!
+!
+ELEMENTS
+O H C N AR
+END
+SPECIES
+C6H5CH3 C6H5CH2 OC6H4CH3 HOC6H4CH3 C6H4CH3 C6H5CH2OO C6H5CH2OOH 
+C6H5CH2O C6H5CHO BIBENZYL C6H5CO C6H5CHCH2 C6H5C2H4 C6H5C2H5             
+C6H5CH2OH
+!
+  CO CO2
+  C6H6 C6H5 C6H4 C6H5O C6H5OH OC6H4O oOC6H4O OC6H3O C6H3O3
+!
+  C5H7 C5H6 C5H5 C5H5O C5H5OH C5H4O C5H4OH C5H4 C5H3O C5H3
+!
+  CH2CHCHCHCH3 CH2CHC-HCHCH2 CH2CHCHCHC-H2 CHCCHCHC-H2
+  CH2CHC-HCHCHOH CH2CHCHCHCH2OH CHOCH2CH2C-HCHO
+!
+  CH2CHCHCH2 CH2CHC-CH2 CH2CHCHC-H
+  CH2CHCCH HCCHCCH H2CCCCH C4H2 C4H
+  CHOCH2CH2CHO CHOCH2CH2C-O CH2CHC-HCHO  
+  CH2CHCHCO C-HCHCHCO CH2C-CHCO
+  CHCCHCO CHCC-CO
+  H2C4O
+!
+  CH2CHCH3 CH2CHC-H2 CH2C-CH3 C-HCHCH3 H2CCCH2 H3CCCH H2CCCH C3H2
+  CH2CHCHO 
+  CHOCHCHOH C-HCHCHO CH2CHC-O
+!
+  C2H6 C2H5 C2H4 C2H3 C2H2 C2H C2
+  CH3HCO CH3CO CH2HCO C2H2OH OCHCHO CH2CO HCCOH HCCO C2O O2CCHOO-
+  C2H5CHO C2H5CO
+!
+  CH4 CH3 CH2 CH2(S) CH C
+  CH3OH CH3O CH2OH CH2O HCO HCOO
+!
+  H  O  OH  H2  O2  HO2  H2O  H2O2
+!
+  NO HNO HONO NO2
+  N2
+!
+  C7H16 C7H15-1 C7H15-2  C7H15O2
+  C7H14O2H O2C7H14O2H HO2C7H13O2H OC7H13O2H OC7H13O C5H11
+  I*C3H7 PC4H9 
+!
+  C8H18 AC8H17 AC8H17OO AC8H16OOH-B AC8H16OOH-BO2
+  OC8H15OOH OC8H15O JC8H16 IC4H8
+!
+  AR
+!
+END
+REACTIONS
+! ************************************************************************
+! *                                                                      *                                                                      *
+! *  TOLUENE OXIDATION MECHANISM 				         *
+! *                                                                      *                                                                      *
+! ************************************************************************
+C6H5CH3=C6H5CH2+H			1.52E+16	0      93499	! [20] 
+C6H5CH3=C6H5+CH3			4.62E+25       -2.5   104483	! [20]
+C6H5CH3+O2=C6H5CH2+HO2			2.18E+07	2.5    46045	! [16]
+C6H5CH3+OH=C6H5CH2+H2O   		1.77E+05 	2.4   -601.8 	! [21]  
+C6H5CH3+O=C6H5CH2+OH  			6.00E+10    	0.7     7632 	! [22]
+C6H5CH3+HO2=C6H5CH2+H2O2 		1.02E+04        2.5  12339.3 	! [22]
+C6H5CH3+H=C6H5CH2+H2			6.47E+00	4.0	3384	! [23]  
+C6H5CH3+H=C6H6+CH3	        	9.50E+05	2.0	 943	! [24]
+C6H5CH3+O=OC6H4CH3+H			1.70E+13	0.0	3600	! [25]  
+C6H5CH3+CH3=CH4+C6H5CH2			4.00E-05	5.6	9000	! [22]  
+C6H5CH3+C6H5=C6H6+C6H5CH2		7.94E+12	0.0    11949	! [22] 
+!
+C6H5CH3+H=C6H4CH3+H2			1.90E+07	2.0	9696 	! [24]  
+C6H5CH3+O=C6H4CH3+OH			2.00E+13 	0.0    14700 	! Bounaceur 2005 
+C6H5CH3+OH=C6H4CH3+H2O			1.36E+04	2.7    619.6 	! [21]
+C6H5CH3+HO2=C6H4CH3+H2O2		9.20E+12	0.0    28810 	! [26] 
+C6H5CH3+CH3=C6H4CH3+CH4			4.37E-04 	5.0    12300 	! [27]
+C6H4CH3+O2=OC6H4CH3+O			2.60E13 	0.0     6100 	! Bounaceur 2005
+C6H4CH3+H=C6H5CH3			1.00E14 	0.0        0 	! Bounaceur 2005 
+C6H4CH3+H=C6H5CH2+H			1.00E13 	0.0        0 	! Miller 1992 
+C6H4CH3+O=OC6H4CH3			1.00E14 	0.0        0 	! Bounaceur 2005 
+C6H4CH3+OH=HOC6H4CH3			3.00E13 	0.0        0 	! [15] 
+C6H4CH3+HO2=OC6H4CH3+OH			5.00E12 	0.0        0 	! Bounaceur 2005 
+!
+C6H5CH2=C5H5+C2H2			6.00E13 	0.0    70000    ! Colket 1994  
+C6H5CH2=H2CCCH+CH2CHCCH			2.00E14 	0.0    83600    ! Colket 1994  
+C6H5CH2+O=C6H5CHO+H			2.11E+14 	0	   0	! [15]	
+C6H5CH2+O=C6H5+CH2O			1.19E+14	0	   0	! [15]	
+C6H5CH2+HO2=C6H5CH2O+OH 		1.00E+13	0	   0	! [17,18]  
+C6H5CH2O=C6H5CHO+H       		1.99E+13 	0      18728    ! [15] 
+C6H5CH2O=C6H5+CH2O       		8.55E+13        0      26017 	! [15]  
+C6H5CH2+C6H5CH2=BIBENZYL		5.00E+12 	0.0      454	! [20]  	  
+C6H5C2H5=C6H5CH2+CH3			2.00E+15	0      72700	
+C6H5CH2+OH=C6H5CH2OH			2.00E+13	0	   0	! [22]	
+!
+C6H5CH2+O2(+M)=C6H5CH2OO(+M)           	1.00E+10        0      -6000	! [14]
+  LOW /4.00E+16 -1.0 -8000/
+  TROE /0.3 4000 800/
+	DUP 
+C6H5CH2OO(+M)=C6H5CH2+O2(+M)           	1.00E+12        0      16200	! [14]
+  LOW /1.00E+22 -1.8 19200/
+	DUP 
+C6H5CH2OO(+M)=C6H5CHO+OH(+M)		9.50E+11 	0.0    38488    ! [14]
+  LOW /9.00E+30 -5.3 39500/  
+C6H5CH2OO(+M)=C6H5O+CH2O(+M)		2.44E+11 	0.0    38208    ! [14]
+  LOW /4.00E+36 -7.5 44000/
+C6H5CH2+O2=C6H5CH2O+O           	6.32E+12        0      42920    ! Brezinsky 1984
+!
+C6H5CHO+O2=C6H5CO+HO2			7.00E+11	0.0    39500	! [25]		
+C6H5CHO+OH=C6H5CO+H2O		        3.44E+09      	1.2	-447	! [22]    
+C6H5CHO+H=C6H5CO+H2			2.28E+10	1.1	3279	! [22]	
+C6H5CHO+H=C6H6+HCO			1.20E+13	0	5148	
+C6H5CHO+O=C6H5CO+OH			6.00E+12	0.0	1800	! [25]	
+C6H5CH2+C6H5CHO=C6H5CH3+C6H5CO	        1.30E+11        0.0    11500	! [25]    
+CH3+C6H5CHO=CH4+C6H5CO			2.00E-06        5.6	1500	! [25]	
+C6H5+C6H5CHO=C6H6+C6H5CO		1.30E+11	0.0    11500	! [25]	
+!
+C6H5CO=C6H5+CO				3.00E+12	0      34860	! [22]
+C6H5CH2OH+O2=C6H5CHO+HO2+H		2.00E+14	0      41400	
+C6H5CH2OH+OH=C6H5CHO+H2O+H		8.43E+12	0	2583	
+C6H5CH2OH+H=C6H5CHO+H2+H		8.00E+13	0	8235	
+C6H5CH2OH+H=C6H6+CH2OH			5.30E+13	0	8100	! [15]	
+C6H5CH2OH+C6H5CH2=C6H5CHO+C6H5CH3+H	2.11E+11	0	9500	
+C6H5CH2OH+C6H5=C6H5CHO+C6H6+H		1.40E+12	0	4400	
+C6H5C2H5+OH=C6H5C2H4+H2O		4.80e12 	0 	   0 	! Baulch 1992 
+C6H5C2H5+HO2=C6H5C2H4+H2O2  		6.20e4          2.50   13522 	! Baulch 2005 
+C6H5C2H5+O=C6H5C2H4+OH	    	        2.23e13         0       3795	! Baulch 2005 
+C6H5C2H5+H=C6H5C2H4+H2 		        265             3.44    1003 	! Baulch 2005 
+C6H5C2H4=C6H5CHCH2+H   			3.16e13		0      50670	! Muller 1988
+C6H5CHCH2=C6H6+C2H2   		      	1.600E+11       0.0      58438 	! Muller 1988        
+OC6H4CH3+H=HOC6H4CH3			1.00E+14	0	   0	! [25]
+OC6H4CH3=C6H6+H+CO			7.60E+11	0      43800	! [25]	 		 
+HOC6H4CH3+OH=OC6H4CH3+H2O		1.40E+08	1.4	-960	! [25]	
+HOC6H4CH3+H=OC6H4CH3+H2			1.20E+14	0.0    12400	! [25]	
+HOC6H4CH3+H=C6H5CH3+OH			2.21E+13	0	7910	
+HOC6H4CH3+H=C6H5OH+CH3			5.80E+13	0	8100	! [25]	
+C6H5CH3+OC6H4CH3=C6H5CH2+HOC6H4CH3      1.60E+11	0      15100	! [25]
+! ************************************************************************
+! *                                                                      *                                                                      *
+! *  BENZENE OXIDATION MECHANISM (Alzueta et al. IJCK 32:498-522, 2000)  *
+! *                                                                      *                                                                      *
+! ************************************************************************
+!
+! *** C6H6/benzene reactions ***
+!
+C6H6+O  =  C6H5O+H                     2.2E13  0.00   4530 !   Bau94,Baj96
+! BAJ/FON96 (405K): C6H5O primary product; C6H5OH cannot be excluded
+C6H6+O  =  C6H5+OH                     2.0E13  0.00  14700 !   Lei89
+C6H6+OH  =  C6H5+H2O                   1.6E08  1.42   1450 !   Bau92
+C6H6+O2  =  C6H5+HO2                   6.0E13  0.00  63400 !   est
+!
+! *** C6H5/phenyl reactions ***
+!
+C6H5  =  C6H4+H                        1.4E15  0.00  83860 !   Kum97,est
+! assume products instead of very endothermic C4H2+C2H2+H
+!
+C6H5+H  =  C6H6                        2.0E14  0.00      0 !   Kum97,Ack90       
+C6H5+H  =  C6H4+H2                     2.0E07  2.00   1000 !   Pau96 est
+C6H5+O  =  C5H5+CO                     1.0E14  0.00      0 !   Fra94
+C6H5+OH  =  C6H5O+H                    5.0E13  0.00      0 !   Pau96 est
+C6H5+OH  =  C6H4+H2O                   1.0E07  2.00   1000 !   Pau96 est
+C6H5+HO2  =  C6H5O+OH                  3.0E13  0.00      0 !   est
+C6H5+H2  =  C6H6+H                     5.7E04  2.43   6280 !   Meb97
+C6H5+O2  =  C6H5O+O                    2.6E13  0.00   6100 ! Fra94
+! Kum97: 1.0E13/0.0/3580
+C6H5+O2  =  oOC6H4O+H                  3.0E13  0.00   9000 ! Fra94 991510
+! Kum97: 4.6E12/0.00/3610
+!
+! *** C6H5O Subset ***
+!
+C6H5O  =  C5H5+CO                      7.4E11  0.00  43900 !   Fra94
+C6H5O+H  =  C6H5OH                     2.5E14  0.00      0 !   Bau92
+!C6H5O+O  =  OC6H4O+H                   1.7E14  0.00      0 !   But94
+C6H5O+O  =  OC6H4O+H                   8.5E13  0.00      0 !   But94 50 %
+C6H5O+O  =  oOC6H4O+H                  8.5E13  0.00      0 !   But94 50 %
+C6H5O+O  =  C5H5+CO2                   1.0E13  0.00      0 !   But94
+!
+! *** C6H5OH Subset ***
+!
+C6H5OH  =  C5H6+CO                     1.0E12  0.00  60800 !   Hor98
+C6H5OH+H  =  C6H5O+H2                  1.2E14  0.00  12400 !   Bau92
+C6H5OH+H  =  C6H6+OH                   2.2E13  0.00   7930 !   Bau92
+C6H5OH+O  =  C6H5O+OH                  1.3E13  0.00   2900 !   Bau94
+C6H5OH+OH  =  C6H5O+H2O                3.0E06  2.00  -1310 !   Kni90
+!C6H5OH+O2  =  C6H5O+HO2                1.0E13  0.00  38000 !   est 991027
+C6H5OH+O2  =  C6H5O+HO2                8.0E12  0.00  40000 !   88	    This work
+C6H5OH+HO2  =  C6H5O+H2O2              1.0E12  0.00  10000 !   est
+! analogy CH3OH+HO2
+C6H5OH+C2H3  =  C6H5O+C2H4             6.0E12  0.00      0 !   Emd92 est
+C6H5OH+CH2CHC-CH2  =  C6H5O+CH2CHCHCH2 6.0E12  0.00      0 !   Emd92 est
+C6H5OH+C6H5  =  C6H5O+C6H6             4.9E12  0.00   4400 !   Fah88
+!
+! *** OC6H4O Subset ***
+!
+oOC6H4O  =   C5H4O+CO                  1.0E12  0.0   40000 !   est.
+!
+OC6H4O  =  C5H4O+CO                    3.7E11  0.00  59000 !   Alz98
+OC6H4O  =  C5H4+CO2                    3.5E12  0.00  67000 !   Alz98
+OC6H4O+H = C5H5O+CO                    2.5E13  0.00   4700 !   Alz98 est
+! no distinguisment between isomers c5h5o
+OC6H4O+H =  OC6H3O+H2                  2.0E12  0.00   8100 !   Alz98 est
+! analogy c6h6 reaction
+OC6H4O+O => C6H3O3+H                   1.5E13  0.00   4530 !   Alz98 est
+! analogy c6h6 reaction
+OC6H4O+O =  OC6H3O+OH                  1.4E13  0.00  14700 !   Alz98 est
+! analogy c6h6 reaction
+OC6H4O+OH =  OC6H3O+H2O                1.0E06  2.00   4000 !   Alz98
+OC6H3O+H => 2C2H2+2CO                  1.0E14  0.00      0 !   Alz98 est
+OC6H3O+H = OC6H4O                      1.0E14  0.00      0 ! est 991027
+OC6H3O+O => C2H2+HCCO+2CO              1.0E14  0.00      0 !   Alz98 est
+C6H3O3 => C2H2+HCCO+2CO                1.0E12  0.00  50000 !   Alz98 est
+C6H3O3+H => C2H2+CH2CO+2CO             1.0E14  0.00      0 ! est 991028
+!
+! *** C5H6 Reactions ***
+!
+C5H6+H  =  C5H5+H2                     7.2E13  0.00   3500 !   Roy97
+C5H6+H  =  C5H7                        2.4E73 -17.85 31500 !   Zho98 qrrk
+C5H6+H  =  CH2CHC-HCHCH2               1.1E14 -0.16   3100 !   Zho98 qrrk
+C5H6+O  =  C5H5O+H                     8.9E12 -0.15    590 !   Zho98 qrrk
+  DUP
+C5H6+O  =  C5H5O+H                     5.6E12 -0.06    200 !   Zho98 qrrk
+  DUP
+C5H6+O  =  C5H5+OH                     4.8E04  2.71   1100 !   Zho98 est^c
+C5H6+OH  =  CH2CHC-HCHCHOH             1.1E13 -0.07    870 !   Zho98 qrrk
+C5H6+OH  =  C5H5+H2O                   3.1E06  2.00      0 !   Zho98 est^c
+C5H6+HO2  =  C5H7+O2                   1.3E15 -1.07   9530 !   Zho98 qrrk
+C5H6+HO2  =  C5H5+H2O2                 1.1E04  2.60  12900 !   Zho98 est^c
+C5H6+O2  =  C5H5+HO2                   4.0E13  0.00  37150 !   Zho98 est^c
+C5H6+CH3  =  C5H5+CH4                  1.8E-1  4.00      0 !   Zho98 est^c
+C5H6+C2H3  =  C6H6+CH3                 2.1E67 -16.08 42460 !   Zho98 est^c
+C5H6+C2H3  =  C5H5+C2H4                1.2E-1  4.00      0 !   Zho98 est^c
+C5H6+C6H5  =  C6H6+C5H5                1.0E-1  4.00      0 !   Zho98 est^c
+C5H6+CH2CHC-CH2  =  C5H5+CH2CHCHCH2    6.0E12  0.00      0 !   Emd92 est
+C5H6+C6H5O  =  C5H5+C6H5OH             3.2E11  0.00   8000 !   Emd92 est
+!
+! *** C5H7(CY), C5H7(L), C5H8(L), C5H7O(L), C5H7OH(L), C5H7O2(L) Reactions ***
+!
+C5H7 = CH2CHC-HCHCH2                   3.2E15  0.00  39500 !   Are93 %mar
+C5H7+H  =  C5H6+H2                     3.6E12  0.00      0 !   est^d
+C5H7+O  =  C5H6+OH                     1.0E13  0.00      0 !   est
+C5H7+OH  =  C5H6+H2O                   2.4E13  0.00      0 !   Boz98 est^d
+!C5H7+O2  =  C5H6+HO2                   1.3E11  0.00      0 !   est^d
+C5H7+O2  =  CHOCH2CH2C-HCHO            8.0E24 -3.80  20000 !   Boz98 qrrk
+CHOCH2CH2C-HCHO+O2  =  CHOCH2CH2CHO+HCOO 6.3E05  1.65  17480 !   Boz98 est
+CH2CHC-HCHCH2  =  CH2CHCHCHC-H2        5.4E11 -0.70     60 !   Boz98
+CH2CHC-HCHCH2+O2  =  CH2CHCHO+CH2HCO   1.2E36 -7.25  33600 !   Boz98 qrrk
+CH2CHCHCHC-H2+H  =  CH2CHCHCHCH3       2.3E20 -1.60   3020 !   Boz98 qrrk
+CH2CHCHCHC-H2+H  =  CH2CHCHC-H+CH3     2.9E26 -2.18  36770 !   Boz98 qrrk
+CH2CHCHCHC-H2+O  =  CH2CHCHO+C2H3      2.0E14  0.00      0 !   Mar96 est^e
+CH2CHCHCHC-H2+OH  =  CH2CHCHCHCH2OH    1.5E13  0.00      0 !   Boz98 est^e
+CH2CHCHCHC-H2+O2  =  CH2CHC-HCHO+CH2O  8.2E10  0.18   9140 !   Boz98 qrrk
+CH2CHCHCHCH3+H  =  CH2CHCHCH2+CH3      5.2E71 -16.38 51000 !   Boz98 qrrk
+CH2CHCHCHCH3+H  =  CH2CHCHCHC-H2+H2    7.0E06  2.00   5000 !   Mar96 est^f
+!CH2CHCHCHC-H2+H2  =  CH2CHCHCHCH3+H    1.1E05  2.38  19000 !   Boz98 est^e
+CH2CHCHCHCH3+OH  =  CH2CHCHCHC-H2+H2O  7.0E06  2.00      0 !   Mar96 est^f
+CH2CHCHCHCH2OH+H  =  CH2CHCHCH2+CH2OH  2.5E34 -6.12  16250 !   Boz98 qrrk
+CH2CHC-HCHCHOH+O2  =  CHOCHCHOH+CH2HCO 1.2E36 -7.25  33600 !   Zho98 est
+!
+! *** C5H5(CY), C5H5(L) Reactions ***
+!
+C5H5  =  CHCCHCHC-H2                   1.0E12  1.00  77000 !   Roy97    	
+CHCCHCHC-H2  =  H2CCCH+C2H2            1.0E12  1.00  31000 !   Roy97
+C5H5+H  =  C5H6                        1.5E14  0.00      0 !   Kum97,Bru88b
+C5H5+O  =  CH2CHCHC-H+CO               3.2E13 -0.17    440 !   Zho98 qrrk
+C5H5+O  =  C5H4O+H                     5.8E13 -0.02     20 !   Zho98
+C5H5+OH  =  C5H5OH                     6.5E14 -0.85  -2730 !   Zho98 qrrk
+  DUP
+C5H5+OH  =  C5H5OH                     1.1E43 -8.76  18730 !   Zho98 qrrk
+  DUP
+C5H5+OH  =  C5H5OH                     1.1E59 -13.08 33450 !   Zho98 qrrk
+  DUP
+C5H5+OH  =  C5H4OH+H                   3.5E57 -12.18 48350 !   Zho98 qrrk
+C5H5+HO2  =  C5H5O+OH                  6.3E29 -4.69  11650 !   Zho98 qrrk
+C5H5+O2  =  CH2CHCHCO+HCO              1.2E19 -2.48  10970 !   Zho98 qrrk
+!
+! *** C5H5OH Subset ***
+!
+C5H5OH+H  =  C5H4OH+H2                 3.2E12  0.00      0 !   Boz98 est^f
+C5H5OH+H  =  C5H5O+H2                  4.0E13  0.00   6094 !   Boz98 est^g
+C5H5OH+O  =  C5H4OH+OH                 4.7E11  0.00      0 !   Boz98 est^g
+C5H5OH+O  =  C5H5O+OH                  1.0E13  0.00   4683 !   Boz98 est^g
+C5H5OH+OH  =  C5H4OH+H2O               5.5E12  0.00   1731 !   Boz98 est^g
+C5H5OH+OH  =  C5H5O+H2O                1.0E13  0.00   1697 !   Boz98 est^g
+C5H5OH+HO2  =  C5H4OH+H2O2             3.6E03  2.55  10531 !   Boz98 est
+C5H5OH+HO2  =  C5H5O+H2O2              1.0E13  0.00  15800 !   Boz98 est
+!
+! *** C5H5O, C5H4OH, C5H4O, C5H3O, C5H4, C5H3 (ALL CY)  Subset ***
+!
+C5H5O  =  C5H4O+H                      2.9E32 -6.50  21220 !   Boz98 qrrk
+C5H5O  =  CH2CHCHC-H+CO                1.1E79 -19.62 66250 !   Boz98 qrrk
+C5H4OH = C5H4O+H                       2.1E13  0.00  54000 !Emd92, adj 991015
+!2.1E13/0/48000 Emd92 est - rv too high with new thermo
+C5H4OH+H = C5H5OH                      1.0E14  0.00      0 ! est 991028
+C5H4OH+O2  =  C5H4O+HO2                1.0E13  0.00  10000 ! est 991027
+C5H4O =>    C2H2+C2H2+CO               5.7E32 -6.76  68500 !   Wan98^h
+  DUP
+C5H4O =>    C2H2+C2H2+CO               6.2E41 -7.87  98700 !
+  DUP
+!C5H4O =>    C2H2+C2H2+CO               1.0E08  0.00      0 ! glob cons step
+!  DUP                                                      ! 1510
+C5H4O+H  =  CH2CHCHC-H+CO              2.1E61 -13.27 40810 !   Boz98 qrrk            
+C5H4O+H  =  C5H3O+H2                   2.0E12  0.00   8100 !   est
+! est. analogy c6h6
+C5H4O+O  =  CH2CHCCH+CO2               1.0E13  0.00   2000 !   Alz98 est
+C5H4O+O  =  C5H3O+OH                   1.4E13  0.00  14700 !   est
+! est. analogy c6h6
+C5H4O+OH  =  C5H3O+H2O                 1.1E08  1.42   1450 !   est
+! est. analogy c6h6
+!C5H4O+OH  =  CH2CHC-CH2+CO2             7.0E12  0.00   1250 !  Alz98 est
+C5H3O+H =  C5H4O                       1.0E14   0.00     0 ! est 991028
+C5H3O+O2  =  C-HCHCHCO+CO2             9.7E58 -13.47 38180 !   Boz98 qrrk
+C5H4+H  =   C5H3+H2                    1.0E06  2.50   5000 !   Alz98 est
+C5H4+O  =   C5H3+OH                    1.0E06  2.50   3000 !   Alz98 est
+C5H4+OH  =   C5H3+H2O                  1.0E06  2.00      0 !   Alz98 est
+C5H3+H = C5H4                          1.0E14  0.00      0 ! est 991028
+C5H3+O2  =   C2H2+HCCO+CO              1.0E12  0.00      0 !   Alz98 est
+!
+! *** C4H6O2, C4H5O2 Reactions ***
+!
+CHOCH2CH2CHO+H  =  CHOCH2CH2C-O+H2     2.3E10  1.05   3279 !   Boz98 est^i
+CHOCH2CH2CHO+OH  =  CHOCH2CH2C-O+H2O   3.5E09  1.18   -447 !   Boz98 est^i
+CHOCH2CH2C-O+O2  =   C2H4+O2CCHOO-     1.6E45 -9.92  20670 !   Boz98 qrrk
+!
+! *** C4H5O Reactions ***
+!
+CH2CHC-HCHO =>    CH2CHC-H2+CO         6.1E05  0.92  -1120 !   est^j
+CH2CHC-HCHO+O2 => CH2CHCHO+HCOO        1.2E36 -7.25  33600 !   est
+!
+! *** C4H4O Reactions ***
+!
+!CH2CHCHCO+H  =  CH2CHCH2C.O            1.7E07  1.03   -550 !   Boz98 qrrk comp??
+CH2CHCHCO+H  =  CH2CHC-H2+CO           6.6E13 -0.02   2740 !   Boz98 qrrk
+CH2CHCHCO+H  =  CH2C-CHCO+H2           1.5E07  2.00   6000 !   est
+! est 0.5 ch2chchch2+h=ch2chc.ch2+h2
+!CH2CHCHCO+H  =  CH2CHC-H2+CO           5.9E06  2.00   1300 !   est
+! est. analogy ch2co
+CH2CHCHCO+O  =  CH2HCO+HCCO            3.0E08  1.45   -860 !   est
+! est 0.5 ch2chchch2+o=ch2chc.ch2+hco
+CH2CHCHCO+OH  =  C-HCHCHCO+H2O         1.0E07  2.00   5000 !   est
+! est 0.5 ch2chchch2+oh=ch2chchc.h+h2o
+CH2CHCHCO+OH  =  CH2C-CHCO+H2O         1.0E07  2.00   2000 !   est
+! est 0.5 ch2chchch2+oh=ch2chc.ch2+h2o
+CH2CHCHCO+OH  =  CH2CHC-H2+CO2         3.0E12  0.00      0 !   est
+! est. analogy ch2co
+!
+! *** C4H3O Reactions ***
+!
+CH2C-CHCO+H  =>   H2CCCH+HCO          1.0E14  0.00      0 !   est
+! est. ch2chc.ch2+h=h2ccch+ch3
+CH2C-CHCO+OH  =>   CHCCHCO+H2O        3.0E13  0.00      0 !   est
+! est. ch2chc.ch2+oh=ch2chcch+h2o
+C-HCHCHCO  =   H2CCCH+CO              6.1E05  0.92  -1120 !   est^k
+C-HCHCHCO+H  =   CH2C-CHCO+H          1.0E14  0.00      0 !   est
+! est. ch2chchc.h+h=ch2chc.ch2+h
+C-HCHCHCO+H  =   CHCCHCO+H2           3.0E07  2.00   1000 !   est
+! est. ch2chchc.h+h=ch2chcch+h2
+C-HCHCHCO+OH  =   CHCCHCO+H2O         2.0E07  2.00   1000 !   est
+! est. ch2chchc.h+oh=ch2chcch+h2o
+C-HCHCHCO+O2  =   CHCCHCO+HO2         1.0E07  2.00  10000 !   est
+! est. ch2chchc.h+o2=>c.hchcho+ch2o
+!
+! *** C4H2O Reactions ***
+!
+CHCCHCO+H =>  CHCC-CO+H2              3.0E07  2.00   5000 !   est
+! est. ch2chcch+h=h2cccch+h2
+CHCCHCO+OH =>  CHCC-CO+H2O            1.0E07  2.00   2000 !   est
+! est. ch2chcch+oh=h2cccch+h2o
+!
+! *** C4HO Reactions ***
+!
+CHCC-CO+H =>  C3H2+CO                 5.0E13  0.00      0 !   est
+CHCC-CO+O =>  C2H+CO+CO               1.0E13  0.00      0 !   est
+CHCC-CO+OH =>  C2H2+CO+CO             1.0E13  0.00      0 !   est
+CHCC-CO+O2 =>  HCCO+CO+CO             1.0E12  0.00      0 !   est
+!
+! *** C4H6 Reactions ***
+!
+CH2CHCHCH2+H  =  CH2CHCHC-H+H2         3.0E07  2.00  13000 !   Pau96
+CH2CHCHCH2+H  =  CH2CHC-CH2+H2         3.0E07  2.00   6000 !   Pau96
+CH2CHCHCH2+O  =  CH2CHC-H2+HCO         6.0E08  1.45   -858 !   Mar96
+CH2CHCHCH2+O  =  CH2HCO+C2H3           1.0E12  0.00      0 !   Mar96
+CH2CHCHCH2+OH  =  CH2CHCHC-H+H2O       2.0E07  2.00   5000 !   Pau96
+CH2CHCHCH2+OH  =  CH2CHC-CH2+H2O       2.0E07  2.00   2000 !   Pau96
+CH2CHCHCH2+O2  =  CH2CHCHC-H+HO2       3.0E13  0.00  57800 !    est.
+CH2CHCHCH2+O2  =  CH2CHC-CH2+HO2       3.0E13  0.00  45850 !    est.
+!
+! *** C4H5 Reactions ***
+!
+CH2CHCHC-H(+M)=CH2CHCCH+H(+M)          1.0E14  0.00  37000 !   Pau96
+    LOW/1.0E14  0.0  30000./
+    H2/2/ CO/2/ CO2/3/  H2O/5/
+CH2CHCHC-H+H  =  CH2CHC-CH2+H          1.0E14  0.00      0 !   Pau96
+CH2CHCHC-H+H  =  CH2CHCCH+H2           3.0E07  2.00   1000 !   Pau96
+CH2CHCHC-H+OH  =  CH2CHCCH+H2O         2.0E07  2.00   1000 !   Pau96
+!CH2CHCHC-H+O2 => C-HCHCHO+CH2O         1.0E12  0.00      0 !   Mar96     ! 215
+CH2CHCHC-H+O2 => C-HCHCHO+CH2O         1.0E11  0.00      0 !   Mar96     ! 215
+!CH2CHCHC-H+O2 => CH2CHCCH+HO2          1.0E07  2.00  10000 !   Mar96     ! 216
+CH2CHCHC-H+O2 => CH2CHCCH+HO2          1.0E08  2.00  10000  !   Mar96     ! 216
+CH2CHC-CH2(+M)=CH2CHCCH+H(+M)          1.0E14  0.00  50000 !   Pau96
+    LOW/2.0E15  0.0  42000./
+    H2/2/ CO/2/ CO2/3/  H2O/5/
+CH2CHC-CH2+H  =  H2CCCH+CH3            1.0E14  0.00      0 !   Pau96
+CH2CHC-CH2+OH  =  CH2CHCCH+H2O         3.0E13  0.00      0 !   Pau96
+!
+! *** C4H4 Reactions ***
+!
+CH2CHCCH+H  =  HCCHCCH+H2             2.0E07  2.00  15000 !   Pau96
+CH2CHCCH+H  =  H2CCCCH+H2             3.0E07  2.00   5000 !   Pau96
+CH2CHCCH+O  =  C2H3+HCCO              1.4E07  2.00   1900 !   est.
+! est. analogy c2h2
+CH2CHCCH+O  =  H2CCCH+HCO            8.1E06  1.88    180 !   est.
+! est. analogy c2h4
+CH2CHCCH+OH  =  HCCHCCH+H2O           7.5E06  2.00   5000 !   Pau96
+CH2CHCCH+OH  =  H2CCCCH+H2O           1.0E07  2.00   2000 !   Pau96
+CH2CHCCH+O2  =  HCCHCCH+HO2          3.0E13  0.00  60750 !   est.
+CH2CHCCH+O2  =  H2CCCCH+HO2          3.0E13  0.00  42200 !   est.
+!
+! *** C4H3 Reactions ***
+!
+HCCHCCH(+M)  =  C4H2+H(+M)            1.0E14  0.00  36000 !   Pau96
+     LOW/ 1.0E14 0.0   30000./
+     H2/2/ CO/2/ CO2/3/  H2O/5/
+HCCHCCH+H  =  H2CCCCH+H               1.0E14  0.00      0 !   Pau96
+HCCHCCH+OH  =  C4H2+H2O               1.0E13  0.00      0 !   est
+HCCHCCH+O2  =  C2H2+CO+HCO            3.0E12  0.00      0 !   est,glob.
+HCCHCCH+C2H2  =  C6H5                 2.8E03  2.90   1400 !   Pau96
+H2CCCCH(+M)  =  C4H2+H(+M)            1.0E14  0.00  55000 !   Pau96
+    LOW/2.0E15  0.0  48000./
+    H2/2/ CO/2/ CO2/3/  H2O/5/
+H2CCCCH+H  =  C4H2+H2                 5.0E13  0.00      0 !   Pau96
+H2CCCCH+O  =  CH2CO+C2H               2.0E13  0.00      0 !   Pau96
+H2CCCCH+O  =  H2C4O+H                 2.0E13  0.00      0 !   Pau96
+H2CCCCH+OH  =  C4H2+H2O               3.0E13  0.00      0 !   Pau96
+H2CCCCH+O2  =  CH2CO+HCCO             1.0E12  0.00      0 !   Pau96
+H2CCCCH+CH2  =  H3CCCH+C2H            2.0E13  0.00      0 !   Pau96
+!
+! *** C4H2 Reactions ***
+!
+C4H2+H  =  C4H+H2                      2.0E07  2.00   2000 !   Pau96
+C4H2+O  =  C3H2+CO                     1.2E12  0.00      0 !   Pau96
+C4H2+OH  =  H2C4O+H                    6.7E12  0.00   -410 !   Pau96
+C4H2+OH  =  C4H+H2O                    1.0E07  2.00   1000 !   Pau96
+!
+! *** H2C4O Reactions ***
+!
+H2C4O+H  =  C2H2+HCCO                  5.0E13  0.00   3000 !   Pau96
+H2C4O+OH  =  CH2CO+HCCO                1.0E07  2.00   2000 !   Pau96
+!
+! *** C4H Reactions ***
+!
+C4H+O2  =  CO+CO+C2H                   1.0E13  0.00      0 !   Pau96
+!
+! *** C3H6 Subset ***
+!
+CH2CHCH3+H  =  C2H4+CH3                7.2E12  0.00   1300 !   Tsa91
+CH2CHCH3+H  =  CH2CHC-H2+H2            1.7E05  2.50   2490 !   Tsa91
+CH2CHCH3+H  =  CH2C-CH3+H2             4.1E05  2.50   9800 !   Tsa91
+CH2CHCH3+H  =  C-HCHCH3+H2             8.0E05  2.50  12300 !   Tsa91
+CH2CHCH3+O  =  C2H5+HCO                1.6E07  1.76  -1216 !   Tsa91
+!CH2CHCH3+O  =  ch3chco+H+H             5.0E07  1.76     76 !   Tsa91
+CH2CHCH3+O  =  CH2CHC-H2+OH            5.2E11  0.70   5884 !   Tsa91
+CH2CHCH3+O  =  C-HCHCH3+OH             1.2E11  0.70   8960 !   Tsa91
+CH2CHCH3+O  =  CH2C-CH3+OH             6.0E10  0.70   7630 !   Tsa91
+CH2CHCH3+OH  =  CH2CHC-H2+H2O          3.1E06  2.00   -298 !   Tsa91
+CH2CHCH3+OH  =  CH2C-CH3+H2O           1.1E06  2.00   1451 !   Tsa91
+CH2CHCH3+OH  =  C-HCHCH3+H2O           2.1E06  2.00   2778 !   Tsa91
+CH2CHCH3+HO2  =  CH2CHC-H2+H2O2        9.6E03  2.60  13909 !   Tsa91
+CH2CHCH3+O2  =  CH2CHC-H2+HO2          2.0E13  0.00  47600 !   Tsa91, est
+CH2CHCH3+O2  =  C-HCHCH3+HO2           2.0E13  0.00  47600 !   Tsa91, est
+CH2CHCH3+O2  =  CH2C-CH3+HO2           2.0E13  0.00  47600 !   Tsa91, est
+!
+! *** C3H5 Subset ***
+!
+CH2CHC-H2+H  =  H2CCCH2+H2             5.0E13  0.00      0 !   Mar96
+CH2CHC-H2+H  =  CH2CHCH3               1.9E26 -3.60   5470 !   Mar96
+CH2CHC-H2+O  =  CH2CHCHO+H             1.8E14  0.00      0 !   Mar96
+CH2CHC-H2+OH  =  H2CCCH2+H2O           1.0E13  0.00      0 !   Tsa91
+CH2CHC-H2+HO2  =  CH2CHCHO+H+OH        1.0E13  0.00      0 !   Tsa91
+CH2CHC-H2+O2  =  CH2CHCHO+OH           1.8E13 -0.41  22860 !   Mar96
+CH2CHC-H2+O2  =  H2CCCH2+HO2           5.0E15 -1.40  22430 !   Mar96
+CH2CHC-H2+O2  =  CH2HCO+CH2O           1.1E10  0.34  12840 !   Mar96
+CH2CHC-H2+O2  =  C2H2+CH2O+OH          2.8E25 -4.80  15470 !   Mar96
+C-HCHCH3+H  =  CH2CHC-H2+H             1.0E14  0.00      0 !   Mar96
+C-HCHCH3+H  =  H3CCCH+H2               2.0E13  0.00      0 !   Mar96
+!C-HCHCH3+O  =  ch3chco+H               1.0E14  0.00      0 !   Mar96
+C-HCHCH3+OH  =  H3CCCH+H2O             1.0E13  0.00      0 !   Mar96
+C-HCHCH3+O2  =  CH3HCO+HCO             1.1E23 -3.29   3900 !   Mar96
+!C-HCHCH3+O2  =  ch3chco+H+O            1.6E15 -0.78   3135 !   Mar96
+CH2C-CH3+H  =  CH2CHC-H2+H             1.0E14  0.00      0 !   Mar96
+CH2C-CH3+H  =  H3CCCH+H2               4.0E13  0.00      0 !   Mar96
+CH2C-CH3+O  =  CH2CO+CH3               1.0E14  0.00      0 !   Mar96
+CH2C-CH3+OH  =  H3CCCH+H2O             2.0E13  0.00      0 !   Mar96
+CH2C-CH3+O2  =  CH3CO+CH2O             1.1E22 -3.29   3900 !   Mar96
+!
+! *** C3H4 Subset ***
+!
+H2CCCH2  =  H3CCCH                     2.2E14  0.00  68100 !   Mar96
+H2CCCH2+H  =  H3CCCH+H                 1.0E13  0.00   5000 !   Pau96
+H2CCCH2+H(+M)  =  CH2CHC-H2(+M)        1.2E11  0.69   3000 !   Mar96
+    LOW/5.6E33 -5.0   4450./
+    TROE/0.7086 134 1784 5740/
+H2CCCH2+H(+M)  =  CH2C-CH3(+M)         8.5E12  0.00   2000 !   Mar96  
+    LOW/1.1E34 -5.0   4450./
+    TROE/0.7086 134 1784 5740/
+H2CCCH2+O  =  C2H4+CO                 1.3E07  1.88    180 !   Mar96
+H2CCCH2+H  =  H2CCCH+H2               3.0E07  2.00   5000 !   Pau96
+H2CCCH2+OH  =  H2CCCH+H2O             2.0E07  2.00   1000 !   Pau96
+H3CCCH+H  =  H2CCCH+H2                3.0E07  2.00   5000 !   Pau96
+H3CCCH+H  =  CH3+C2H2                 1.0E14  0.00   4000 !   Pau96
+H3CCCH+H(+M)  =  CH2C-CH3(+M)         6.5E12  0.00   2000 !   Mar96
+    LOW/8.5E39 -7.27   6580./
+    TROE/0.7086 134 1784 5740/
+H3CCCH+OH  =  H2CCCH+H2O              2.0E07  2.00   1000 !   Pau96
+H3CCCH+O  =  C2H4+CO                  1.5E13  0.00   2100 !   Mar96
+!
+! *** C3H4O Subset ***
+!
+CH2CHCHO+H  =  C2H4+HCO                2.0E13  0.00   3500 !   Mar96 est
+CH2CHCHO+H  =  CH2CHC-O+H2             4.0E13  0.00   4200 !   Mar96 est
+CH2CHCHO+O  =  CH2CHC-O+OH             7.2E12  0.00   1970 !   Mar96 est
+CH2CHCHO+O  =  CH2CO+HCO+H             5.0E07  1.76     76 !   Mar96 est
+!CH2CHCHO+O  =  CH2HCO+HCO              1.0E13  0.00      0 !   Boz98
+CH2CHCHO+OH  =  CH2CHC-O+H2O           1.0E13  0.00      0 !   Mar96 est
+CH2CHCHO+O2  =  CH2CHC-O+HO2           3.0E13  0.00  36000 !   Mar96 est
+! MA changes (2)  (13/8)
+!CH2CHCHO+HO2  =  CH2CHC-O+H2O2         3.0E12  0.00  13000 !   est
+! est. analogy to ch2o
+!CH2CHCHO+M = CH2CHC-O+H+M             3.3E16  0.0   81000 !   est
+! H2O/5.0/
+! est. analogy to ch2o
+!
+! *** C3H3 Subset ***
+!
+!H2CCCH+H(+M)  =  H2CCCH2(+M)          1.0E17 -0.82    315 !   Pau96        ! 298
+!    LOW/3.5E55 -4.88  2225/
+!    TROE/0.7086 134 1784 5740/
+!    H2/2/ CO/2/ CO2/3/  H2O/8.6/
+!H2CCCH+H(+M)  =  H3CCCH(+M)           1.0E17 -0.82    315 !   Pau96        ! 299
+!    LOW/3.5E55 -4.88  2225/
+!    TROE/0.7086 134 1784 5740/
+!    H2/2/ CO/2/ CO2/3/  H2O/8.6/
+H2CCCH+H(+M)=H2CCCH2(+M)	1.66E+15	-0.37	0	! Siva 2005
+	LOW / 3.36E+45 -8.52  6293.0  /				!
+	H2O/5.0/ H2/2.0/ CO2/3.0/ CO/2.0/ O2/2.0/ C2H2/2.0/				
+H2CCCH+H(+M)=H3CCCH(+M)		1.66E+15	-0.37	0	! Siva 2005
+	LOW / 8.78E+45 -8.9   7974.0 /				!
+	H2O /5.0/ H2/2.0/ CO2/3.0/ CO/2.0/ O2/2.0/ C2H2/2.0/				
+H2CCCH+H  =  C3H2+H2                  5.0E13   0.00   1000 !   Pau96
+!H2CCCH+O  =  CH2O+C2H                 1.4E14   0.00      0 !   Pau96       ! 301
+H2CCCH+O  =  CH2O+C2H                 2.5E14   0.00      0 !   Pau96       ! 301
+H2CCCH+OH  =  C3H2+H2O                2.0E13   0.00      0 !   Pau96
+H2CCCH+O2  =  CH2CO+HCO               3.0E10   0.00   2868 !   Pau96
+H2CCCH+H2CCCH  =  C6H5+H              1.0E13   0.00      0 !   Pau96
+!
+! *** C3H3O Subset ***
+!
+CH2CHC-O  =  C2H3+CO                   1.0E14   0.00  34000 !   Mar96 est
+CH2CHC-O+O  =  C2H3+CO2                1.0E14   0.00      0 !   Mar96 est
+CH2CHC-O+O2  = CH2HCO+CO2              5.4E20  -2.72   7000 !   Boz98 qrrk
+!
+! *** C3H2 Subset ***
+!
+C3H2+O  =  C2H2+CO                     1.0E14   0.00      0 !   Pau96
+C3H2+OH  =  C2H2+HCO                   5.0E13   0.00      0 !   Pau96
+C3H2+O2  =  HCCO+CO+H                  2.0E12   0.00   1000 !   Pau96
+C3H2+CH3  =  CH2CHCCH+H                2.0E13   0.00      0 !   Pau96
+C3H2+HCCO  =  HCCHCCH+CO               3.0E13   0.00      0 !   Pau96
+C3H2+H2CCCH  =  C6H4+H                 1.0E13   0.00      0 !   Pau96
+!
+! *** C2HO4 Reactions ***
+!
+O2CCHOO-  =  HCOO+CO2                  3.0E13   0.00   4000 !   Boz98 est
+!
+!
+!
+  !
+  ! *******************************************************
+  ! *   HC subset of reburn mechanism, CF submitted 4/97  *
+  ! *******************************************************
+  !
+O+OH=O2+H                      2.0E14 -0.40      0
+O+H2=OH+H                      5.0E04  2.67   6290
+OH+H2=H2O+H                    2.1E08  1.52   3450
+2OH=O+H2O                      4.3E03  2.70  -2486
+H+H+M=H2+M                     1.0E18 -1.00      0
+    H2O/0/
+H+H+H2O=H2+H2O                 6.0E19 -1.25      0
+H+O+M=OH+M                     6.2E16 -0.60      0
+    H2O/5/
+H+OH+M=H2O+M                   1.6E22 -2.00      0
+    H2O/5/
+O+O+M=O2+M                     1.9E13  0.00  -1788
+    H2O/5/
+H+O2+M=HO2+M                   2.1E18 -1.00      0
+    H2O/10/  N2/0/
+H+O2+N2 = HO2+N2               6.7E19 -1.42      0
+H+HO2=H2+O2                    4.3E13  0.00   1411
+H+HO2=2OH                      1.7E14  0.00    874
+H+HO2=O+H2O                    3.0E13  0.0    1721
+O+HO2=O2+OH                    3.3E13  0.0       0
+OH+HO2=H2O+O2                  1.9E16 -1.0       0
+HO2+HO2=H2O2+O2                4.2E14  0.0   11982
+ DUP
+HO2+HO2=H2O2+O2                1.3E11  0.0   -1629
+ DUP
+H2O2+M=OH+OH+M                 1.3E17  0.0   45500
+   H2O/5/
+H2O2+H=HO2+H2                  1.7E12  0.0    3755
+H2O2+H=OH+H2O                  1.0E13  0.0    3576
+H2O2+O=OH+HO2                  6.6E11  0.0    3974
+H2O2+OH=H2O+HO2                7.8E12  0.0    1330
+ DUP
+H2O2+OH=H2O+HO2                5.8E14  0.0    9560
+ DUP
+CO+O+M=CO2+M                   6.2E14  0.0    3000
+     H2O/5/
+CO+OH=CO2+H                    1.5E07  1.3    -758
+CO+O2=CO2+O                    2.5E12  0.0   47700
+HO2+CO=CO2+OH                  5.8E13  0.0   22934
+CH2O+M=HCO+H+M                 3.3E16  0.0   81000
+     H2O/5/
+CH2O+H = HCO+H2                1.3E08  1.62   2166
+CH2O+O=HCO+OH                  1.8E13  0.00   3080
+CH2O+OH=HCO+H2O                3.4E09  1.18   -447
+CH2O+HO2 = HCO+H2O2            3.0E12  0.00  13000
+CH2O+O2 = HCO+HO2              6.0E13  0.00  40660
+HCO+M=H+CO+M                   1.9E17 -1.0   17000
+    H2O/5/
+HCO+H=CO+H2                    1.2E13  0.25      0
+HCO+O=CO+OH                    3.0E13  0.000     0
+HCO+O=CO2+H                    3.0E13  0.000     0
+HCO+OH=H2O+CO                  1.0E14  0.00      0
+HCO+O2=HO2+CO                  7.6E12  0.0     406
+CH3+H(+M)=CH4(+M)              1.3E16 -0.63    383
+  LOW/1.75E33  -4.76 2440.0/
+  TROE/0.783  74.0 2941.0 6964.0/
+ H2O/8.57/ N2/1.43/
+CH4+H=CH3+H2                   2.2E04  3.00   8750
+CH4+O=CH3+OH                   1.0E09  1.5    8604
+CH4+OH=CH3+H2O                 1.6E06  2.10   2460
+CH4+HO2=CH3+H2O2               1.8E11  0.00  18700
+CH4+O2=CH3+HO2                 7.9E13  0.00  56000
+CH3+H=CH2+H2                   9.0E13  0.00  15100
+CH2(S)+H2=CH3+H                7.2E13  0.0       0
+CH3+O=CH2O+H                   8.4E13  0.0       0
+CH3+OH=CH2+H2O                 7.5E06  2.0    5000
+CH2(S)+H2O=CH3+OH              3.0E15 -0.6       0
+CH2OH+H=CH3+OH                 1.0E14  0.0       0
+CH3O+H=CH3+OH                  1.0E14  0.0       0
+CH3+OH(+M)=CH3OH(+M)           6.3E13  0.0       0
+  LOW/1.89E38  -6.3   3100/
+  TROE/0.2105 83.5 5398 8370/
+  N2/1.43/ H2O/8.58/
+CH3+HO2 = CH3O+OH              8.0E12  0.00      0
+CH3+O2=CH3O+O                  2.9E13  0.0   30481
+CH3+O2=CH2O+OH                 1.9E12  0.0   20315
+CH3+CH3(+M)=C2H6(+M)           2.1E16 -0.97    620
+  LOW /1.26E50 -9.67 6220/
+  TROE/ 0.5325 151 1038 4970 /
+  N2/1.43/ H2O/8.59/ H2/2/ CO/2/ CO2/3/
+CH3+CH2O = CH4+HCO             7.8E-8  6.10   1967
+CH3+HCO = CH4+CO               1.2E14  0.00      0
+CH2+H=CH+H2                    1.0E18 -1.56      0
+CH2+O=CO+H+H                   5.0E13  0.0       0
+CH2+O=CO+H2                    3.0E13  0.0       0
+CH2+OH=CH+H2O                  1.1E07  2.0    3000
+CH2+OH=CH2O+H                  2.5E13  0.0       0
+CH2+O2=CO+H2O                  2.2E22 -3.3    2867
+CH2+O2=CO2+H+H                 3.3E21 -3.3    2867
+CH2+O2=CH2O+O                  3.3E21 -3.3    2867
+CH2+O2=CO2+H2                  2.6E21 -3.3    2867
+CH2+O2=CO+OH+H                 1.6E21 -3.3    2867
+CH2+CO2=CH2O+CO                1.1E12  0.0    1000
+CH2+CH4 = CH3+CH3              4.3E12  0.0   10030
+CH2+CH3=C2H4+H                 4.2E13  0.0       0
+CH2+CH2=C2H2+H+H               4.0E13  0.0       0
+CH2+HCCO=C2H3+CO               3.0E13  0.00      0
+CH2(S)+M=CH2+M                 1.0E13  0.0       0
+   H/0/ H2O/0/ N2/0/
+CH2(S)+N2=CH2+N2               1.3E13  0.0     430
+CH2(S)+H=CH2+H                 2.0E14  0.0       0
+CH2(S)+H2O=CH2+H2O             3.0E13  0.0       0
+CH2(S)+H=CH+H2                 3.0E13  0.0       0
+CH2(S)+O=CO+H+H                3.0E13  0.0       0
+CH2(S)+OH=CH2O+H               3.0E13  0.0       0
+CH2(S)+O2=CO+OH+H              7.0E13  0.0       0
+CH2(S)+CO2=CH2O+CO             3.0E12  0.0       0
+CH2(S)+CH4=CH3+CH3             4.3E13  0.0       0
+CH2(S)+CH3=C2H4+H              2.0E13  0.0       0
+CH2(S)+CH2CO=C2H4+CO           1.6E14  0.0       0
+CH2(S)+C2H6=CH3+C2H5           1.2E+14 0.0       0
+CH+H=C+H2                      1.5E14  0.0       0
+CH+O=CO+H                      5.7E13  0.0       0
+CH+OH=HCO+H                    3.0E13  0.0       0
+CH+OH=C+H2O                    4.0E7   2.0    3000
+CH+O2=HCO+O                    3.3E13  0.0       0
+CH+H2O=CH2O+H                  5.7E12  0.0    -751
+CH+CO2=HCO+CO                  3.4E12  0.0     690
+CH+CH4=C2H4+H                  6.0E13  0.0       0
+CH+CH3=C2H3+H                  3.0E13  0.0       0
+CH+CH2=C2H2+H                  4.0E13  0.0       0
+CH+CH2O=CH2CO+H                9.5E13  0.00   -515
+CH+HCCO=C2H2+CO                5.0E13  0.00      0
+C+OH=CO+H                      5.0E13  0.00      0
+C+O2=CO+O                      2.0E13  0.00      0
+C+CH3=C2H2+H                   5.0E13  0.00      0
+C+CH2=C2H+H                    5.0E13  0.00      0
+CH3OH+H=CH2OH+H2               1.7E7   2.1    4868
+CH3OH+H=CH3O+H2                4.2E6   2.1    4868
+CH3OH+O=CH2OH+OH               3.9E5   2.5    3080
+CH3OH+OH=CH2OH+H2O             5.30E4  2.53    960
+CH3OH+OH=CH3O+H2O              1.32E4  2.53    960
+CH3OH+HO2=CH2OH+H2O2           9.6E10  0.0   12578
+CH2O+H(+M)=CH3O(+M)            5.4E11  0.454  2600
+  LOW/1.54E30  -4.8  5560 /
+  TROE/ 0.758 94 1555 4200/
+  N2/1.43/  H2O/8.58/
+CH3O+H=CH2O+H2                 2.0E13  0.00      0
+CH3O+O=CH2O+OH                 1.0E13  0.00      0
+CH3O+OH=CH2O+H2O               1.0E13  0.00      0
+CH3O+O2=CH2O+HO2               6.3E10  0.00   2600
+H+CH2O(+M)=CH2OH(+M)           5.4E11  0.454  3600
+    LOW/.91E32 -4.82 6530/
+    TROE/0.7187 103 1291 4160/
+  N2/1.43/ H2O/8.58/ CO/2/ CO2/3/ H2/2/
+CH2OH+H=CH2O+H2                2.0E13  0.00      0
+CH2OH+O=CH2O+OH                1.0E13  0.00      0
+CH2OH+OH=CH2O+H2O              1.0E13  0.00      0
+CH2OH+O2=CH2O+HO2              1.6E15 -1.0       0
+ DUP
+CH2OH+O2=CH2O+HO2              7.2E13  0.0    3577
+ DUP
+C2H6+H=C2H5+H2                 5.4E02  3.50   5210
+C2H6+O=C2H5+OH                 3.0E07  2.00   5115
+C2H6+OH=C2H5+H2O               7.2E6   2.0     864
+C2H6+HO2 = C2H5+H2O2           1.3E13  0.00  20460
+C2H6+O2=C2H5+HO2               5.0E13  0.0   55000
+C2H6+CH3=C2H5+CH4              5.5E-1  4.00   8300
+C2H4+H(+M)=C2H5(+M)            1.1E12  0.454  1822
+   LOW/1.112E34  -5.0   4448.0/
+   TROE/0.5 95.0  95.0    200./
+    H2O/5/
+C2H5+H(+M) = C2H6(+M)          5.2E17 -0.99   1580
+  LOW  /  2.0E41 -7.08 6685/
+  TROE/  0.8422 125 2219 6882 /
+  N2/1.0/ H2O/6/
+C2H5+H=CH3+CH3                 4.9E12  0.35      0
+C2H5+O = CH3+CH2O              4.2E13  0.00      0
+C2H5+O = CH3HCO+H              5.3E13  0.00      0
+C2H5+O = C2H4+OH               3.0E13  0.00      0
+C2H5+OH = C2H4+H2O             2.4E13  0.00      0
+C2H5+O2 = C2H4+HO2             1.0E10  0.00  -2190
+C2H5+CH2O = C2H6+HCO           5.5E03  2.81   5860
+C2H5+HCO = C2H6+CO             1.2E14  0.00      0
+C2H5+CH3 = C2H4+CH4            1.1E12  0.00      0
+C2H5+C2H5 = C2H6+C2H4          1.5E12  0.00      0
+C2H3+H(+M)=C2H4(+M)            6.1E12  0.27    280
+      LOW /0.98E30 -3.86 3320./
+      TROE /0.7820 207.50 2663.00 6095.00/
+  H2/2.85/ CO/2.1/ CO2/2.85/  H2O/7.14/ CH4/2.85/ C2H6/4.29/  N2/1.43/
+C2H4+M=C2H2+H2+M               3.5E16  0.0   71500
+     N2/1.5/  H2O/10/
+C2H4+H=C2H3+H2                 5.4E14  0.0   14900
+C2H4+O = CH2HCO+H              4.7E06  1.88    180
+C2H4+O = CH3+HCO               8.1E06  1.88    180
+C2H4+O = CH2CO+H2              6.8E05  1.88    180
+C2H4+OH=C2H3+H2O               2.0E13  0.00   5940
+C2H4+HO2=CH3HCO+OH             2.2E12  0.0   17200
+C2H4+O2=CH2HCO+OH              2.0E8   1.5   39000
+C2H4+CH3 = C2H3+CH4            5.0E11  0.00  15000
+H+C2H2(+M)=C2H3(+M)            3.1E11  0.58   2590
+  LOW/2.254E40  -7.269 6577./
+  TROE/0.5 675. 675./
+    H2/2/ CO/2/ CO2/3/ H2O/5/
+C2H3+H=C2H2+H2                 4.0E13  0.00      0
+C2H3+O=CH2CO+H                 3.0E13  0.000     0
+C2H3+OH=C2H2+H2O               2.0E13  0.0       0
+C2H3+O2 = CH2O+HCO             1.1E23 -3.29   3890
+C2H3+O2 = CH2HCO+O             2.5E15 -0.78   3135
+C2H3+O2=C2H2+HO2               5.2E15 -1.26   3310
+C2H3+CH2O = C2H4+HCO           5.4E03  2.81   5860
+C2H3+HCO = C2H4+CO             9.0E13  0.00      0
+C2H3+CH3 = C2H2+CH4            2.1E13  0.00      0
+C2H3+C2H3 = C2H4+C2H2          1.5E13  0.00      0
+C2H2+M=C2H+H+M                 9.1E30 -3.7  127138
+     H2/2/ CO/2/ CO2/3/  H2O/5/
+H2+C2H=C2H2+H                  4.1E05  2.39    864
+C2H2+O=CH2+CO                  6.1E6   2.00   1900
+C2H2+O=HCCO+H                  1.4E7   2.00   1900
+C2H2+O=C2H+OH                  3.2E15 -0.60  15000
+OH+C2H2=C2H+H2O                3.4E7   2.0   14000
+OH+C2H2=HCCOH+H                5.0E5   2.3   13500
+OH+C2H2=CH2CO+H                2.2E-4  4.5   -1000
+OH+C2H2=CH3+CO                 4.8E-4  4.0   -2000
+OH+C2H2(+M)=C2H2OH(+M)         1.5E8   1.7    1000
+   LOW/1.81E23  -2.0   0.0 /
+  H2/2/  CO/2/   CO2/3/   H2O/5/
+HO2+C2H2=CH2HCO+O              1.0E12  0.0   10000
+HO2+C2H2=CH2O+HCO              1.0E12  0.0   10000
+C2H2+O2=HCO+HCO                2.0E08  1.5   30100
+C2+H2=C2H+H                    4.0E5   2.4    1000
+C2H+O=CH+CO                    5.0E13  0.00      0
+C2H+OH=HCCO+H                  2.0E13  0.00      0
+C2H+OH=C2+H2O                  4.0E7   2.0    8000
+C2H+O2=CO+CO+H                 2.5E13  0.0       0
+C2H+CH4=CH3+C2H2               7.2E12  0.0     976
+C2+OH=C2O+H                    5.0E13  0.0       0
+C2+O2=CO+CO                    5.0E13  0.0       0
+CH3HCO = CH3+HCO               7.1E15  0.00  81280
+CH3HCO+H = CH3CO+H2            4.1E09  1.16   2400
+CH3HCO+O = CH3CO+OH            5.8E12  0.00   1800
+CH3HCO+OH=CH3CO+H2O            2.3E10  0.73  -1110
+CH3HCO+HO2 = CH3CO+H2O2        3.0E12  0.00  12000
+CH3HCO+O2 = CH3CO+HO2          3.0E13  0.00  39000
+CH3HCO+CH3=CH3CO+CH4           2.0E-6  5.6    2464
+CH2HCO=CH3+CO                  1.0E13  0.0   42000
+!CH2HCO+M=CH3+CO+M              2.0E16  0.0   42000
+!    H2/2/ CO/2/ CO2/3/  H2O/5/
+CH2HCO+H=CH3+HCO               1.0E14  0.0       0
+CH2HCO+H=CH3CO+H               3.0E13  0.0       0
+CH2HCO+O=CH2O + HCO            5.0E13  0.0       0
+CH2HCO+OH=CH2CO+H2O            2.0E13  0.0       0
+CH2HCO+OH=CH2OH+HCO            1.0E13  0.0       0
+CH2HCO+O2 = CH2O+CO+OH         2.2E11  0.0    1500
+CH2HCO+CH3=C2H5CHO             5.0E13  0.0       0
+CH2HCO+CH2=C2H4+HCO            5.0E13  0.0       0
+CH2HCO+CH =C2H3+HCO            1.0E14  0.0       0
+C2H5+HCO = C2H5CHO             1.8E13  0.0       0
+C2H5CHO+H = C2H5CO+H2          8.0E13  0.0       0
+C2H5CHO+O = C2H5CO+OH          7.8E12  0.0    1730
+C2H5CHO+OH = C2H5CO+H2O        1.2E13  0.0       0
+C2H5+CO = C2H5CO               1.5E11  0.0    4800
+C2H2OH+H=CH2HCO+H              5.0E13  0.0       0
+C2H2OH+O=OCHCHO+H              5.0E13  0.0     0.0
+C2H2OH+O2=OCHCHO+OH            1.0E12  0.0    5000
+CH3CO(+M)=CH3+CO(+M)           2.8E13  0.0   17100
+  LOW/2.1E15  0.0  14000./
+  TROE/ 0.5 1.0E-30 1.0E30 /
+     H2/2/ CO/2/ CO2/3/  H2O/5/
+CH3CO+H = CH3+HCO              2.1E13  0.00      0
+CH3CO+H = CH2CO+H2             1.2E13  0.00      0
+CH3CO+O = CH3+CO2              1.5E14  0.00      0
+CH3CO+O = CH2CO+OH             4.0E13  0.00      0
+CH3CO+OH = CH2CO+H2O           1.2E13  0.00      0
+CH2+CO(+M)=CH2CO(+M)           8.1E11  0.5    4510
+  LOW/ 1.88E33 -5.11 7095./
+  TROE/ 0.5907 275 1226 5185/
+     H2/2/ CO/2/ CO2/3/  H2O/8.58/  N2/1.43/
+CH2CO+H=CH3+CO                 5.9E6   2.0    1300
+CH2CO+H=HCCO+H2                3.0E7   2.0   10000
+CH2CO+O=CO2+CH2                1.8E12  0.0    1350
+CH2CO+O=HCCO+OH                2.0E7   2.0   10000
+CH2CO+OH=HCCO+H2O              1.0E7   2.0    3000
+CH2CO+OH=CH2OH+CO              7.2E12  0.0       0
+CH2CO+OH=CH3+CO2               3.0E12  0.0       0
+HCCOH+H=HCCO +H2               3.0E7   2.0    1000
+HCCOH+OH=HCCO+H2O              1.0E7   2.0    1000
+HCCOH+O=HCCO+OH                2.0E7   3.0    1900
+OCHCHO+M=HCO+HCO+M             1.0E17  0.0   58000
+OCHCHO+H=CH2O+HCO              3.0E13  0.0       0
+CH+CO(+M)=HCCO(+M)             5.0E13  0.0       0
+  LOW/ 1.88E28  -3.74 1936 /
+  TROE/ 0.5757 237  1652 5069 /
+  N2/1.43/ H2O/8.58/ CO/2/ CO2/3/ H2/2/
+H+HCCO=CH2(S)+CO               1.0E14  0.0       0
+O+HCCO=H+CO+CO                 1.0E14  0.0       0
+HCCO+OH=C2O+H2O                6.0E13  0.0       0
+HCCO+O2=CO2+CO+H               1.4E7   1.7    1000
+HCCO+O2=CO +CO +OH             2.9E7   1.7    1000
+HCCO+HCCO=C2H2+CO+CO           1.0E13  0.00      0
+C2O+H=CH+CO                    1.0E13  0.0       0
+C2O+O=CO+CO                    5.0E13  0.0       0
+C2O+OH=CO+CO+H                 2.0E13  0.0       0
+C2O+O2=CO+CO+O                 2.0E13  0.0       0
+H+NO+M=HNO+M                   2.7E15  0.0    -600  !ojo!!!
+    H2O/10/  O2/1.5/ H2/2/ CO2/3/ N2/0.0/
+H+NO+N2=HNO+N2                 2.4E18 -1.0       0  !ojo!!!
+NO+O+M=NO2+M                   7.5E19 -1.41      0
+  N2/1.7/   O2/1.5/  H2O/10/
+OH+NO+M=HONO+M                 5.1E23 -2.51    -68
+  H2O/5/
+HO2+NO=NO2+OH                  2.1E12  0.00   -479
+HONO+H=H2+NO2                  1.2E13  0.0    7352
+HONO+O=OH+NO2                  1.2E13  0.0    5961
+HONO+OH=H2O+NO2                4.0E12  0.0       0
+NO2+H=NO+OH                    8.4E13  0.0       0
+NO2+O=NO+O2                    3.9E12  0.0    -238
+NO2+NO2=NO+NO+O2               1.6E12  0.0   26123
+HNO+H=H2+NO                    4.5E11  0.72    655
+HNO+O=NO+OH                    1.0E13  0.0       0
+HNO+OH=NO+H2O                  3.6E13  0.0       0
+HNO+O2=HO2+NO                  1.0E13  0.0   25000
+HNO+NO2=HONO+NO                6.0E11  0.0    2000
+CO+NO2 = CO2+NO                9.0E13  0.    33779
+CH2O+NO2 = HCO+HONO            8.0E02  2.77  13730
+HCO+NO=HNO+CO                  7.2E12  0.        0
+HCO+NO2 = CO+HONO              1.2E23 -3.29   2355
+HCO+NO2 = H+CO2+NO             8.4E15 -0.75   1930
+HCO+HNO=CH2O+NO                6.0E11  0.     2000
+!
+!
+!
+! *******************************************************************************
+! *                                                                             *                                                                      *
+! *  N-HEPTANE OXIDATION MECHANISM (after Peters et al. Combust Flame 128, 2002 *
+! *                                                                             *                                                                      *
+! *******************************************************************************
+!
+C7H16=>PC4H9+I*C3H7  			3.160E16 	0.00 	81020 !573
+C7H16+O2=>C7H15-1+HO2 			6.000E13 	0.00 	52820 !574
+C7H16+O2=>C7H15-2+HO2 			4.000E13 	0.00 	50190 !575
+C7H16+HO2=>C7H15-1+H2O2 		5.000E13 	0.00 	20430 !576
+C7H16+HO2=>C7H15-2+H2O2 		3.360E13 	0.00 	17690 !577
+C7H16+OH=>C7H15-1+H2O 			1.050E10 	0.97 	1590  !578
+C7H16+OH=>C7H15-2+H2O 			9.400E07 	1.61 	-35   !579
+C7H15-1=>C7H15-2 			2.000E11 	0.00 	18120 !580
+C7H15-2=>C7H15-1			2.000E11 	0.00 	18120 !581
+C7H15-1+O2=>C7H15O2 			2.500E12 	0.00 	0     !582
+C7H15O2=>C7H15-1+O2 			2.200E15 	0.00 	27960 !583
+C7H15-2+O2=>C7H15O2 			2.500E12 	0.00 	0     !584
+C7H15O2=>C7H15-2+O2			2.200E15 	0.00 	26960 !585
+C7H15O2=>C7H14O2H 			2.000E11 	0.00 	17010 !586
+C7H14O2H+O2=>O2C7H14O2H 		5.600E12 	0.00 	0     !587
+O2C7H14O2H=>HO2C7H13O2H 		2.000E11 	0.00 	17010 !588
+HO2C7H13O2H=>OC7H13O2H+OH 		1.000E09 	0.00 	7500  !589
+OC7H13O2H=>OC7H13O+OH 			8.400E14 	0.00 	43020 !590
+OC7H13O=>CH2O+C5H11+CO 			2.000E13 	0.00 	15000 !591 
+C7H15-1=>C5H11+C2H4 			2.500E13 	0.00 	28920 !592
+C7H15-2=>PC4H9+CH2CHCH3			1.200E13 	0.00 	28203 !593
+C5H11=>C2H4+I*C3H7 			7.972E17 	-1.44 	29876 !594
+C7H16+H=>C7H15-1+H2 			1.880E05 	2.75 	6286  !595
+C7H16+H=>C7H15-2+H2 			2.600E06 	2.40 	4469  !596
+!
+I*C3H7+O2=CH2CHCH3+HO2			6.10E+20	-2.86	7910  !597 Sivaram 2005
+CH2CHCH3+H(+M)=I*C3H7(+M)		5.70E+09  	1.16	874   !598 Seakins 1993 
+	LOW / 1.64E+54   -11.1   9364.0 / 				
+	TROE / 1.0   1.0E-15   260.0   3000.0 /				
+	H2O /5.0/ H2/2.0/ CO2/3.0/ CO/2.0/				
+I*C3H7+H=C2H5+CH3			5.00E+13    	0	0     !599 Tsang 1988 
+PC4H9(+M)=C2H5+C2H4(+M)			1.06E+13    	0	27828 !600 Sivaram 2005
+	LOW / 1.897e55 -11.91 32263./				
+	H2O/5./ H2/2.0/ CO2/3.0/ CO/2.0/				
+PC4H9=C2H5+C2H4				2.50E+13   	 0	28800 !601 Sivaram 2005
+!
+! *******************************************************************************
+! *                                                                             *                                                                      *
+! *  ISOOCTANE OXIDATION MECHANISM (after Tanaka et al. Combust Flame 133, 2003 *
+! *                                                                             *                                                                      *
+! *******************************************************************************
+!
+!
+C8H18+O2=AC8H17+HO2 			1.00E+16 	0.0 	49000  !602 This work
+REV /1.00E+12 0.0 0.0/
+AC8H17+O2=AC8H17OO 			1.00E+12 	0.0 	0.0    !603
+REV /2.51E+13 0.0 27400/
+AC8H17OO=AC8H16OOH-B 			1.14E+11 	0.0 	22400  !604
+REV /1.00E+11 0.0 11000/
+AC8H16OOH-B+O2=AC8H16OOH-BO2 		3.16E+11 	0.0 	0.0    !605
+REV /2.51E+13 0.0 27400/
+AC8H16OOH-BO2=>OC8H15OOH+OH 		8.91E+10 	0.0 	17000  !606
+C8H18+OH=>AC8H17+H2O 			3.00E+13        0.0     3000   !607 This work
+OC8H15OOH=>OC8H15O+OH	 		3.98E+15 	0.0 	43000  !608
+AC8H17+O2=JC8H16+HO2 			3.16E+11 	0.0 	6300   !609 This work
+REV /3.16E+11 0.0 19500/
+!
+OC8H15O+O2=>C2H3+2 CH2O+H2CCCH2+CH3+HO2	2.45E+13 	0.0 	32000  !610 Jia 2006
+AC8H17=>IC4H8+CH2CHCH3+CH3 		1.28E+12 	0.0 	49000  !611 Jia 2006
+JC8H16=>IC4H8+CH2CHC-H2+CH3 		1.92E+12	0.0 	49000  !612 This work
+IC4H8+O2=>C2H3+C2H4+HO2 		2.00E+14 	0.0 	35900  !613 Jia 2006
+!
+C8H18+HO2=AC8H17+H2O2			3.02E+12 	0.00    14700  !614 This work
+!
+!***********************************************************************
+!Cross reactions
+!
+!***********************************************************************
+!
+C7H15-1 + C6H5CH3 = C6H5CH2 + C7H16       1.00e11 0.00   12000   ! 615 Andrae 2007   
+C7H15-2 + C6H5CH3 = C6H5CH2 + C7H16       1.00e11 0.00   12000   ! 616 Andrae 2007
+C6H5 + C7H16 = C7H15-1 + C6H6             9.00e11 0.00   15000   ! 617 Andrae 2007
+C6H5 + C7H16 = C7H15-2 + C6H6             2.00e11 0.00   12500   ! 618 Andrae 2007
+C6H5CH2OO+C7H16=C6H5CH2OOH+C7H15-1        1.40e06 2.36   16700   ! 619 This work
+C6H5CH2OO+C7H16=C6H5CH2OOH+C7H15-2        2.33e06 2.36   15000   ! 620 This work
+C6H5CH2OOH=C6H5CH2O+OH			  1.50e16 0.00   42000   ! 621 Bounaceur 2005
+!
+AC8H17 + C6H5CH3 = C6H5CH2 + C8H18        1.00e11 0.00   12000   ! 622 Andrae 2007 
+C6H5 + C8H18 = AC8H17 + C6H6              9.00e11 0.00   15500   ! 623 Andrae 2007 
+C6H5CH2OO+C8H18=C6H5CH2OOH+AC8H17         1.40e06 2.36   16700   ! 624 This work
+!
+C8H18 + C7H15-1 = C7H16 +AC8H17           9.00E11 0.00   13500   ! 625 Glaude 2002 
+C8H18 + C7H15-2 = C7H16 +AC8H17           9.00E11 0.00   14500   ! 626 Glaude 2002 
+!
+! Laminar burning velocity 
+IC4H8  =  CH2CHC-H2+CH3  		1.92E+66 -14.22  128100  ! 627 Curran 2002
+           REV /  2.089E+59 -13.23  2.953E+04 /
+!
+! Ethylbenzene flames
+!
+C6H5C2H5+O2=C6H5C2H4+HO2		1.4e12    0.0   34000	 ! 628 Bounaceur 2005
+C6H5C2H4+O2 =HO2 +C6H5CHCH2 		7.0e11 	  0.0   17000    ! 629 This work
+C6H5C2H4+HO2 =OH+C6H5CHO+CH3		2.0e12    0.0 	    0    ! 630 This work
+C6H5CHCH2+O=C6H5 +CH2HCO 		3.0e8 	  1.4 	 1000    ! 631 This work
+C6H5CHCH2+OH=C6H5CH2+CH2O 		6.0e12 	  0.0       0    ! 632 This work
+C6H5CHCH2+OH=C6H5CHO+CH3 		1.0e13 	  0.0	    0    ! 633 This work
+END

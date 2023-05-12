@@ -1,0 +1,8 @@
+&mfrwalltemp
+ Nu = 4.0    ! Nusselt number [-]
+ d_mm = 1.d0 ! Diameter [mm]
+ Tw_min = 373.15d0 ! Inlet temperature [K]
+ Tw_max = 1300.0d0 ! Maximum wall temperature [K]
+ alpha = 113.9175348d0 ! alpha of tanh function
+ beta = 0.05d0         ! beta of tanh function
+/

@@ -1,0 +1,4 @@
+300.d0    ! inlet temperature [K]
+0.d0      ! inlet velocity [cm/s]
+0         ! inlet species num
+40.0d0    ! outlet pressure [atm]

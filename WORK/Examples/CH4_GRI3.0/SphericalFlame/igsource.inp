@@ -1,0 +1,6 @@
+&probEsource
+ Eig = 0.15d0   ! total ignition energy [mJ]
+ rig = 200.d0  ! energy radius [micro m]
+ tig = 200.d0  ! energy input time [micro sec]
+/
+

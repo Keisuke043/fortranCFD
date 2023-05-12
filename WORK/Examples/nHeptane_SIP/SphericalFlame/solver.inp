@@ -1,0 +1,21 @@
+&params
+
+ do_hydro = 1    ! 0, 1:hydrodynamics
+ do_tran = 1     ! 0, 1:transport
+ do_reaction = 1 ! 0, 1:reaction Macks
+
+ select_time = 1     ! 0:exEuler, 1:TVDRK3, 2:RK4
+ select_riemann = 2  ! 0:central (LxF), 1:HLL, 2:HLLC, !!! 3:roe, 4:vanleer
+ flag_cfl = 1    ! 0:fixed dt, 1:cfl
+ flag_acu = 1    ! 0:1st order, 1:3rd muscl(higher order), 2:weno(higher order), accuracy
+ flag_muscl = 2  ! 0, 1:muscl, 2:muscl-minmod, !!! 3:muscl-superbee, 4:muscl-mc
+ flag_weno = 0   ! 0, 1:3rd weno-z, 2:5th weno-js, 3:5th weno-z, 4:7th weno-z
+
+ atol = 1.d-13
+ rtol = 1.d-5
+ chem_dir  = './C7_SIP-Gr2.0-s2_mech' ! kinetic models path
+ prob_file = './sph_flame.inp' ! input file
+ init_file = './initial.txt'   ! input file for initial conditions
+
+/
+

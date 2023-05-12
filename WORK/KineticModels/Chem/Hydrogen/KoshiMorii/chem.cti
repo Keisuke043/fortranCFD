@@ -1,0 +1,410 @@
+"""
+  UT112a                                2010.06.16
+   add O+OH+M=HO2+M
+  UT112                                 2010.06.02
+    O+H2 in ref. n is in error!!!
+     O+H2 is changed to Sutherland et al. (Same as LLNL, Konnov and Prinston)
+    OH+HO2 => low temp. part only (based on Hong et al. 2010)
+    H+OH+M=H2O+M
+     Adjusted in order to much flame speed at high pressure
+                         (Data of Tsu2000, Burke2009, 2010)
+    H+HO2 revised again
+     H+HO2=H2O+O is included, based on Boldwin (0.1*k(OH+OH channel)
+  UT111                                 2010.05.21
+    H+HO2 revised
+    H+HO2=H2+O2 => reverse reaction by Micheal
+    H+HO2=OH+OH => Muller et al.
+    H+HO2=H2O+O => not included
+  UT109                                 2010.05.18
+    H+O2+He <= fitted to fig.12 of Micheal (Values are close to Li et al.)
+  UT106                                 2010.05.05
+    H+O2+He <= form ref. i
+      Fc for M=He, Ar, N2 from ref.i
+      3rd body efficiencies for He <= same as Ar for other reactions
+  UT104                                 2010.05.03
+    He is added in order to simulate Burke2010 data
+      3rd body efficiency of He = 1.2*Ar  (Li et al.)
+    OH+HO2=H2O+O2 changed to ref.n (this gives better agreement with Burke2010 data)
+    O+H2=OH+H  is updated to ref.n (this gives better agreement with Burke2010 data)
+  UT103 Ver 1.03                        2010.04.21
+    H+H2O2=H2O+OH changed to "set-ii" of ref.o
+    H+OH+N2=H2O+N2 is added based on Li et al.(Princeton)
+  UT100 Ver 1.0                         2009.09.08
+    UT ver 1.0 is the same as UT092 in which
+    H+OH+M=H2O+M <= ref.q and s (for M=H2O)
+  UT09                                  2009.07.12
+    HO2+HO2+M=H2O2+O2+M
+    H+OH+M=H2O+M
+    H+HO2=H2+O2
+  UT08                                  2009.07.11
+    Error in O+O+Ar=O2+Ar is corrected
+
+  UT mechanism version 0.7              2009.07.07
+    The rate of H+O2(+O2)=HO2(+O2) was updated.
+     (Fitted to K. Hasegawa's experiment and Ref h(J. V. Micheal et al))
+    The rate of H+O2(+H2)=HO2(+H2) was updated.
+     (Fitted to Ref h(J. V. Micheal et al))
+     (The third body efficiency of H2 in H+O2(+M)=HO2(+M) was changed (2.0 ==> 0.0)
+
+  UT mechanism version 0.6              2009.07.01
+    The rate of H+O2(+M)=HO2(+M) was updated.
+     (Cath2000 ==> Ref h(J. V. Micheal et al))
+
+  UT mechanism version 0.5
+    The third body effect of H2 in the reaction H+OH+M=H2O+M was updated.
+     (1.5 ==> 3.0)
+
+  UT mechanism version 0.3              2009.01.11
+
+    UT02                                2008.11.23 by M.Koshi
+
+    version 0.1 : Original model by M. Koshi (2000)
+                                Modified by Morii (2007-2008)
+
+"""
+
+units(length='cm', time='s', quantity='mol', act_energy='cal/mol')
+
+ideal_gas(name='gas',
+          elements="H O N",
+          species="""H2    H     O2    O     OH    HO2   H2O2  H2O   N2""",
+          reactions='all',
+          transport='Mix',
+          initial_state=state(temperature=300.0, pressure=OneAtm))
+
+#-------------------------------------------------------------------------------
+# Species data
+#-------------------------------------------------------------------------------
+
+species(name='H2',
+        atoms='H:2',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 2.34430290E+00,  7.98042480E-03, -1.94779170E-05,
+                       2.01569670E-08, -7.37602890E-12, -9.17924130E+02,
+                       6.83002180E-01]),
+                NASA([1000.00, 6000.00],
+                     [ 2.93283050E+00,  8.26598020E-04, -1.46400570E-07,
+                       1.54098510E-11, -6.88796150E-16, -8.13055820E+02,
+                      -1.02431640E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=2.92,
+                                well_depth=38.0,
+                                polar=0.79,
+                                rot_relax=280.0))
+
+species(name='H',
+        atoms='H:1',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 2.50000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  2.54736600E+04,
+                      -4.46682850E-01]),
+                NASA([1000.00, 6000.00],
+                     [ 2.50000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  2.54736600E+04,
+                      -4.46682850E-01])),
+        transport=gas_transport(geom='atom',
+                                diam=2.05,
+                                well_depth=145.0))
+
+species(name='O2',
+        atoms='O:2',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 3.78245636E+00, -2.99673415E-03,  9.84730200E-06,
+                      -9.68129508E-09,  3.24372836E-12, -1.06394356E+03,
+                       3.65767573E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 3.66096083E+00,  6.56365523E-04, -1.41149485E-07,
+                       2.05797658E-11, -1.29913248E-15, -1.21597725E+03,
+                       3.41536184E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=3.458,
+                                well_depth=107.4,
+                                polar=1.6,
+                                rot_relax=3.8))
+
+species(name='O',
+        atoms='O:1',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 3.16826710E+00, -3.27931884E-03,  6.64306396E-06,
+                      -6.12806624E-09,  2.11265971E-12,  2.91222592E+04,
+                       2.05193346E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 2.54363697E+00, -2.73162486E-05, -4.19029520E-09,
+                       4.95481845E-12, -4.79553694E-16,  2.92260120E+04,
+                       4.92229457E+00])),
+        transport=gas_transport(geom='atom',
+                                diam=2.75,
+                                well_depth=80.0))
+
+species(name='OH',
+        atoms='H:1 O:1',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 3.99201543E+00, -2.40131752E-03,  4.61793841E-06,
+                      -3.88113333E-09,  1.36411470E-12,  3.35711894E+03,
+                      -1.03925458E-01]),
+                NASA([1000.00, 6000.00],
+                     [ 2.83864607E+00,  1.10725586E-03, -2.93914978E-07,
+                       4.20524247E-11, -2.42169092E-15,  3.68599690E+03,
+                       5.84452662E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=2.75,
+                                well_depth=80.0))
+
+species(name='HO2',
+        atoms='H:1 O:2',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 4.30178800E+00, -4.74902010E-03,  2.11579530E-05,
+                      -2.42759610E-08,  9.29206700E-12,  4.46212417E+02,
+                       3.71670100E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 4.17226590E+00,  1.88120980E-03, -3.46292970E-07,
+                       1.94685160E-11,  1.76091530E-16,  2.13222508E+02,
+                       2.95779740E+00])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=3.458,
+                                well_depth=107.4,
+                                rot_relax=1.0))
+
+species(name='H2O2',
+        atoms='H:2 O:2',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 4.27611269E+00, -5.42822417E-04,  1.67335701E-05,
+                      -2.15770813E-08,  8.62454363E-12, -1.77035843E+04,
+                       3.43505074E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 4.57333537E+00,  4.04984070E-03, -1.29479479E-06,
+                       1.97281710E-10, -1.13402846E-14, -1.80040975E+04,
+                       7.04278488E-01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=3.458,
+                                well_depth=107.4,
+                                rot_relax=3.8))
+
+species(name='H2O',
+        atoms='H:2 O:1',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 4.19863520E+00, -2.03640170E-03,  6.52034160E-06,
+                      -5.48792690E-09,  1.77196800E-12, -3.02937260E+04,
+                      -8.49009010E-01]),
+                NASA([1000.00, 6000.00],
+                     [ 2.67703890E+00,  2.97318160E-03, -7.73768890E-07,
+                       9.44335140E-11, -4.26899910E-15, -2.98858940E+04,
+                       6.88255000E+00])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=2.605,
+                                well_depth=572.4,
+                                dipole=1.844,
+                                rot_relax=4.0))
+
+species(name='N2',
+        atoms='N:2',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 3.53096280E+00, -1.23659500E-04, -5.02993390E-07,
+                       2.43527680E-09, -1.40879540E-12, -1.04696370E+03,
+                       2.96743910E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 2.95254070E+00,  1.39688380E-03, -4.92625770E-07,
+                       7.86000910E-11, -4.60749780E-15, -9.23937530E+02,
+                       5.87182210E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=3.621,
+                                well_depth=97.53,
+                                polar=1.76,
+                                rot_relax=4.0))
+
+#-------------------------------------------------------------------------------
+# Reaction data
+#-------------------------------------------------------------------------------
+
+# Reaction 1
+reaction('OH + H2 <=> H2O + H', [2.160000e+08, 1.51, 3430.0])
+# n LLNL
+
+# Reaction 2
+reaction('H + O2 <=> OH + O', [1.910000e+14, 0.0, 16440.0])
+#  LLNL
+
+# Reaction 3
+reaction('O + H2 <=> OH + H', [5.080000e+04, 2.67, 6292.0])
+# a (Sutherland)
+#  HO2 reactions
+
+# Reaction 4
+reaction('OH + HO2 <=> H2O + O2', [2.890000e+13, 0.0, -500.0])
+# n
+
+# Reaction 5
+reaction('H + HO2 <=> H2 + O2', [3.660000e+06, 2.087, -1450.0])
+# Michael, Reverse Reaction
+
+# Reaction 6
+reaction('H + HO2 <=> OH + OH', [7.080000e+13, 0.0, 300.0])
+# Muller
+
+# Reaction 7
+reaction('H + HO2 <=> H2O + O', [1.340000e+13, 0.0, 1340.0])
+# Boldwin, revised
+
+# Reaction 8
+reaction('O + HO2 <=> O2 + OH', [3.250000e+13, 0.0, 0.0])
+# b
+
+# Reaction 9
+reaction('HO2 + HO2 <=> H2O2 + O2', [4.200000e+14, 0.0, 12000.0])
+# c
+
+# Reaction 10
+falloff_reaction('HO2 + HO2 (+ M) <=> H2O2 + O2 (+ M)',
+                 kf=[1.320000e+11, 0.0, -1192.0],
+                 kf0=[6.890000e+14, 0.0, -1947.0])
+# p
+# p
+
+# Reaction 11
+reaction('OH + OH <=> O + H2O', [4.330000e+03, 2.7, -2485.0])
+# a
+#  H2O2 reactions
+
+# Reaction 12
+reaction('H2O2 + H <=> H2O + OH', [8.190000e+08, 1.55, 3455.0])
+# o set-ii
+
+# Reaction 13
+reaction('H2O2 + H <=> HO2 + H2', [8.067000e+19, -1.574, 16838.0],
+         options='duplicate')
+# o
+
+# Reaction 14
+reaction('H2O2 + H <=> HO2 + H2', [1.042000e+13, 0.0, 6569.0],
+         options='duplicate')
+# o
+
+# Reaction 15
+reaction('H2O2 + OH <=> H2O + HO2', [1.700000e+18, 0.0, 29407.0],
+         options='duplicate')
+# n
+
+# Reaction 16
+reaction('H2O2 + OH <=> H2O + HO2', [2.000000e+12, 0.0, 427.0],
+         options='duplicate')
+# n
+
+# Reaction 17
+reaction('H2O2 + O <=> HO2 + OH', [6.620000e+11, 0.0, 3974.0])
+# b
+#  reaconbination reactions
+#  H+O2+M
+
+# Reaction 18
+falloff_reaction('H + O2 (+ M) <=> HO2 (+ M)',
+                 kf=[1.933000e+12, 0.56, 0.0],
+                 kf0=[4.570000e+18, -1.12, 0.0],
+                 efficiencies='H2:0.0 H2O:0.0 N2:0.0 O2:0.0',
+                 falloff=Troe(A=0.62, T3=1e-10, T1=10000000000.0))
+# n
+# h (Ar)
+# i
+
+# Reaction 19
+falloff_reaction('H + O2 (+ H2) <=> HO2 (+ H2)',
+                 kf=[1.933000e+12, 0.56, 0.0],
+                 kf0=[3.520000e+18, -0.896, 0.0],
+                 falloff=Troe(A=0.5, T3=1e-10, T1=10000000000.0))
+# n
+# fit h
+
+# Reaction 20
+falloff_reaction('H + O2 (+ N2) <=> HO2 (+ N2)',
+                 kf=[1.933000e+12, 0.56, 0.0],
+                 kf0=[1.750000e+19, -1.232, 0.0],
+                 falloff=Troe(A=0.67, T3=1e-10, T1=10000000000.0))
+# n
+# h (N2)
+# i
+
+# Reaction 21
+falloff_reaction('H + O2 (+ O2) <=> HO2 (+ O2)',
+                 kf=[1.933000e+12, 0.56, 0.0],
+                 kf0=[1.410000e+18, -0.849, 0.0],
+                 falloff=Troe(A=0.5, T3=1e-10, T1=10000000000.0))
+# n
+# h (O2),fit K. Hasegawa
+
+# Reaction 22
+falloff_reaction('H + O2 (+ H2O) <=> HO2 (+ H2O)',
+                 kf=[1.933000e+12, 0.56, 0.0],
+                 kf0=[3.630000e+19, -1.0, 0.0],
+                 falloff=Troe(A=0.81, T3=1e-10, T1=10000000000.0))
+# n
+# n
+# n
+
+# Reaction 23
+three_body_reaction('H + H + M <=> H2 + M', [7.000000e+17, -1.0, 0.0],
+                    efficiencies='H:0.0 H2:0.0 H2O:14.4 N2:0.0 O2:2.2')
+# e
+# e
+
+# Reaction 24
+reaction('H + H + H2 <=> H2 + H2', [1.000000e+17, -0.6, 0.0])
+# e
+
+# Reaction 25
+reaction('H + H + N2 <=> H2 + N2', [5.400000e+18, -1.3, 0.0])
+# e
+
+# Reaction 26
+reaction('H + H + H <=> H2 + H', [3.200000e+15, 0.0, 0.0])
+# e
+
+# Reaction 27
+three_body_reaction('H + OH + M <=> H2O + M', [3.500000e+22, -2.0, 0.0],
+                    efficiencies='H2O:12.0')
+# adjust
+
+# Reaction 28
+three_body_reaction('H + O + M <=> OH + M', [6.750000e+18, -1.0, 0.0],
+                    efficiencies='H2O:5.0')
+# k (cited by Konnov)
+
+# Reaction 29
+three_body_reaction('O + O + M <=> O2 + M', [6.160000e+15, -0.5, 0.0],
+                    efficiencies='H2:2.5 H2O:12.0')
+# d
+
+# Reaction 30
+three_body_reaction('O + OH + M <=> HO2 + M', [1.350000e+15, -0.216, 0.0])
+# German & Miller
+
+# Reaction 31
+falloff_reaction('H2O2 (+ M) <=> OH + OH (+ M)',
+                 kf=[3.000000e+14, 0.0, 48482.0],
+                 kf0=[2.290000e+16, 0.0, 43634.0],
+                 efficiencies='H2:3.0 H2O:15.0 N2:3.0 O2:2.2',
+                 falloff=Troe(A=0.44, T3=1e-10, T1=10000000000.0))
+# n
+# m (AR)
+# m
+# Rule of Thumb
+#  References
+#  a: J.V.Mihcael, Prog.Energy Combust.Sci., 18 327 (1992)
+#  b: D.L.Baulch et al. J.Phys.Chem. Ref. data 21, 411 (1992)
+#  c: H. Hippler, et al.,  J. Chem. Phys., 90, 1755 (1993)
+#  (c: T.J.Wallington et al., Chem. Rev., 92, 667 (1992))
+#  d: W.Tsang, R.F.Hampson, J.Phys.Chem., Ref.Data 15, 1087 (1986)
+#  e: N.Cohen et al. J.Phys.Chem. Ref.Data 12, 531 (1983)
+#  f: J.V.Micheal 28th Comb. Symp. (2000) pp.1471-1478
+#  g: J.Tore Proc. Combust. Inst.,28 1463 (2000)
+#  h: J.V.Micheal et al., J. Phys. Chem., A 106 5297 (2002)
+#  i: Fernandes et al., Phys. Chem. Chem. Phys., 10 4313 (2008)
+#  j: LLNL (M'O. Conaire, IJCK 36, 603(2004)
+#  k: V.Naudet et al. Combust. Sci. Technol., 164, 113 (2001)
+#  l: A.A.konnov, Combst. Falme 152, 507 (2008)
+#  m: C.Kappel et al. Phys.Chem.Chem.Phys. 4, 4392 (2002)
+#  n: D.L.Baulch et al. J.Phys.Chem.Ref.Data 34(3), 803 (2005)
+#  o: B.A.Ellingson et al., J.Phys.Chem., A111, 13554 (2007)
+#  p: R.A.Atokins et al., Atoms. Chem. Phys., 4, 1461 (2004)
+#  q: S.R.Sellevag et al., J.Phys. Chem. A 112, 5085 (2008)
+#  r: S.Javoy, V.Naudet, S.Abid, C.E.Pillard, Exp. Thermal Fluid Sci., 27, 371 (2003)
+#  s: N.K.Srinivasan, J.V.Micheal, I.J.C.K., 38, 211 (2006)
+#  u: M.A.Muller, R.A.Yetter,F.L.Dryer, I.J.C.K., 31, 113 (1999)

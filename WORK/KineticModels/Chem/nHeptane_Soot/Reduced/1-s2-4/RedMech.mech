@@ -1,0 +1,462 @@
+Let allowed atoms be C, H, O, N.
+Let additional species be N2.
+Let temperature exponent be n_k.
+Let order of reaction be n.
+Let units for A be [ cm^(3(n-1)) / ( s * mole^(n-1) * K^n_k ) ].
+Let units for E be [ kJ / mole ].
+Let symbol for soot be SOOT.
+
+
+# --- N2 reactions --- #
+
+G28f: S-CH2 + N2 -> T-CH2 + N2		{ A = 1.500E+13 n =    .00 E =   2.51 }
+
+
+# --- O reactions --- #
+
+2f: O + H2 -> H + OH			{ A = 4.590E+04 n =   2.70 E =  26.19 }
+10: H + O + M3 -> OH + M3		{ A = 9.430E+18 n =  -1.00 E =    .00 }
+
+
+# --- OH reactions --- #
+
+9 : H + OH + M2 -> H2O + M2		{ A = 4.400E+22 n =  -2.00 E =    .00 }
+3f: OH + H2 -> H + H2O			{ A = 1.730E+08 n =   1.51 E =  14.35 }
+4f: 2 OH -> O + H2O			{ A = 3.970E+04 n =   2.40 E =  -8.83 }
+
+
+# --- O2 reactions --- #
+
+12: H + O2 + M5 -> HO2 + M5		{ A = 6.330E+19 n = -1.40 E =    .00
+					  Ai= 5.120E+12 ni=  0.44 Ei=   .00
+	 				  fca = 0.5 	fcta = 1.000E-10 
+					  fcb = 0.5	fctb = 1.000E+10 
+					  fcc = 1.0	fctc = 1.000E+10 }
+1f: H + O2 -> O + OH			{ A = 2.640E+16 n =  -0.67 E =  71.30 }
+
+
+# --- HO2 reactions --- #
+
+13: HO2 + H  -> O2 + H2			{ A = 3.649E+06 n =   2.07 E =  -4.57 }
+15: HO2 + H  -> O + H2O			{ A = 3.970E+12 n =    .00 E =   2.81 }
+16: HO2 + H  -> 2 OH			{ A = 7.490E+13 n =    .00 E =   2.66 }
+17: HO2 + O  -> OH + O2			{ A = 4.000E+13 n =    .00 E =    .00 }
+18: HO2 + OH -> H2O + O2		{ A = 2.380E+13 n =    .00 E =  -2.09 }
+19: HO2 + OH -> H2O + O2		{ A = 1.000E+16 n =    .00 E =  72.51 }
+
+
+# --- CH reactions --- #
+
+G04 : CH + O   -> CO + H		{ A = 5.700E+13 n =    .00 E =    .00 }
+G05 : CH + OH  -> HCO + H	 	{ A = 3.000E+13 n =    .00 E =    .00 }
+G06f: CH + H2  -> T-CH2 + H		{ A = 1.080E+14 n =    .00 E =  13.01 }
+G08 : CH + H2O -> CH2O + H		{ A = 5.710E+12 n =    .00 E =  -3.16 }
+G09 : CH + O2  -> HCO + O		{ A = 6.710E+13 n =    .00 E =    .00 }
+
+
+# --- T-CH2 reactions --- #
+
+G15 : T-CH2 + O  -> HCO + H		{ A = 8.000E+13 n =   .00 E =    .00 }
+G16 : T-CH2 + OH -> CH2O + H	  	{ A = 2.000E+13 n =   .00 E =    .00 }
+G17f: T-CH2 + OH -> CH + H2O		{ A = 1.130E+07 n =  2.00 E =  12.55 }
+G18f: T-CH2 + H2 -> H + CH3		{ A = 5.000E+05 n =  2.00 E =  30.25 }
+G19 : T-CH2 + O2 -> CO2 + 2 H	  	{ A = 5.800E+12 n =   .00 E =   6.28 }
+G20 : T-CH2 + O2 -> CH2O + O		{ A = 2.400E+12 n =   .00 E =   6.28 }
+G21 : T-CH2 + O2 -> OH + H + CO		{ A = 5.000E+12 n =   .00 E =   6.28 }
+
+
+# --- S-CH2 reactions --- #
+
+G34f: S-CH2 + H2  -> CH3 + H		{ A = 7.000E+13 n =   .00 E =    .00 }
+G35 : S-CH2 + O2  -> H + OH + CO	{ A = 2.800E+13 n =   .00 E =    .00 }
+G36 : S-CH2 + O2  -> CO + H2O		{ A = 1.200E+13 n =   .00 E =    .00 }
+G37 : S-CH2 + H2O + M3 -> CH2O + H2 + M3	{ A = 1.880E+38 n = -6.36 E =  21.09
+				     	  Ai= 4.820E+17 ni= -1.16 Ei=  4.79
+	 				  fca = 0.3973	fcta = 208 
+					  fcb = 0.6027	fctb = 3922
+					  fcc = 1.0   	fctc = 10180 }
+G38f: S-CH2 + H2O -> T-CH2 + H2O	{ A = 3.000E+13 n =   .00 E =    .00 }
+G39 : S-CH2 + H2O -> H2 + CH2O		{ A = 6.820E+10 n =  0.25 E =  -3.91 }
+
+
+# --- CH3 reactions --- #
+
+G51f: CH3 + H + M9 -> CH4 + M9		{ A = 3.470E+38 n = -6.30 E =  21.23
+				  	  Ai= 6.920E+13 ni=  0.18 Ei=   .00
+	 				  fca = 0.2170 	fcta = 74
+	 				  fcb = 0.8730	fctb = 2941
+	 				  fcc = 1.0	fctc = 6964 }
+G52 : CH3 + O -> CH2O + H		{ A = 5.060E+13 n =   .00 E =    .00 }
+G53 : CH3 + O -> H + H2 + CO		{ A = 3.370E+13 n =   .00 E =    .00 }
+G54 : CH3 + OH + M3 -> CH2O + H2 + M3	{ A = 4.000E+36 n = -5.92 E =  13.14
+				  	  Ai= 2.790E+18 ni= -1.43 Ei=  5.57
+	 				  fca = 0.588	fcta = 195 
+					  fcb = 0.412 	fctb = 5900 
+					  fcc = 1.0	fctc = 6394 }
+
+G55f: CH3 + OH    -> T-CH2 + H2O	{ A = 5.600E+07 n =  1.60 E =  22.68 }
+G57f: CH3 + OH    -> S-CH2 + H2O	{ A = 6.440E+17 n = -1.34 E =   5.93 }
+G58 : CH3 + O2    -> CH2O + O + H	{ A = 1.380E+13 n =   .00 E = 127.53 }
+G59 : CH3 + O2    -> CH2O + OH		{ A = 5.870E+11 n =   .00 E =  57.91 }
+G65 : CH3 + HO2   -> CH2O + OH + H	{ A = 1.000E+13 n =   .00 E =    .00 }
+G66 : CH3 + HO2   -> CH4 + O2		{ A = 3.610E+12 n =   .00 E =    .00 }
+G69 : CH3 + CH    -> C2H3 + H		{ A = 3.000E+13 n =   .00 E =    .00 }
+G72 : CH3 + T-CH2 -> C2H4 + H		{ A = 1.000E+14 n =   .00 E =    .00 }
+G74f: CH3 + CH3   -> C2H5 + H	 	{ A = 6.840E+12 n =  0.10 E =  44.35 }
+G95 : CH3 + CH3   -> S-CH2 + CH4	{ A = 2.632E+12 n = -0.06 E =  57.16 }
+
+
+# --- CH4 reactions --- #
+
+G90f: CH4 + H     -> CH3 + H2		{ A = 6.600E+08 n =  1.62 E =  45.36 }
+G91f: CH4 + O     -> CH3 + OH		{ A = 1.020E+09 n =  1.50 E =  35.98 }
+G92f: CH4 + OH    -> CH3 + H2O		{ A = 1.000E+08 n =  1.60 E =  13.05 }
+G93 : CH4 + CH    -> C2H4 + H		{ A = 6.000E+13 n =   .00 E =    .00 }
+G94f: CH4 + T-CH2 -> CH3 + CH3		{ A = 2.460E+06 n =  2.00 E =  34.60 }
+
+
+# --- CO reactions --- #
+
+27  : CO + O + M7 -> CO2 + M7		{ A = 1.170E+24 n = -2.79 E =  17.54
+				  	  Ai= 1.360E+10 ni=   .00 Ei=  9.98
+	 				  fca = 0.0	 fcta =  0.0 
+					  fcb = 0.0 	 fctb =  0.0 
+					  fcc = 1.0 	 fctc =  0.0 }
+28f : CO + OH    -> CO2 + H		{ A = 8.000E+11 n =  0.14 E =  30.76 }
+29f : CO + OH    -> CO2 + H		{ A = 8.780E+10 n =  0.03 E =  -0.07 }
+31  : CO + HO2   -> CO2 + OH		{ A = 3.010E+13 n =   .00 E =  96.23 }
+G40f: CO + S-CH2 -> CO + T-CH2		{ A = 9.000E+12 n =   .00 E =    .00 }
+
+
+# --- HCO reactions --- #
+
+32 : HCO + H   -> CO + H2	  	{ A = 1.200E+14 n =   .00 E =    .00 }
+33 : HCO + O   -> CO + OH		{ A = 3.000E+13 n =   .00 E =    .00 }
+34 : HCO + O   -> CO2 + H		{ A = 3.000E+13 n =   .00 E =    .00 }
+35 : HCO + OH  -> CO + H2O		{ A = 3.020E+13 n =   .00 E =    .00 }
+36f: HCO + M8  -> CO + H + M8		{ A = 1.870E+17 n = -1.00 E =  71.13 }
+37f: HCO + H2O -> CO + H + H2O		{ A = 2.240E+18 n = -1.00 E =  71.13 }
+38 : HCO + O2  -> CO + HO2		{ A = 1.200E+10 n =  0.81 E =  -3.04 }
+G70: CH3 + HCO -> CH4 + CO		{ A = 2.650E+13 n =   .00 E =    .00 }
+
+
+# --- CH2O reactions --- #
+
+G45f: CH2O + H   -> HCO + H2		{ A = 5.740E+07 n =  1.90 E =  11.47 }
+G46 : CH2O + O   -> HCO + OH		{ A = 3.900E+13 n =   .00 E =  14.81 }
+G47 : CH2O + OH  -> HCO + H2O		{ A = 3.430E+09 n =  1.18 E =  -1.87 }
+G71 : CH3 + CH2O -> CH4 + HCO		{ A = 3.320E+03 n =  2.81 E =  24.52 }
+
+
+# --- CO2 reactions --- #
+
+G11 : CO2 + CH    -> HCO + CO		{ A = 1.900E+14 n =   .00 E =  66.07 }
+G41f: CO2 + S-CH2 -> CO2 + T-CH2	{ A = 7.000E+12 n =   .00 E =    .00 }
+G42 : CO2 + S-CH2 -> CH2O + CO		{ A = 1.400E+13 n =   .00 E =    .00 }
+
+
+# --- C2H reactions --- #
+
+G105 : C2H + O   -> CH + CO		{ A = 5.000E+13 n =   .00 E =    .00 }
+G106 : C2H + OH  -> HCCO + H		{ A = 2.000E+13 n =   .00 E =    .00 }
+G107 : C2H + O2  -> HCO + CO		{ A = 1.000E+13 n =   .00 E =  -3.16 }
+G108f: C2H + H2  -> C2H2 + H		{ A = 3.310E+06 n =  2.26 E =   3.77 }
+
+
+# --- C2H2 reactions --- #
+
+G115f: C2H2 + H + M3 -> C2H3 + M3	{ A = 6.340E+31 n = -4.66 E =  15.82
+				  	  Ai= 1.710E+10 ni=  1.27 Ei= 11.33
+	 				  fca = 0.2122	fcta = -10210 
+	 				  fcb = 0.0 	fctb = 1.0 
+	 				  fcc = 0.0	fctc = 1.0 }
+G116 : C2H2 + O     -> HCCO + H		{ A = 8.100E+06 n =  2.00 E =   7.95 }
+G117 : C2H2 + O     -> T-CH2 + CO	{ A = 1.250E+07 n =  2.00 E =   7.95 }
+G118 : C2H2 + O     -> C2H + OH 	{ A = 3.324E+16 n = -0.44 E = 128.44 }
+G119 : C2H2 + OH    -> C2H + H2O	{ A = 2.630E+06 n =  2.14 E =  71.38 }
+G121 : C2H2 + OH    -> CH3 + CO	  	{ A = 7.530E+06 n =  1.55 E =   8.81 }
+G122 : C2H2 + OH    -> CH3 + CO		{ A = 1.280E+09 n =  0.73 E =  10.79 }
+R004f: C2H2 + S-CH2 -> C3H3 + H		{ A = 1.900E+14 n =   .00 E =    .00 }
+
+
+# --- C2H3 reactions --- #
+
+G129 : C2H3 + H + M3 -> C2H4 + M3	{ A = 1.400E+30 n = -3.86 E =  13.89
+				  	  Ai= 6.080E+12 ni=  0.27 Ei=  1.17
+	 				  fca = 0.2180 	fcta = 207.5 
+	 				  fcb = 0.7820 	fctb = 2663
+	 				  fcc = 1.0	fctc = 6095 }
+G130 : C2H3 + H    -> C2H2 + H2		{ A = 3.000E+13 n =   .00 E =    .00 }
+G131 : C2H3 + O    -> CH3 + CO		{ A = 1.030E+13 n =  0.21 E =  -1.79 }
+G132 : C2H3 + OH   -> C2H2 + H2O	{ A = 5.000E+12 n =   .00 E =    .00 }
+G133 : C2H3 + O2   -> C2H2 + HO2	{ A = 1.340E+06 n =  1.61 E =  -1.61 }
+G134 : C2H3 + O2   -> CH3 + CO + O	{ A = 3.030E+11 n =  0.29 E =   0.05 }
+G135 : C2H3 + O2   -> HCO + CH2O	{ A = 4.580E+16 n = -1.39 E =   4.25 }
+R011 : C2H3 + HCO  -> C2H4 + CO		{ A = 9.000E+13 n =   .00 E =    .00 }
+R013 : C2H3 + CH3  -> C2H2 + CH4	{ A = 9.030E+12 n =   .00 E =  -3.20 }
+R015f: C2H3 + CH3  -> A-C3H5 + H	{ A = 1.930E+18 n = -1.25 E =  32.09 }
+
+
+# --- C2H4 reactions --- #
+
+G155f: C2H4 + H + M3 -> C2H5 + M3	{ A = 2.030E+39 n = -6.64 E =  24.14
+				  	  Ai= 1.370E+09 ni=  1.46 Ei=  5.67
+	 				  fca = 1.569 	fcta = 299 
+	 				  fcb = -0.569	fctb = -9147
+	 				  fcc = 1.0	fctc = 152.4 }
+G156 : C2H4 + H   -> C2H3 + H2		{ A = 1.330E+06 n =  2.53 E =  51.21 }
+G157 : C2H4 + O   -> CH3 + CO + H	{ A = 7.660E+09 n =  0.88 E =   4.77 }
+G158 : C2H4 + O   -> T-CH2 + CH2O	{ A = 7.150E+04 n =  2.47 E =   3.89 }
+G159 : C2H4 + O   -> CH3 + HCO		{ A = 3.890E+08 n =  1.36 E =   3.71 }
+G160 : C2H4 + OH  -> C2H3 + H2O		{ A = 1.310E-01 n =  4.20 E =  -3.60 }
+G161 : C2H4 + OH  -> CH3 + CH2O		{ A = 3.750E+36 n = -7.80 E =  29.54 }
+G162 : C2H4 + CH3 -> C2H3 + CH4		{ A = 2.270E+05 n =  2.00 E =  38.49 }
+G163f: C2H4 + CH3 + M3 -> N-C3H7 + M3	{ A = 3.000E+63 n =-14.60 E =  76.02
+				   	  Ai= 2.550E+06 ni=  1.60 Ei= 23.85
+	 				  fca = 0.8106 	fcta = 277
+	 				  fcb = 0.1894 	fctb = 8748
+	 				  fcc = 1.0	fctc = 7891 }
+
+
+# --- C2H5 reactions --- #
+
+G164f: C2H5 + H + M3 -> C2H6 + M3	{ A = 1.990E+41 n = -7.08 E =  27.97
+				  	  Ai= 5.210E+17 ni= -0.99 Ei=  6.61
+	 				  fca = 0.1578	fcta = 125
+	 				  fcb = 0.8422	fctb = 2219
+	 				  fcc = 1.0	fctc = 6882 }
+G167 : C2H5 + O   -> CH3 + CH2O		{ A = 3.170E+13 n =  0.03 E =  -1.65 }
+G171 : C2H5 + O2  -> C2H4 + HO2		{ A = 1.920E+07 n =  1.02 E =  -8.51 }
+R034 : C2H5 + HCO -> C2H6 + CO		{ A = 1.200E+14 n =   .00 E =    .00 }
+R035 : C2H5 + HO2 -> C2H6 + O2		{ A = 3.000E+11 n =   .00 E =    .00 }
+R037 : C2H5 + HO2 -> CH3 + CH2O + OH	{ A = 3.100E+13 n =   .00 E =    .00 }
+
+
+# --- C2H6 reactions --- #
+
+G173f: C2H6 + M3 -> 2 CH3 + M3		{ A = 3.720E+65 n =-13.14 E = 425.01
+				  	  Ai= 1.880E+50 ni= -9.72 Ei=449.12
+	 				  fca = 0.61 	fcta = 100
+	 				  fcb = 0.39 	fctb = 1900
+	 				  fcc = 1.0  	fctc = 6000 }
+G174 : C2H6 + H   -> C2H5 + H2 		{ A = 1.700E+05 n =  2.70 E =  24.02 }
+G175 : C2H6 + O   -> C2H5 + OH		{ A = 8.980E+07 n =  1.92 E =  23.81 }
+G176 : C2H6 + OH  -> C2H5 + H2O		{ A = 1.610E+06 n =  2.22 E =   3.10 }
+G178 : C2H6 + CH3 -> C2H5 + CH4		{ A = 8.430E+14 n =   .00 E =  93.12 }
+
+
+# --- HCCO reactions --- #
+
+G10  : HCCO + M3 -> CO + CH + M3	{ A = 1.213E+35 n = -5.18 E = 320.78
+				  	  Ai= 2.255E+20 ni= -1.44 Ei=312.68
+	 				  fca = 0.4243	fcta = 237 
+	 				  fcb = 0.5757 	fctb = 1652
+	 				  fcc = 1.0	fctc = 5069 }
+G109 : HCCO + H    -> S-CH2 + CO	{ A = 1.000E+14 n =   .00 E =    .00 }
+G110 : HCCO + O    -> H + 2 CO		{ A = 1.000E+14 n =   .00 E =    .00 }
+G111 : HCCO + O2   -> OH + 2 CO		{ A = 4.200E+10 n =   .00 E =   3.57 }
+G114 : HCCO + HCCO -> C2H2 + 2 CO	{ A = 1.000E+13 n =   .00 E =    .00 }
+R009 : HCCO + C2H2 -> C3H3 + CO		{ A = 1.000E+11 n =   .00 E =  12.55 }
+R022 : HCCO + CH3  -> C2H4 + CO		{ A = 5.000E+13 n =   .00 E =    .00 }
+R024 : HCCO + OH   -> 2 HCO		{ A = 1.000E+13 n =   .00 E =    .00 }
+
+
+# --- C3H3 reactions --- #
+
+R055f: C3H3 + H   -> P-C3H4		{ A = 7.940E+29 n = -5.06 E =  20.34 }
+R056f: C3H3 + H   -> A-C3H4		{ A = 3.160E+29 n = -5.00 E =  19.71 }
+R058 : C3H3 + OH  -> C2H4 + CO		{ A = 1.280E+09 n =  0.73 E =  10.79 }
+R061 : C3H3 + O   -> C2H2 + CO + H	{ A = 6.950E+13 n =   .00 E =    .00 }
+R062 : C3H3 + O2  -> CH3 + 2CO		{ A = 1.700E+05 n =  1.70 E =   6.28 }
+R063 : C3H3 + HO2 -> OH + CO + C2H3	{ A = 8.000E+11 n =   .00 E =    .00 }
+LP01f: C3H3 + C3H3 -> A1-C6H6		{ A = 1.870E+46 n = -9.84 E =  70.31 }
+P011f: C3H3 + C3H3 -> A1--C6H5 + H	{ A = 5.770E+37 n = -7.00 E = 131.82 }
+CP11f: C3H3 + C2H2 -> C5H5		{ A = 2.350E+11 n =   .00 E =  41.82 }
+
+
+# --- P-C3H4 reactions --- #
+
+R005f: P-C3H4 + H   -> C2H2 + CH3	{ A = 3.460E+12 n =  0.44 E =  22.86 }
+R078f: P-C3H4 + H   -> C3H3 + H2	{ A = 8.500E+04 n =  2.70 E =  24.02 }
+R080 : P-C3H4 + OH  -> C3H3 + H2O	{ A = 8.050E+05 n =  2.22 E =   3.10 }
+R081 : P-C3H4 + CH3 -> C3H3 + CH4	{ A = 4.220E+14 n =   .00 E =  93.12 }
+R088 : P-C3H4 + O   -> HCCO + CH3	{ A = 4.050E+06 n =  2.00 E =   7.95 }
+R089 : P-C3H4 + O   -> C2H4 + CO	{ A = 6.250E+06 n =  2.00 E =   7.95 }
+R094 : P-C3H4 + OH  -> C2H5 + CO	{ A = 1.280E+09 n =  0.73 E =  10.79 }
+
+
+# --- A-C3H4 reactions --- #
+
+R006f: A-C3H4 + H   -> C2H2 + CH3	{ A = 8.950E+13 n = -0.02 E =  47.07 }
+R071f: A-C3H4       -> P-C3H4	  	{ A = 7.760E+39 n = -7.80 E = 328.22 }
+R073f: A-C3H4 + H   -> P-C3H4 + H	{ A = 2.470E+15 n = -0.33 E =  26.93 }
+R083 : A-C3H4 + H   -> C3H3 + H2	{ A = 1.330E+06 n =  2.53 E =  51.21 }
+R084 : A-C3H4 + OH  -> C3H3 + H2O	{ A = 1.310E-01 n =  4.20 E =  -3.60 }
+R085 : A-C3H4 + CH3 -> C3H3 + CH4	{ A = 2.270E+05 n =  2.00 E =  38.49 }
+
+
+# --- A-C3H5 reactions --- #
+
+R074f: A-C3H4 + H    -> A-C3H5		{ A = 2.010E+49 n =-10.77 E =  82.10 }
+R103 : A-C3H5 + H    -> A-C3H4 + H2	{ A = 9.560E+03 n =  2.80 E =  13.77 }
+R104 : A-C3H5 + OH   -> A-C3H4 + H2O	{ A = 6.030E+12 n =   .00 E =    .00 }
+R105 : A-C3H5 + CH3  -> A-C3H4 + CH4	{ A = 4.860E+11 n = -0.32 E =  -0.55 }
+R111 : A-C3H5 + O2   -> C2H2 + CH2O +OH	{ A = 9.710E+20 n = -2.70 E = 104.52 }
+P008 : A-C3H5 + C3H3 -> A1-C6H6 + 2H	{ A = 2.160E+39 n = -7.74 E =  99.80 }
+
+
+# --- C3H6 reactions --- #
+
+G183f: C3H6 + H + M3 -> N-C3H7 + M3	{ A = 6.260E+38 n = -6.66 E =  29.29
+				  	  Ai= 3.060E+14 ni= -0.37 Ei= 16.87
+	 				  fca = 0.0	fcta = 1000
+	 				  fcb = 1.0	fctb = 1310
+	 				  fcc = 1.0	fctc = 48100 }
+R014f: C3H6 -> C2H3 + CH3		{ A = 4.040E+42 n = -7.67 E = 467.90 }
+R016f: A-C3H5 + H -> C3H6		{ A = 5.930E+54 n =-11.76 E =  98.53 }
+R141f: C3H6 + H   -> C2H4 + CH3		{ A = 8.000E+21 n = -2.39 E =  46.78 }
+R142 : C3H6 + O   -> CH3 + CO + CH3	{ A = 1.200E+08 n =  1.60 E =   1.37 }
+R143 : C3H6 + O   -> C2H5 + HCO		{ A = 3.500E+07 n =  1.60 E =  -4.07 }
+R144 : C3H6 + H   -> A-C3H5 + H2	{ A = 6.600E+05 n =  2.54 E =  28.27 }
+R145 : C3H6 + O   -> A-C3H5 + OH	{ A = 9.650E+04 n =  2.68 E =  15.55 }
+R146 : C3H6 + OH  -> A-C3H5 + H2O	{ A = 2.000E+08 n =  1.46 E =   2.25 }
+R148 : C3H6 + CH3 -> A-C3H5 + CH4	{ A = 4.520E-01 n =  3.65 E =  29.93 }
+
+
+# --- C4H8 reactions --- #
+
+HP40: C4H8 + H -> C2H5 + C2H4		{ A = 7.680E+12 n =  0.11 E =   6.19 }
+HP43: C4H8 -> A-C3H5 + CH3		{ A = 5.000E+15 n =   .00 E = 297.06 }
+
+
+# --- C5H5 reactions --- #
+
+CP06: C5H5 + HO2  -> O2 + C5H6		{ A = 2.561E+12 n =  0.06 E =  13.04 }
+CP12: C5H5 + C5H5 -> A2-C10H8 + 2 H	{ A = 6.390E+29 n = -4.03 E = 147.30 }
+CP13: C5H5 + O    -> C2H3 + C2H2 +CO	{ A = 7.000E+13 n =   .00 E =    .00 }
+CP16: C5H5 + HO2  -> C2H3 + C2H2 +CO+OH	{ A = 6.776E+29 n =  -4.70 E =  48.78 }
+CP18: C5H5 + HO2  -> 2C2H2 + CO + H2O	{ A = 1.190E+33 n =  -6.52 E =  56.07 }
+CP20: C5H5 + OH   -> C2H3 + C2H2 +CO+H	{ A = 3.020E+13 n =   .00 E =   .00 }
+
+
+# --- C5H6 reactions --- #
+
+CP01f: C5H6 -> C5H5 + H	    		{ A = 1.730E+68 n =-15.16 E = 486.90 }
+CP02 : C5H6 + H   -> C5H5 + H2		{ A = 2.800E+13 n =   .00 E =   9.45 }
+CP03 : C5H6 + H   -> A-C3H5 + C2H2	{ A = 6.600E+14 n =   .00 E =  51.65 }
+CP04 : C5H6 + O   -> C5H5 + OH		{ A = 4.770E+04 n =  2.71 E =   4.63 }
+CP05 : C5H6 + OH  -> C5H5 + H2O		{ A = 3.080E+06 n =  2.00 E =    .00 }
+CP08 : C5H6 + CH3 -> C5H5 + CH4		{ A = 1.800E-01 n =  4.00 E =    .00 }
+
+
+# --- C5H10 reactions --- #
+
+HP31: C5H10 + H -> C5H11		{ A = 7.100E+12 n =  0.12 E =   6.11 }
+HP33: C5H10 -> C2H5 + A-C3H5		{ A = 9.170E+20 n = -1.63 E = 309.57 }
+
+
+# --- C5H11 reactions --- #
+
+HP29: C5H11 -> C2H4 + N-C3H7		{ A = 7.460E+21 n = -2.61 E = 134.00 }
+HP30: C5H11 -> H + C5H10		{ A = 8.460E+14 n = -0.47 E = 157.39 }
+HP32: C5H11 -> C3H6 + C2H5		{ A = 3.150E-19 n =  8.84 E =  29.73 }
+
+
+# --- A1--C6H5 reactions --- #
+
+OX12 : A1--C6H5 + O2   -> C5H5 + CO + O		{ A = 2.600E+13 n =   .00 E =  25.61 }
+OX13 : A1--C6H5 + O2   -> 2CO + 2C2H2 + H	{ A = 3.000E+13 n =   .00 E =  37.57 }
+OX14 : A1--C6H5 + O    -> C5H5 + CO		{ A = 1.000E+14 n =   .00 E =    .00 }
+OX15 : A1--C6H5 + OH   -> C5H6 + CO		{ A = 3.000E+13 n =   .00 E =    .00 }
+OX16 : A1--C6H5 + HO2  -> C5H5 + CO + OH	{ A = 3.000E+13 n =   .00 E =    .00 }
+K012f: A1--C6H5 + C2H2 -> A1C2H2-C8H7		{ A = 3.290E+06 n =  2.05 E =  13.23 }
+
+
+# --- A1-C6H6 reactions --- #
+
+OX00f: A1-C6H6       -> A1--C6H5 + H		{ A = 1.290E+61 n =-12.48 E = 619.59 }
+OX05 : A1-C6H6 + H   -> A1--C6H5 + H2		{ A = 6.020E+08 n =  1.80 E =  68.42 }
+OX06 : A1-C6H6 + OH  -> A1--C6H5 + H2O		{ A = 4.030E+02 n =  3.33 E =   6.09 }
+OX17 : A1-C6H6 + CH3 -> A1--C6H5 + CH4		{ A = 2.752E-02 n =  4.46 E =  57.06 }
+OX08 : A1-C6H6 + O   -> C5H5 + CO + H		{ A = 2.220E+13 n =   .00 E =  18.96 }
+OX11 : A1-C6H6 + OH  -> C5H6 + CO + H		{ A = 1.320E+02 n =  3.25 E =  23.39 }
+
+
+# --- A1CH2-C7H7 reactions --- #
+
+T05f: A1CH2-C7H7 -> C5H5 + C2H2			{ A = 8.200E+14 n =   .00 E = 337.55 }
+T04f: A1CH2-C7H7 + H    -> A1--C6H5 + CH3	{ A = 5.830E+67 n =-14.15 E = 285.89 }
+T16 : A1CH2-C7H7 + O    -> A1CHO-C7H6O + H	{ A = 3.310E+14 n =   .00 E =    .00 }
+T18 : A1CH2-C7H7 + HO2  -> A1CHO-C7H6O + OH + H	{ A = 1.060E+16 n = -0.94 E =  10.56 }
+T19 : A1CH2-C7H7 + C3H3 -> A2-C10H8 + 2H	{ A = 4.320E+39 n = -7.74 E =  99.80 }
+
+
+# --- A1CH3-C7H8 reactions --- #
+
+T01f: A1CH3-C7H8 + H -> A1-C6H6 + CH3		{ A = 2.310E+06 n =  2.17 E =  17.42 }
+T02f: A1CH3-C7H8 -> A1CH2-C7H7 + H		{ A = 1.250E+18 n = -0.60 E = 396.59 }
+T03f: A1CH3-C7H8 -> A1--C6H5 + CH3		{ A = 2.160E+29 n = -3.58 E = 460.93 }
+T07 : A1CH3-C7H8 + H   -> A1CH2-C7H7 + H2	{ A = 6.470E+00 n =  3.98 E =  14.16 }
+T08 : A1CH3-C7H8 + OH  -> A1CH2-C7H7 + H2O	{ A = 1.620E+13 n =   .00 E =  11.59 }
+T13 : A1CH3-C7H8 + CH3 -> A1CH2-C7H7 + CH4	{ A = 4.220E+14 n =   .00 E =  93.12 }
+
+
+# --- C7H15 reactions --- #
+
+HP10: C7H15 -> C5H11 + C2H4			{ A = 1.890E+12 n =  0.02 E = 116.25 }
+HP11: C7H15 -> C2H5 + C2H4 + C3H6		{ A = 7.730E+18 n = -1.75 E = 133.78 }
+HP12: C7H15 -> C4H8 + N-C3H7			{ A = 2.530E+18 n = -1.65 E = 132.56 }
+HP13: C7H15 -> C2H5 + C5H10			{ A = 2.490E+16 n = -1.18 E = 123.50 }
+
+
+# --- N-C7H16 reactions --- #
+
+HP00: N-C7H16 -> C5H11 + C2H5			{ A = 8.100E+77 n =-17.62 E = 503.75 }
+HP01: N-C7H16 -> C2H5 + C2H4 + N-C3H7		{ A = 1.420E+78 n =-17.71 E = 505.01 }
+HP02: N-C7H16 + H   -> C7H15 + H2		{ A = 1.750E+06 n =  2.60 E =  18.25 }
+HP03: N-C7H16 + O   -> C7H15 + OH		{ A = 1.720E+05 n =  2.81 E =   9.46 }
+HP04: N-C7H16 + OH  -> C7H15 + H2O		{ A = 7.400E+08 n =  1.50 E =   1.08 }
+HP07: N-C7H16 + CH3 -> C7H15 + CH4		{ A = 1.460E+04 n =  2.57 E =  29.01 }
+
+
+# --- A1CHO-C7H6O reactions --- #
+
+T33 : A1CHO-C7H6O       -> A1--C6H5 + HCO	{ A = 2.610E+15 n =  0.15 E = 337.02 }
+T34 : A1CHO-C7H6O + H   -> A1--C6H5 + CO + H2	{ A = 2.050E+09 n =  1.16 E =  10.06 }
+T38 : A1CHO-C7H6O + CH3 -> A1--C6H5 + CO + CH4	{ A = 2.720E+06 n =  1.77 E =  24.77 }
+
+
+# --- A1C2H*-C8H5 reactions --- #
+
+K100f: A1C2H*-C8H5 + C2H2 -> A2--C10H7		{ A = 1.340E+04 n =  2.50 E =   5.37 }
+P106f: A1C2H*-C8H5 + C2H4 -> A2-C10H8 + H	{ A = 3.620E+28 n = -4.24 E =  99.85 }
+
+
+# --- A1C2H-C8H6 reactions --- #
+
+P016f: A1C2H-C8H6      -> A1C2H*-C8H5 + H	{ A = 2.100E+60 n =-12.40 E = 619.55 }
+K017f: A1C2H-C8H6 + H  -> A1C2H*-C8H5 + H2	{ A = 1.320E+08 n =  1.88 E =  70.38 }
+P018f: A1C2H-C8H6 + OH -> A1C2H*-C8H5 + H2O	{ A = 1.340E+02 n =  3.33 E =   6.09 }
+
+
+# --- A1C2H2-C8H7 reactions --- #
+
+LP06f: A1C2H2-C8H7 -> A1C2H-C8H6 + H		{ A = 1.340E+17 n = -0.86 E = 172.54 }
+LP07f: A1C2H2-C8H7 + C2H2 -> A2-C10H8 + H	{ A = 7.091E+13 n = -0.26 E =  29.30 }
+
+
+# --- A2-C10H8 reactions --- #
+
+P108f: A2-C10H8      -> A2--C10H7 + H		{ A = 8.600E+60 n =-12.48 E = 619.55 }
+K109f: A2-C10H8 + H  -> A2--C10H7 + H2		{ A = 2.650E+08 n =  1.87 E =  71.53 }
+K110f: A2-C10H8 + OH -> A2--C10H7 + H2O		{ A = 9.630E+02 n =  3.02 E =  18.30 }
+
+
+
+
+Let M3 =  + 3 [C2H6] + 1.75 [CO] + 3.6 [CO2] + 2 [H2] + 2 [CH4] + 12 [H2O] + 1.0 [OTHER].
+Let M2 =  + 3 [C2H6] + 1.75 [CO] + 3.6 [CO2] + 2 [H2] + 2 [CH4] + 6.3 [H2O] + 1.0 [OTHER].
+Let M5 =  + 1.09 [CO] + 0.85 [O2] + 2.18 [CO2] + 0.75 [H2] + 11.89 [H2O] + 1.0 [OTHER].
+Let M7 =  + 3 [C2H6] + 1.75 [CO] + 3.6 [CO2] + 2 [H2] + 2 [CH4] + 12 [H2O] + 1.0 [OTHER].
+Let M8 =  + 3 [C2H6] + 1.75 [CO] + 3.6 [CO2] + 2 [H2] + 2 [CH4] + 0 [H2O] + 1.0 [OTHER].
+Let M9 =  + 3 [C2H6] + 1.5 [CO] + 2 [CO2] + 2 [H2] + 3 [CH4] + 6 [H2O] + 1.0 [OTHER].

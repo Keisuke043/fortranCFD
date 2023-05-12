@@ -1,0 +1,7 @@
+373.15d0          ! inlet temperature [K]
+30.d0             ! inlet velocity [cm/s]
+3                 ! inlet species num
+nc7h16 0.01868600 ! inlet nc7h16 mole fraction [-]
+o2     0.20554603 ! inlet o2 mole fraction [-]
+n2     0.77576797 ! inlet n2 mole fraction [-]
+1.d0              ! outlet pressure [atm]

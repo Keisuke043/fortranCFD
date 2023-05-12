@@ -1,0 +1,51 @@
+!****************************************************************************
+! A 116-species reduced mechanism for PRF
+! Must be used with the supplied CKWYP subroutine (CHEMKIN-II compatible)
+!
+! Reference: 
+!
+! Luong M.B., Luo Z., Lu T.F., Chung S.H. , Yoo C.S., 
+! “Direct numerical simulations of the ignition of 
+!  lean primary reference fuel/air mixtures under HCCI condition,” 
+! Combust. Flame, 160 (10) 2038–2047, 2013.
+!
+!****************************************************************************
+
+ELEMENTS
+C H N O 
+END
+
+SPECIES
+H               	H2              	O               	O2              	
+OH              	H2O             	HO2             	H2O2            	
+CO              	CO2             	CH2O            	HCO             	
+HOCHO           	CH3OH           	CH3O2H          	CH3O2           	
+CH4             	CH3             	C2H6            	C2H5            	
+C2H4            	C2H3            	C2H2            	CH3CHO          	
+CH2CHO          	CH2CO           	HCCO            	CH3CO3          	
+C2H5O2H         	C2H5O2          	CH3COCH3        	CH3COCH2O2      	
+CH3COCH2O2H     	C2H3CHO         	C2H3CO          	C2H5CHO         	
+C3H6            	C3H5-A          	C3H4-P          	C3H4-A          	
+C3H3            	NC3H7O2         	IC3H7O2         	CH3CHCO         	
+C4H8-1          	SC4H9           	C4H71-3         	C4H6            	
+PC4H9O2         	C2H5COCH2       	NC3H7CHO        	IC4H8           	
+IC4H7           	TC4H9O2         	IC4H9O2         	IC3H7CHO        	
+TC3H6CHO        	IC4H8OOH-IO2    	IC4KETII        	IC4H6OH         	
+IC3H5CHO        	IC3H5CO         	IC4H7OOH        	TC3H6O2CHO      	
+C5H10-1         	C5H91-3         	C5H91-4         	C6H13O2-1       	
+NC4H9CHO        	NC7H16          	C7H14-1         	C7H14-2         	
+C7H14-3         	C7H132-4        	C7H15O2-1       	C7H15O2-2       	
+C7H15O2-3       	C7H15O2-4       	C7H14OOH1-3O2   	C7H14OOH2-3O2   	
+C7H14OOH2-4O2   	C7H14OOH4-2O2   	C7H14OOH4-3O2   	C7H14O1-3       	
+C7H14O2-4       	C7H14O3-5       	NC7KET13        	C4H7OOH1-4      	
+CH3CHCHO        	IC4H7-I1        	XC7H14          	YC7H14          	
+XC7H13-Z        	YC7H13-Y2       	YC7H15O2        	ACC6H10         	
+ACC6H9-A        	ACC6H9-D        	NEOC5H11        	TC4H9CHO        	
+IC8H18          	IC8H16          	JC8H16          	BC8H17O2        	
+CC8H17O2        	IC8ETERAB       	IC8ETERBD       	IC8KETDB        	
+iso002          	iso003          	iso004          	iso008          	
+iso010          	iso011          	iso014          	N2              	
+END
+
+REACTIONS
+END
