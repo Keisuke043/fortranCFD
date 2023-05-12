@@ -59,10 +59,13 @@ $ spack install openmpi@4.0.5%gcc@10.2.0
 #### Governing equations
 <img src="https://latex.codecogs.com/gif.latex?\int_a^bf(x)dx" />
 <img src="https://latex.codecogs.com/gif.latex?\inline&space;F_s&space;\frac{n}{N}\&space;(n&space;\in&space;\mathbb{N})" />
+<img src="https://latex.codecogs.com/gif.latex?\frac{\partial Q}{\partial t}+\frac{\partial E}{\partial x}=0" />
+<img src="https://latex.codecogs.com/gif.latex?Q^{n+1}=Q^n-\frac{\Delta t}{\Delta x}(\tilde{E}_{j+1/2}^n-\tilde{E}_{j-1/2}^n)" />
 ```
 $$
-\frac{\partial Q}{\partial t}+\frac{\partial E}{\partial x}=0 \\
+ \\
 Q^{n+1}=Q^n-\frac{\Delta t}{\Delta x}(\tilde{E}_{j+1/2}^n-\tilde{E}_{j-1/2}^n) \\
+ \\
 $$
 ```
 
