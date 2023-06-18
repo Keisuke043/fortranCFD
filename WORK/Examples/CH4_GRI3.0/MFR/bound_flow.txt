@@ -1,7 +1,7 @@
 373.15d0          ! inlet temperature [K]
 30.d0             ! inlet velocity [cm/s]
 3                 ! inlet species num
-CH4  0.0950570342 ! inlet nC7H16 mole fraction [-]
+CH4  0.0950570342 ! inlet CH4 mole fraction [-]
 O2   0.1901140684 ! inlet O2 mole fraction [-]
 N2   0.7148288973 ! inlet N2 mole fraction [-]
 1.d0              ! outlet pressure [atm]

@@ -35,8 +35,9 @@
  wallT_bound_file = './wallT_373_1300.txt' ! infile for wallTemp of mfr
 /
 
-&energysource
- flag_igsource = 0   ! 0, 1:add an energy source term
+&energysource      ! add an energy source term
+ flag_igsource = 0 ! 0, 1:Single, 2:Multiple
+ igsource_type = 0 ! 1:A.Frendi CST(1990), 2:W.Zhang CNF(2012)
  igsource_file = ''  ! infile for energy source
 /
 

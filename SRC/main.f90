@@ -52,7 +52,7 @@ contains
             call set_flow_boundary(flow_bound_file, nspe)
         end if
 
-        if ( flag_radiation /= 0) then
+        if ( flag_radiation /= 0 ) then
             call set_radiation_params(nspe, radiation_file)
         end if
 
@@ -60,15 +60,17 @@ contains
             call set_wallT_boundary(wallT_bound_file)
         end if
 
-        if ( flag_igsource /= 0) then
+        if ( flag_igsource == 1 ) then
             call set_igsource(igsource_file, is_spherical)
+        else if ( flag_igsource == 2 ) then
+            call set_multi_igsource(igsource_file, is_spherical)
         end if
 
-        if (flag_block == 0) then
+        if ( flag_block == 0 ) then
 
             call set_one_block_size(dx_comp, nx_comp, eos_obj)
 
-        else if (flag_block == 1) then
+        else if ( flag_block == 1 ) then
 
             call set_block_size(dx_comp, nx_comp, ncell_per_block, eos_obj, &
                                 lev_smr_0, num_smr_0, lev_smr_n, num_smr_n)

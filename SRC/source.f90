@@ -14,6 +14,76 @@ module source
 
 contains
 
+    subroutine reaction_macks(ista_rank, iend_rank, bsta, bend, b_obj, eos_obj, lvir, dt, &
+                              nspe, nequ, block_all_0, block_all_n)
+                                
+
+        implicit none
+
+
+        integer :: i, ib, k_sp
+
+        real(8) :: rho, temp, y_sp(nspe)
+        real(8) :: yiT(nspe+1)
+
+        real(8),intent(in) :: dt
+        integer,intent(in) :: nspe, nequ, lvir
+
+        integer,intent(in) :: block_all_0, block_all_n
+        integer,intent(in) :: bsta, bend
+        type(block_st),intent(inout) :: b_obj(bsta:bend)
+
+        integer,intent(in) :: ista_rank, iend_rank
+        type(eos_st),intent(inout) :: eos_obj(ista_rank:iend_rank)
+
+
+        do ib = bsta, bend
+
+            do i = b_obj(ib)%ista_b, b_obj(ib)%iend_b
+
+                eos_obj(i)%y_sp0(:) = b_obj(ib)%qf(nprim+1:nequ,i)
+
+
+                rho  = b_obj(ib)%qf(iqdens,i)
+                temp = b_obj(ib)%qf(iqtemp,i)
+                do k_sp = 1, nspe
+                    y_sp(k_sp) = b_obj(ib)%qf(nprim+k_sp,i)
+                end do
+
+                call adjust_sum(nspe, y_sp)
+
+                yiT(1:nspe) = y_sp
+                yiT(nspe+1) = temp
+
+                call macks(dt, nspe+1, yiT, rho)
+
+                y_sp = yiT(1:nspe)
+                temp = yiT(nspe+1)
+
+                call adjust_sum(nspe, y_sp)
+
+                b_obj(ib)%qf(iqtemp,i) = temp
+                do k_sp = 1, nspe
+                    b_obj(ib)%qf(nprim+k_sp,i) = y_sp(k_sp)
+                end do
+
+                eos_obj(i)%HRR = heat_release_rate(nspe, eos_obj(i)%y_sp0(:), b_obj(ib)%qf(nprim+1:nequ,i), &
+                                                                               b_obj(ib)%qf(iqdens,i), dt)
+                eos_obj(i)%HRR_dot = heat_release_rate_omegadot(nspe, b_obj(ib)%qf(nprim+1:nequ,i), &
+                                                   b_obj(ib)%qf(iqdens,i), b_obj(ib)%qf(iqtemp,i))
+            end do
+
+        end do
+
+        do ib = bsta, bend
+            do i = b_obj(ib)%ista_b, b_obj(ib)%iend_b
+                b_obj(ib)%Qc(:,i) = qfToQc(b_obj(ib)%qf(:,i), nspe, nequ)
+            end do
+        end do
+
+    end subroutine reaction_macks
+
+
 
     subroutine heat_transfer_radiation(ista_rank, iend_rank, bsta, bend, b_obj, eos_obj, lvir, dt, &
                                        nspe, nequ, block_all_0, block_all_n)
@@ -120,7 +190,7 @@ contains
 
 
     subroutine energy_source(ista_rank, iend_rank, bsta, bend, b_obj, eos_obj, lvir, dt, &
-                             nspe, nequ, block_all_0, block_all_n, time, flag_igsource)
+                             nspe, nequ, block_all_0, block_all_n, time, flag_igsource, igsource_type)
 
         implicit none
 
@@ -128,7 +198,7 @@ contains
         integer :: i, ib
         real(8) :: time, xm, Eadd
 
-        integer,intent(in) :: flag_igsource
+        integer,intent(in) :: flag_igsource, igsource_type
         integer,intent(in) :: nspe, nequ, lvir
         real(8),intent(in) :: dt
 
@@ -148,10 +218,10 @@ contains
 
                 xm = b_obj(ib)%xm_b(i)
 
-                if (flag_igsource == 1) then
-                    call add_igsource(time, xm, Eadd)
-                else if (flag_igsource == 2) then
-                    call add_igsource_WZhang(time, xm, Eadd)
+                if (igsource_type == 1) then
+                    call add_igsource(time, xm, Eadd, flag_igsource)
+                else if (igsource_type == 2) then
+                    call add_igsource_WZhang(time, xm, Eadd, flag_igsource)
                 end if
 
                 b_obj(ib)%Qc(iuener,i) = b_obj(ib)%Qc(iuener,i) + dt*Eadd

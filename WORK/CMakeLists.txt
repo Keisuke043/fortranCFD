@@ -23,8 +23,8 @@ endif(Apple)
 # m1 mac
 # include_directories(/opt/homebrew/Cellar/hdf5-mpi/1.13.0/include)
 # link_directories(/opt/homebrew/Cellar/hdf5-mpi/1.13.0/lib)
-include_directories(/opt/homebrew/Cellar/hdf5-mpi/1.12.2_1/include)
-link_directories(/opt/homebrew/Cellar/hdf5-mpi/1.12.2_1/lib)
+include_directories(/opt/homebrew/Cellar/hdf5-mpi/1.14.1/include)
+link_directories(/opt/homebrew/Cellar/hdf5-mpi/1.14.1/lib)
 
 if(LINUX)
     # skywalker

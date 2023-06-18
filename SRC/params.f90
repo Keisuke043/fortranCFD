@@ -41,12 +41,13 @@ module module_params
     integer,save :: lev_smr_0, num_smr_0
     integer,save :: lev_smr_n, num_smr_n
 
+    integer,save :: flag_const_rhou
     integer,save :: flag_lbound, flag_rbound
     integer,save :: flag_radiation
     integer,save :: flag_Tw
     integer,save :: flag_Tini_Tw
     integer,save :: flag_igsource
-    integer,save :: flag_const_rhou
+    integer,save :: igsource_type
 
     integer,save :: flag_check_init
     integer,save :: flag_restart
@@ -132,7 +133,8 @@ module module_params
                        wallT_bound_file
 
     ! namelist energy source
-    namelist /energysource/ flag_igsource, igsource_file
+    namelist /energysource/ flag_igsource, igsource_type, &
+                            igsource_file
 
     ! namelist input and output
     namelist /params_io/ flag_check_init, &
@@ -387,7 +389,7 @@ contains
 
             else if (flag_errorfunc_T == 4) then ! X.Chen et al. PCI (2021)
 
-                eos_obj(i)%T = (lTemp - rTemp) * dexp(-(x_m/radius_efunc_T)**2) + rTemp
+                eos_obj(i)%T = (lTemp - rTemp) * dexp(-(x_m/radius_efunc_T)**smoother_efunc_T) + rTemp
 
             else if (flag_errorfunc_T == 5) then ! M. Tao et al. Frontiers in Mechanical Engineering (2020)
 
@@ -496,7 +498,7 @@ contains
 
             end if
 
-            if (tig_0_s < 1.0d-9 .and. tig_s < 1.0d-9 .and. flag_igsource /= 0) then
+            if (flag_igsource == 1 .and. tig_0_s < 1.0d-9 .and. tig_s < 1.0d-9) then
 
                 if (flag_igsource == 1) then
 
@@ -571,7 +573,7 @@ contains
 
         end do
 
-        if (tig_s < 1.0d-9) then
+        if (flag_igsource == 1 .and. tig_s < 1.0d-9) then
             flag_igsource = 0
         end if
 

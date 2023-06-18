@@ -100,7 +100,7 @@ contains
     subroutine solve_source(ista_rank, iend_rank, bsta, bend, b_obj, eos_obj, &
                             lvir, dt, nspe, nequ, block_all_0, block_all_n, time)
 
-        use module_params, only: do_reaction, flag_Tw, flag_igsource, flag_radiation
+        use module_params, only: do_reaction, flag_Tw, flag_igsource, igsource_type, flag_radiation
 
         implicit none
 
@@ -139,11 +139,10 @@ contains
         
         end if
 
-
         if (flag_igsource /= 0) then
         
-            call energy_source(ista_rank, iend_rank, bsta, bend, b_obj, eos_obj, &
-                               lvir, dt, nspe, nequ, block_all_0, block_all_n, time, flag_igsource)
+            call energy_source(ista_rank, iend_rank, bsta, bend, b_obj, eos_obj, lvir, dt, &
+                               nspe, nequ, block_all_0, block_all_n, time, flag_igsource, igsource_type)
         
         end if
 

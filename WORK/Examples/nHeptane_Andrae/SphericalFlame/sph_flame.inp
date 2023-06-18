@@ -35,9 +35,10 @@
  wallT_bound_file = '' ! infile for wallTemp of mfr
 /
 
-&energysource        ! add an energy source term
- flag_igsource = 0   ! 0, 1:A.Frendi CST(1990), 2:W.Zhang CNF(2012)
- igsource_file = 'igsource.inp'  ! infile for energy source
+&energysource      ! add an energy source term
+ flag_igsource = 1 ! 0, 1:Single, 2:Multiple
+ igsource_type = 1 ! 1:A.Frendi CST(1990), 2:W.Zhang CNF(2012)
+ igsource_file = './igsource.inp'  ! infile for energy source
 /
 
 &params_io

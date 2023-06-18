@@ -13,7 +13,7 @@
 
  atol = 1.d-13
  rtol = 1.d-5
- chem_dir  = './GRI3.0_CH4' ! kinetic models path
+ chem_dir  = './GRI3.0_CH4'  ! kinetic models path
  prob_file = './mfr.inp'     ! input file
  init_file = './initial.txt' ! input file for initial conditions
 

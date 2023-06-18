@@ -94,7 +94,7 @@ contains
                 rho_ave = 0.5d0*(rho_i+rho_ip)
                 u_ave   = 0.5d0*(u_i+u_ip)
                 T_ave   = 0.5d0*(T_i+T_ip)
-                mu_ave  = 0.5d0*(mu_i+mu_ip
+                mu_ave  = 0.5d0*(mu_i+mu_ip)
                 kap_ave = 0.5d0*(kap_i+kap_ip)
                 tau_xx  = -2.0d0/3.0d0*mu_ave*(2.0d0*((u_ip-u_i)/b_obj(ib)%smr_dx))
 

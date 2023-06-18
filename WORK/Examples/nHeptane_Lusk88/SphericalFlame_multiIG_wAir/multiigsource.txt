@@ -1,0 +1,9 @@
+2       ! number of spark-ignition 
+0.01d0  ! 1st total ignition energy, Eig [mJ]
+200.d0  ! 1st energy radius, rig [micro m]
+400.d0  ! 1st energy input time, tig [micro sec]
+0.d0    ! 1st ignition start timing, tig_0 [micro sec]
+0.1d0   ! 2nd total ignition energy, Eig [mJ]
+200.d0  ! 2nd energy radius, rig [micro m]
+200.d0  ! 2nd energy input time, tig [micro sec]
+1000.d0 ! 2nd ignition start timing, tig_0 [micro sec]
