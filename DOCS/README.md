@@ -1,9 +1,9 @@
 
-### Governing Equations for combustion
+## Governing Equations for combustion
 
 This simulation code solves the fully compressible Navier-Stocks equations with energy and species conservation equations are considered in the governing equations.
 
-#### Governing equations in the Cartesian coordinate
+### Governing equations in the Cartesian coordinate
 In the planar flame simulations, the one-dimensional Navier-Stocks equations in the conservative form in the Cartesian coordinate are written as:
 
 $$
@@ -42,7 +42,7 @@ $$
 where $ρ$ is the density, $u$ is the flow velocity, $e$ is the total energy per unit mass, $p$ is the pressure, $T$ is the temperature, $Y_k$ is the mass fraction of species $k$, $n$ is the total number of species, $\tau_{xx}$ is the viscous stress, $q_x$ is the heat flux, $V_k$ is the diffusion velocity, $\omega_k$ is the net chemical production rate. In the energy equation, the total energy per unit mass, $e$, is given as:
 
 $$
-e=-\frac{p}{\rho}+\frac{u^2}{2}+h \\
+e=-\frac{p}{\rho}+\frac{u^2}{2}+h
 $$
 $$
 h=\sum_{k=1}^nY_kh_k
@@ -51,7 +51,7 @@ $$
 where $h$ is the mixture total enthalpy and $h_k$ is the enthalpy of species $k$. In addition to Eq. (1), the ideal gas equation of state is considered.
 
 $$
-p=\sum_{k=1}^n\rho Y_kR_kT \\
+p=\sum_{k=1}^n\rho Y_kR_kT
 $$
 
 where $R_k$ is the gas constant of species $k$.
@@ -60,7 +60,9 @@ where $R_k$ is the gas constant of species $k$.
 For the evaluation of the species transport properties, mixture-averaged diffusion is selected in this study.  The ordinary mixture-averaged diffusion velocity, $V_k$, is given in the Curtiss-Hirschfelder approximation [1].
 
 $$
-V_k=\frac{1}{X_k}D_{km}\frac{\partial X_k}{\partial x} \\
+V_k=\frac{1}{X_k}D_{km}\frac{\partial X_k}{\partial x}
+$$
+$$
 D_{km}=\frac{1}{X_k}\frac{\partial X_k}{\partial x}
 $$
 
@@ -85,7 +87,7 @@ $$
 
 where $\kappa$ is the thermal conductivity of the mixture.
 
-#### Governing equations in the spherical coordinate
+### Governing equations in the spherical coordinate
 In the spherical flame simulations, the one-dimensional Navier-Stocks equations in the spherical coordinate are written as:
 
 $$
