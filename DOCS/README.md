@@ -36,15 +36,28 @@ S=\begin{pmatrix} 0 \\
                   0 \\
                   \omega_1 \\ 
                   \vdots \\ 
-                  \omega_n \end{pmatrix}, \quad
+                  \omega_n \end{pmatrix}
 $$
 
+where $ρ$ is the density, $u$ is the flow velocity, $e$ is the total energy per unit mass, $p$ is the pressure, $T$ is the temperature, $Y_k$ is the mass fraction of species $k$, $n$ is the total number of species, $\tau_{xx}$ is the viscous stress, $q_x$ is the heat flux, $V_k$ is the diffusion velocity, $\omega_k$ is the net chemical production rate. In the energy equation, the total energy per unit mass, $e$, is given as:
+
+$$
+e=-\frac{p}{\rho}+\frac{u^2}{2}+h \\
+h=\sum_{k=1}^nY_kh_k
+$$
+
+where $h$ is the mixture total enthalpy and $h_k$ is the enthalpy of species $k$. In addition to Eq. (1), the ideal gas equation of state is considered.
+
+$$
+p=\sum_{k=1}^n\rho Y_kR_kT \\
+$$
+
+where $R_k$ is the gas constant of species $k$.
 
 
-$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
-a
 
 
 
-<img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;Q}{\partial&space;t}&plus;\frac{\partial&space;E}{\partial&space;x}=0&space;" />
+
+
 
