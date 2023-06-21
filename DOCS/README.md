@@ -8,6 +8,7 @@ $$
 ```
 ```
 
+$$ Q^{n+1}=Q^n-\frac{\Delta t}{\Delta x}(\tilde{E}_{j+1/2}^n-\tilde{E}_{j-1/2}^n) $$
 
 
 
