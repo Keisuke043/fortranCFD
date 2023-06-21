@@ -96,6 +96,7 @@ E_\nu=\begin{pmatrix} 0 \\ \tau_{xx} \\ q_x \\
 S=\begin{pmatrix} 0 \\ 0 \\ 0 \\
   \omega_1 \\ \vdots \\ \omega_n \end{pmatrix}, \quad
 $$
+
 where $r$ donates space in the spherical coordinate.
 
 In the one-dimensional spherical coordinate, the derivative of the convective and viscous fluxes is written as the second term of Eq. (11) because of the change in area is perpendicular to the radial direction. On the other hand, the geometry effect is negligible in the pressure term of the momentum conservation equation due to the isotropic nature of pressure. Transport properties of the spherical configuration are obtained by replacing $x$ with $r$ in Eq. (6)–(10).
