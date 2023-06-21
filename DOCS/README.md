@@ -58,23 +58,31 @@ where $R_k$ is the gas constant of species $k$.
 
 
 For the evaluation of the species transport properties, mixture-averaged diffusion is selected in this study.  The ordinary mixture-averaged diffusion velocity, $V_k$, is given in the Curtiss-Hirschfelder approximation [1].
+
 $$
 V_k=\frac{1}{X_k}D_{km}\frac{\partial X_k}{\partial x} \\
 D_{km}=\frac{1}{X_k}\frac{\partial X_k}{\partial x}
 $$
+
 where $D_{km}$ is the mixture-averaged diffusion coefficient, and $D_{kj}$ is the binary diffusion coefficients of species $k$ into species $j$.
 The viscous stress, $\tau_{xx}$, is expressed as:
+
 $$
 \tau_{xx}=(2\mu+\lambda)\frac{\partial u}{\partial x}
 $$
+
 where $\mu$ is the dynamic viscosity coefficient and $\lambda$ is the second viscosity coefficient. In the assumption of Stokes hypothesis $(\lambda+\frac{2}{3}\mu=0)$ [2], the viscous stress is simplified to
+
 $$
 \tau_{xx}=\frac{4}{3}\mu\frac{\partial u}{\partial x}
 $$
+
 The heat flux, $q_x$, in the energy equation is expressed as:
+
 $$
 q_{x}=u\tau_{xx}+\kappa\frac{\partial T}{\partial x}-\rho\sum_{k=1}^nh_kY_kV_k
 $$
+
 where $\kappa$ is the thermal conductivity of the mixture.
 
 #### Governing equations in the spherical coordinate
@@ -114,7 +122,7 @@ S=\begin{pmatrix} 0 \\
                   0 \\
                   \omega_1 \\ 
                   \vdots \\ 
-                  \omega_n \end{pmatrix}, \quad
+                  \omega_n \end{pmatrix}
 $$
 
 where $r$ donates space in the spherical coordinate.
@@ -123,7 +131,6 @@ In the one-dimensional spherical coordinate, the derivative of the convective an
 
 [1] J. O. Hirschfelder, C. F. Curtiss, and R. B. Bird, Molecular Theory of Gases and Liquids,
 John Wiley and Sons, New York, 1954.
-
 [2] G.G. Stokes, On the theories of the internal friction of fluids in motion, and of the equilibrium and motion of elastic solids. Trans. Camb. Philos. Soc. 8, (1845) 287–319.
 
 
