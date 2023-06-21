@@ -85,16 +85,36 @@ $$
 $$
 
 $$
-Q=\begin{pmatrix} \rho \\ \rho u \\ \rho e \\
-  \rho Y_1 \\ \vdots \\ \rho Y_n \end{pmatrix}, \quad
-E=\begin{pmatrix} \rho u \\ \rho u^2 \\ (\rho e+p)u \\
-  \rho uY_1 \\ \vdots \\ \rho uY_n \end{pmatrix}, \quad
-E_p=\begin{pmatrix} 0 \\ p \\ 0 \\
-  0 \\ \vdots \\ 0 \end{pmatrix}, \quad
-E_\nu=\begin{pmatrix} 0 \\ \tau_{xx} \\ q_x \\
-  -\rho Y_1V_1 \\ \vdots \\ -\rho Y_nV_n \end{pmatrix}, \quad
-S=\begin{pmatrix} 0 \\ 0 \\ 0 \\
-  \omega_1 \\ \vdots \\ \omega_n \end{pmatrix}, \quad
+Q=\begin{pmatrix} \rho \\ 
+                  \rho u \\ 
+                  \rho e \\
+                  \rho Y_1 \\ 
+                  \vdots \\ 
+                  \rho Y_n \end{pmatrix}, \quad
+E=\begin{pmatrix} \rho u \\ 
+                  \rho u^2 \\ 
+                  (\rho e+p)u \\
+                  \rho uY_1 \\ 
+                  \vdots \\ 
+                  \rho uY_n \end{pmatrix}, \quad
+E_p=\begin{pmatrix} 0 \\ 
+                    p \\ 
+                    0 \\
+                    0 \\ 
+                    \vdots \\ 
+                    0 \end{pmatrix}, \quad
+E_\nu=\begin{pmatrix} 0 \\ 
+                      \tau_{xx} \\ 
+                      q_x \\
+                      -\rho Y_1V_1 \\ 
+                      \vdots \\ 
+                      -\rho Y_nV_n \end{pmatrix}, \quad
+S=\begin{pmatrix} 0 \\ 
+                  0 \\ 
+                  0 \\
+                  \omega_1 \\ 
+                  \vdots \\ 
+                  \omega_n \end{pmatrix}, \quad
 $$
 
 where $r$ donates space in the spherical coordinate.
@@ -103,6 +123,7 @@ In the one-dimensional spherical coordinate, the derivative of the convective an
 
 [1] J. O. Hirschfelder, C. F. Curtiss, and R. B. Bird, Molecular Theory of Gases and Liquids,
 John Wiley and Sons, New York, 1954.
+
 [2] G.G. Stokes, On the theories of the internal friction of fluids in motion, and of the equilibrium and motion of elastic solids. Trans. Camb. Philos. Soc. 8, (1845) 287–319.
 
 
