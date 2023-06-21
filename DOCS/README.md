@@ -1,5 +1,5 @@
 
-## Governing Equations for combustion
+## Governing Equations for Combustion
 
 This simulation code solves the fully compressible Navier-Stocks equations with energy and species conservation equations are considered in the governing equations.
 
@@ -136,7 +136,10 @@ John Wiley and Sons, New York, 1954.
 [2] G.G. Stokes, On the theories of the internal friction of fluids in motion, and of the equilibrium and motion of elastic solids. Trans. Camb. Philos. Soc. 8, (1845) 287–319.
 
 ---
-## Governing Equations for combustion
+
+
+
+
 
 
 
