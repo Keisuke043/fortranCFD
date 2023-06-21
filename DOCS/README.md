@@ -5,9 +5,11 @@ This simulation code solves the fully compressible Navier-Stocks equations with 
 
 #### Governing equations in the Cartesian coordinate
 In the planar flame simulations, the one-dimensional Navier-Stocks equations in the conservative form in the Cartesian coordinate are written as:
+
 $$
 \frac{\partial Q}{\partial t}+\frac{\partial(E-E_\nu)}{\partial x}=S \\
 $$
+
 where $t$ and $x$ donate time and space in the Cartesian coordinate, $Q$ is the vector of conserved variables, $E$ is the convective flux vector with convection and pressure terms, $E_\nu$ is the viscous flux vector with viscosity, heat conduction, and diffusion terms, and $S$ is the vector of source terms. These vectors are expressed as follows:
 
 
