@@ -135,8 +135,8 @@ In the one-dimensional spherical coordinate, the derivative of the convective an
 John Wiley and Sons, New York, 1954.
 [2] G.G. Stokes, On the theories of the internal friction of fluids in motion, and of the equilibrium and motion of elastic solids. Trans. Camb. Philos. Soc. 8, (1845) 287–319.
 
-
-
+---
+## Governing Equations for combustion
 
 
 
