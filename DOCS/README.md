@@ -132,7 +132,7 @@ where $r$ donates space in the spherical coordinate.
 In the one-dimensional spherical coordinate, the derivative of the convective and viscous fluxes is written as the second term of Eq. (11) because of the change in area is perpendicular to the radial direction. On the other hand, the geometry effect is negligible in the pressure term of the momentum conservation equation due to the isotropic nature of pressure. Transport properties of the spherical configuration are obtained by replacing $x$ with $r$ in Eq. (6)–(10).
 
 [1] J. O. Hirschfelder, C. F. Curtiss, and R. B. Bird, Molecular Theory of Gases and Liquids,
-John Wiley and Sons, New York, 1954.
+John Wiley and Sons, New York, 1954. \\
 [2] G.G. Stokes, On the theories of the internal friction of fluids in motion, and of the equilibrium and motion of elastic solids. Trans. Camb. Philos. Soc. 8, (1845) 287–319.
 
 ---
