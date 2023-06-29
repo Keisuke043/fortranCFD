@@ -143,12 +143,12 @@ In the present study, the fluid transport and chemical reactions are solved sepa
 
 $$
 \left\{
-\begin{array}{l}
 \frac{\partial Q}{\partial t}+\frac{\partial(E-E_\nu)}{\partial x}=0 \\
 \frac{\partial Q}{\partial t}=S \\
-\end{array}
 \right.
 $$
+# \begin{array}{l}
+# \end{array}
 
 In the fluid simulation, the finite volume method (FVM) is applied for the spatial discretization of Eq. (13). In the FVM, the transfer of conserved variables between control volumes is evaluated by the numerical fluxes at the interface of the adjacent control volumes.
 
