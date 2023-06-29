@@ -160,23 +160,23 @@ $$
 In the MUSCL, the cell average, $Q_j$, is
 
 $$
-Q_j&=\frac{1}{\Delta x}\int_{x_{j-1/2}}^{x_{j+1/2}}Q(x)dx \\
+Q_j=\frac{1}{\Delta x}\int_{x_{j-1/2}}^{x_{j+1/2}}Q(x)dx \\
 $$
 
 $$
-&=\frac{1}{\Delta x}\int_{x_{j-1/2}}^{x_{j+1/2}}\left(Q(x_j)+(x-x_j)Q'(x_j)+\frac{1}{2}(x-x_j)^2Q''(x_j)+\frac{1}{6}(x-x_j)^3Q'''(x_j)+O(x^4)\right)dx \\
+=\frac{1}{\Delta x}\int_{x_{j-1/2}}^{x_{j+1/2}}\left(Q(x_j)+(x-x_j)Q'(x_j)+\frac{1}{2}(x-x_j)^2Q''(x_j)+\frac{1}{6}(x-x_j)^3Q'''(x_j)+O(x^4)\right)dx \\
 $$
 
 $$
-&=\frac{1}{\Delta x}\left[xQ(x_j)+\frac{1}{2}(x-x_j)^2Q'(x_j)+\frac{1}{6}(x-x_j)^3Q''(x_j)+\frac{1}{24}(x-x_j)^4Q'''(x_j)+O(x^4)\right]_{x_{j-1/2}}^{x_{j+1/2}} \\
+=\frac{1}{\Delta x}\left[xQ(x_j)+\frac{1}{2}(x-x_j)^2Q'(x_j)+\frac{1}{6}(x-x_j)^3Q''(x_j)+\frac{1}{24}(x-x_j)^4Q'''(x_j)+O(x^4)\right]_{x_{j-1/2}}^{x_{j+1/2}} \\
 $$
 
 $$
-&=\frac{1}{\Delta x}\left(\Delta xQ(x_j)+\frac{1}{24}\Delta x^3Q''(x_j)+O(x^4)\right) \\
+=\frac{1}{\Delta x}\left(\Delta xQ(x_j)+\frac{1}{24}\Delta x^3Q''(x_j)+O(x^4)\right) \\
 $$
 
 $$
-&=Q(x_j)+\frac{1}{24}\Delta x^2Q''(x_j)+O(x^4) \\
+=Q(x_j)+\frac{1}{24}\Delta x^2Q''(x_j)+O(x^4) \\
 $$
 
 
