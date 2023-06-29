@@ -141,29 +141,32 @@ John Wiley and Sons, New York, 1954.
 ### Numerical schemes
 In the present study, the fluid transport and chemical reactions are solved separately by the time-splitting scheme [3,4]. In this method, Eq. (1) is separated into two equations of partial differential equations (PDEs) of the multicomponent non-reactive flow and ordinary differential equations (ODEs) of chemical reactions. In the case of Cartesian coordinate, the split form of Eq. (1) is given by:
 
-% $$
-% f(x)=\left\{\begin{matrix}
-% 1&(x\in\mathbb{Q})\\
-% 0&(x\in\mathbb{R}\setminus\mathbb{Q})
-% \end{matrix}\right.
-% $$
-% 
-% $$
-% \left\{\begin{matrix}
-% \frac{\partial Q}{\partial t}+\frac{\partial(E-E_\nu)}{\partial x}=0 \\
-% \frac{\partial Q}{\partial t}=S \\
-% \end{matrix}\right.
-% $$
-% 
-% 
-% $$
-% \left\{
-% \begin{array}{l} \\
-% \frac{\partial Q}{\partial t}+\frac{\partial(E-E_\nu)}{\partial x}=0 \\
-% \frac{\partial Q}{\partial t}=S \\
-% \end{array}
-% \right.
-% $$
+
+()[
+$$
+f(x)=\left\{\begin{matrix}
+1&(x\in\mathbb{Q})\\
+0&(x\in\mathbb{R}\setminus\mathbb{Q})
+\end{matrix}\right.
+$$
+
+$$
+\left\{\begin{matrix}
+\frac{\partial Q}{\partial t}+\frac{\partial(E-E_\nu)}{\partial x}=0 \\
+\frac{\partial Q}{\partial t}=S \\
+\end{matrix}\right.
+$$
+
+
+$$
+\left\{
+\begin{array}{l} \\
+\frac{\partial Q}{\partial t}+\frac{\partial(E-E_\nu)}{\partial x}=0 \\
+\frac{\partial Q}{\partial t}=S \\
+\end{array}
+\right.
+$$
+]
 
 In the fluid simulation, the finite volume method (FVM) is applied for the spatial discretization of Eq. (13). In the FVM, the transfer of conserved variables between control volumes is evaluated by the numerical fluxes at the interface of the adjacent control volumes.
 
