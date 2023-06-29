@@ -150,7 +150,7 @@ $$
 
 $$
 \left\{
-\begin{array}{l}
+\begin{array}{l} \\
 \frac{\partial Q}{\partial t}+\frac{\partial(E-E_\nu)}{\partial x}=0 \\
 \frac{\partial Q}{\partial t}=S \\
 \end{array}
