@@ -179,10 +179,15 @@ $$
 For the time integration of chemical reactions in Eq. (14), the minimum‑error adaptation of a chemical‑kinetic ODE solver (MACKS) [8] is used. This robust Jacobian-free scheme enables a significant reduction in the computational cost even in stiff ODEs of chemical reactions.
 
 [3] G. Strang, On the construction and comparison of difference schemes, SIAM J. Numer. Anal. 5 (3) (1968) 506–517.
+
 [4] R.P. Fedkiw, B. Merriman, S. Osher, High accuracy numerical methods for thermally perfect gas flows with chemistry, J. Comput. Phys. 132 (2) (1997) 175–190.
+
 [5] B.V. Leer, Flux vector splitting for the Euler equations, Conference on Numerical Methods in Fluid Dynamics (1982) 507–512.
+
 [6] E. Toro, M. Spruce, W. Speares, Restoration of the contact surface in the HLL-Riemann solver, Shock Waves 4 (1) (1994) 25–34.
+
 [7] S. Gottlieb, C. Shu, Total variation diminishing Runge-Kutta schemes, Math. Comput. 67 (1998) 73–85.
+
 [8] Y. Morii, E. Shima, Optimization of one-parameter family of integration formulae for solving stiff chemical-kinetic ODEs, Sci. Rep. 10 (2020) 21330.
 
 
