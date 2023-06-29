@@ -151,32 +151,33 @@ $$
 In the fluid simulation, the finite volume method (FVM) is applied for the spatial discretization of Eq. (13). In the FVM, the transfer of conserved variables between control volumes is evaluated by the numerical fluxes at the interface of the adjacent control volumes.
 
 To achieve higher-order spatial accuracy, the monotonic upstream-centered scheme for conservation laws (MUSCL) [6] with minmod limiter is used.
-Profile of the vector of conserved variables, $Q$, in a cell $j$ are written as:
+
+The convective numerical fluxes are calculated by the Harten-Lax-van leer contact (HLLC) Riemann solver [5].
+
+The viscous numerical fluxes including the viscosity, heat conduction, and diffusion are calculated by second-order central difference approximation.
+
+After the evaluation of the fluxes, the conserved variables, $Q$, are updated in time with the third-order total variation diminishing (TVD) Runge-Kutta scheme [7].
 
 $$
-Q(x)=Q(x_j)+(x-x_j)Q'(x_j)+\frac{1}{2}(x-x_j)^2Q''(x_j)+\frac{1}{6}(x-x_j)^3Q'''(x_j)+O(x^4)
+\left\{
+\begin{array}{l}
+\begin{align}
+{Q}^{(1)} &=Q^n+\Delta t \cdot R\left(Q^n\right) \\
+Q^{(2)} &= \frac{3}{4}Q^n+\frac{1}{4}\left(Q^{(1)}+\Delta t\cdot R \left( Q^{(1)} \right) \right) \\
+Q^{n+1} &= \frac{1}{3}Q^n+\frac{2}{3}\left(Q^{(2)}+\Delta t\cdot R \left( Q^{(2)} \right) \right) \\
+\end{align}
+\end{array}
+\right. \\
+\left(R=-\frac{\partial}{\partial x}\left(E(Q)-E_\nu(Q)\right)\right)
 $$
 
-In the MUSCL, the cell average, $Q_j$, is
+For the time integration of chemical reactions in Eq. (14), the minimum‑error adaptation of a chemical‑kinetic ODE solver (MACKS) [8] is used. This robust Jacobian-free scheme enables a significant reduction in the computational cost even in stiff ODEs of chemical reactions.
 
-$$
-Q_j=\frac{1}{\Delta x}\int_{x_{j-1/2}}^{x_{j+1/2}}Q(x)dx \\
-$$
-
-$$
-=\frac{1}{\Delta x}\int_{x_{j-1/2}}^{x_{j+1/2}}\left(Q(x_j)+(x-x_j)Q'(x_j)+\frac{1}{2}(x-x_j)^2Q''(x_j)+\frac{1}{6}(x-x_j)^3Q'''(x_j)+O(x^4)\right)dx \\
-$$
-
-$$
-=\frac{1}{\Delta x}\left[xQ(x_j)+\frac{1}{2}(x-x_j)^2Q'(x_j)+\frac{1}{6}(x-x_j)^3Q''(x_j)+\frac{1}{24}(x-x_j)^4Q'''(x_j)+O(x^4)\right]_{x_{j-1/2}}^{x_{j+1/2}} \\
-$$
-
-$$
-=\frac{1}{\Delta x}\left(\Delta xQ(x_j)+\frac{1}{24}\Delta x^3Q''(x_j)+O(x^4)\right) \\
-$$
-
-$$
-=Q(x_j)+\frac{1}{24}\Delta x^2Q''(x_j)+O(x^4) \\
-$$
+[3] G. Strang, On the construction and comparison of difference schemes, SIAM J. Numer. Anal. 5 (3) (1968) 506–517.
+[4] R.P. Fedkiw, B. Merriman, S. Osher, High accuracy numerical methods for thermally perfect gas flows with chemistry, J. Comput. Phys. 132 (2) (1997) 175–190.
+[5] B.V. Leer, Flux vector splitting for the Euler equations, Conference on Numerical Methods in Fluid Dynamics (1982) 507–512.
+[6] E. Toro, M. Spruce, W. Speares, Restoration of the contact surface in the HLL-Riemann solver, Shock Waves 4 (1) (1994) 25–34.
+[7] S. Gottlieb, C. Shu, Total variation diminishing Runge-Kutta schemes, Math. Comput. 67 (1998) 73–85.
+[8] Y. Morii, E. Shima, Optimization of one-parameter family of integration formulae for solving stiff chemical-kinetic ODEs, Sci. Rep. 10 (2020) 21330.
 
 
