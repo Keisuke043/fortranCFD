@@ -139,7 +139,6 @@ John Wiley and Sons, New York, 1954.
 ---
 
 ### Numerical schemes
-
 In the present study, the fluid transport and chemical reactions are solved separately by the time-splitting scheme [3,4]. In this method, Eq. (1) is separated into two equations of partial differential equations (PDEs) of the multicomponent non-reactive flow and ordinary differential equations (ODEs) of chemical reactions. In the case of Cartesian coordinate, the split form of Eq. (1) is given by:
 
 $$
@@ -152,6 +151,25 @@ $$
 $$
 
 In the fluid simulation, the finite volume method (FVM) is applied for the spatial discretization of Eq. (13). In the FVM, the transfer of conserved variables between control volumes is evaluated by the numerical fluxes at the interface of the adjacent control volumes.
+
+To achieve higher-order spatial accuracy, the monotonic upstream-centered scheme for conservation laws (MUSCL) [6] with minmod limiter is used.
+Profile of the vector of conserved variables, $Q$, in a cell $j$ are written as:
+
+$$
+Q(x)=Q(x_j)+(x-x_j)Q'(x_j)+\frac{1}{2}(x-x_j)^2Q''(x_j)+\frac{1}{6}(x-x_j)^3Q'''(x_j)+O(x^4)
+$$
+
+In the MUSCL, the cell average, $Q_j$, is
+
+$$
+\begin{align}
+Q_j&=\frac{1}{\Delta x}\int_{x_{j-1/2}}^{x_{j+1/2}}Q(x)dx \\
+&=\frac{1}{\Delta x}\int_{x_{j-1/2}}^{x_{j+1/2}}\left(Q(x_j)+(x-x_j)Q'(x_j)+\frac{1}{2}(x-x_j)^2Q''(x_j)+\frac{1}{6}(x-x_j)^3Q'''(x_j)+O(x^4)\right)dx \\
+&=\frac{1}{\Delta x}\left[xQ(x_j)+\frac{1}{2}(x-x_j)^2Q'(x_j)+\frac{1}{6}(x-x_j)^3Q''(x_j)+\frac{1}{24}(x-x_j)^4Q'''(x_j)+O(x^4)\right]_{x_{j-1/2}}^{x_{j+1/2}} \\
+&=\frac{1}{\Delta x}\left(\Delta xQ(x_j)+\frac{1}{24}\Delta x^3Q''(x_j)+O(x^4)\right) \\
+&=Q(x_j)+\frac{1}{24}\Delta x^2Q''(x_j)+O(x^4) \\
+\end{align}
+$$
 
 
 
