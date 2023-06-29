@@ -149,6 +149,14 @@ f(x)=\left\{\begin{matrix}
 $$
 
 $$
+\left\{\begin{matrix}
+\frac{\partial Q}{\partial t}+\frac{\partial(E-E_\nu)}{\partial x}=0 \\
+\frac{\partial Q}{\partial t}=S \\
+\end{matrix}\right.
+$$
+
+
+$$
 \left\{
 \begin{array}{l} \\
 \frac{\partial Q}{\partial t}+\frac{\partial(E-E_\nu)}{\partial x}=0 \\
