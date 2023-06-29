@@ -142,8 +142,6 @@ John Wiley and Sons, New York, 1954.
 In the present study, the fluid transport and chemical reactions are solved separately by the time-splitting scheme [3,4]. In this method, Eq. (1) is separated into two equations of partial differential equations (PDEs) of the multicomponent non-reactive flow and ordinary differential equations (ODEs) of chemical reactions. In the case of Cartesian coordinate, the split form of Eq. (1) is given by:
 
 $$
-
-$$
 \left\{
 \begin{array}{l}
 \begin{align}
