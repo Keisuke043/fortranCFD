@@ -148,9 +148,6 @@ $$
 \right.
 $$
 
-# \begin{array}{l}
-# \end{array}
-
 In the fluid simulation, the finite volume method (FVM) is applied for the spatial discretization of Eq. (13). In the FVM, the transfer of conserved variables between control volumes is evaluated by the numerical fluxes at the interface of the adjacent control volumes.
 
 To achieve higher-order spatial accuracy, the monotonic upstream-centered scheme for conservation laws (MUSCL) [6] with minmod limiter is used.
